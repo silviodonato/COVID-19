@@ -29,7 +29,8 @@ recoveres, dates = fillData('csse_covid_19_data/csse_covid_19_time_series/time_s
 
 firstDate = 16
 lastDate = len(dates)-1
-predictionDate = lastDate+30
+#predictionDate = lastDate+30
+predictionDate = 69
 
 #firstDate = 10
 #lastDate = 35
@@ -236,6 +237,7 @@ for place in selection:
         if interr>1: 
             interr = (interr**2 + integr)**0.5 # Err = (Syst^2 + Stat(ie sqrtN)^2)^0.5
         else:
+            interr = (interr**2 + integr)**0.5 # Err = (Syst^2 + Stat(ie sqrtN)^2)^0.5
             print "WARNING interr=%f"%interr
         print "Expected fit new cases (%s): %.1f +/- %.1f"%(dates[predictionDate],  val + integr, interr)
         prediction[place][dates[predictionDate]] = (val + integr, interr)
