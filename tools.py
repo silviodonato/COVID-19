@@ -136,7 +136,8 @@ def extendDates(dates, nextend):
     ndates = len(dates)
     for i in range(1,nextend):
     #    dates.append(dates[ndates-1]+"+"+str(i))
-        dates.append("3/%d/20"%i)
+        newDate = "3/%d/20"%i
+        if not newDate in dates: dates.append(newDate)
     return dates
 
 def saveCSV(prediction, dates, fn_prediction, fn_prediction_error):

@@ -30,7 +30,7 @@ recoveres, dates = fillData('csse_covid_19_data/csse_covid_19_time_series/time_s
 firstDate = 16
 lastDate = len(dates)-1
 #predictionDate = lastDate+30
-predictionDate = 69
+predictionDate = 68
 
 #firstDate = 10
 #lastDate = 35
