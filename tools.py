@@ -156,7 +156,7 @@ def saveCSV(prediction, dates, fn_prediction, fn_prediction_error):
         for date in dates:
             if date in prediction[place]:
                 (pred, pred_err) = prediction[place][date]
-                f_prediction.write( ",%.1f"%pred )
+                f_prediction.write( ",%.1f +/- %.1f"%(pred,pred_err) )
                 f_prediction_error.write( ",%.1f"%pred_err )
         f_prediction.write( "\n" )
         f_prediction_error.write( "\n" )
