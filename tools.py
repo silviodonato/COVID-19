@@ -3,6 +3,7 @@ import csv
 import copy
 
 fixSigma = 8
+maxPar3 = 1E4
 
 colors = [
 ROOT.kBlack,
@@ -79,16 +80,24 @@ def getRatio(numerators, denominators):
     return ratios
 
 
-def makeHistos(data, dates, selection, firstDate, lastDate, predictionDate, threshold=-1):
+def makeHistos(data, dates, selection, firstDate, lastDate, predictionDate, threshold=-1, cumulativeError=False):
     histos = {}
     for place in selection:
         histos[place] = copy.copy(ROOT.TH1F("histo"+place, place, predictionDate-firstDate, firstDate+0.5, predictionDate+0.5))
-        for i in range(firstDate, lastDate+1):
-            if data[place][dates[i]]>threshold:
+        suppress = False
+        for i in reversed(range(firstDate, lastDate+1)):
+            if data[place][dates[i]]>threshold and not suppress:
                 histos[place].SetBinContent(histos[place].FindBin(i), data[place][dates[i]])
+#            else:
+#                suppress = True
         for i in range(firstDate, predictionDate):
                 histos[place].GetXaxis().SetBinLabel(  histos[place].FindBin(i), dates[i])
-        histos[place].Sumw2()
+        if cumulativeError:
+            for i in range(firstDate, lastDate+1):
+                histos[place].SetBinError(histos[place].FindBin(i), 1+abs(data[place][dates[lastDate]] - data[place][dates[i]])**0.5)                        
+        else:
+            for i in range(firstDate, lastDate+1):
+                histos[place].SetBinError(histos[place].FindBin(i), 10+abs(data[place][dates[i]])**0.5)                        
         color = colors[selection.index(place)]
         histos[place].SetLineWidth(3)
         histos[place].SetLineColor(color)
@@ -106,10 +115,10 @@ def fitErf(h, selection, firstDate, lastDate, predictionDate):
         functs[place].FixParameter(2, fixSigma)
         functs[place].FixParameter(3, 0)
 #        h[place].Fit(functs[place],"0W","",0,lastDate)
-        functs_res[place] = h[place].Fit(functs[place],"0S","",0,lastDate)
+        functs_res[place] = h[place].Fit(functs[place],"0S","",0,lastDate+1)
         functs[place].ReleaseParameter(3)
-        functs[place].SetParLimits(3,0,100)
-        h[place].Fit(functs[place],"0","",0,lastDate)
+        functs[place].SetParLimits(3,0,maxPar3)
+        functs_res[place] = h[place].Fit(functs[place],"0S","",0,lastDate+1)
         color = colors[selection.index(place)]
         functs[place].SetLineColor(color)
     return functs, functs_res
@@ -126,7 +135,7 @@ def fitGauss(h, selection, firstDate, lastDate, predictionDate):
         print functs[place]
         functs_res[place] = h[place].Fit(functs[place],"0SE","",firstDate,lastDate)
         functs[place].ReleaseParameter(3)
-        functs[place].SetParLimits(3,0,3)
+        functs[place].SetParLimits(3,0,maxPar3)
         functs_res[place] = h[place].Fit(functs[place],"0SE","",firstDate,lastDate)
         color = colors[selection.index(place)]
         functs[place].SetLineColor(color)
@@ -164,3 +173,23 @@ def saveCSV(prediction, dates, fn_prediction, fn_prediction_error):
     f_prediction_error.close()
     f_prediction.close()
                 
+
+def savePlot(histoConfirmed, histoRecovered, histoDeaths, function, fName, canvas):
+    canvas.SetLogy()
+    canvas.cd()
+    canvas.SetTitle("")
+    function.SetMinimum(1)
+    function.SetLineColor(ROOT.kBlue)
+    histoRecovered.SetLineStyle(1)
+    histoDeaths.SetLineStyle(1)
+    histoConfirmed.SetLineColor(ROOT.kBlue)
+    histoRecovered.SetLineColor(ROOT.kRed)
+    histoDeaths.SetLineColor(ROOT.kBlack)
+    histoConfirmed.SetMinimum(1)
+    histoConfirmed.SetMaximum(max(100, function.GetMaximum())*1.5)
+    histoConfirmed.Draw()
+    function.Draw("same")
+    histoRecovered.Draw("same")
+    histoDeaths.Draw("same")
+    canvas.SaveAs(fName)
+    print fName
