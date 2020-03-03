@@ -1,7 +1,7 @@
 #import csv
 #import copy
 
-from tools import colors, fillData, newCases, getRatio, makeHistos, fitErf,fitGauss, extendDates, saveCSV
+from tools import colors, fillData, newCases, getRatio, makeHistos, fitErf,fitGauss, extendDates, saveCSV, savePlot
 
 import ROOT
 ROOT.gStyle.SetOptStat(0)
@@ -16,18 +16,19 @@ ROOT.gStyle.SetOptStat(0)
 
 confirmes, dates = fillData('csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv')
 
-if "Hubei" in confirmes:
-    for i in range(22):
-        confirmes["Hubei"][dates[i]] = confirmes["Hubei"][dates[i]]*1.4
-
 deaths, dates = fillData('csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv')
 
 recoveres, dates = fillData('csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv')
 
+if "Hubei" in confirmes:
+    for i in range(22):
+        confirmes["Hubei"][dates[i]] = confirmes["Hubei"][dates[i]]*1.4
+
 
 ################
 
-firstDate = 16
+firstDate = 0
+#firstDate = 16
 lastDate = len(dates)-1
 #predictionDate = lastDate+30
 predictionDate = 68
@@ -75,17 +76,17 @@ fits   = {}
 fits2   = {}
 fitdiffs   = {}
 
-c1 = ROOT.TCanvas()
+c1 = ROOT.TCanvas("c1","",1280,768)
 
 
-positives_h = makeHistos(positives,        dates, selection, firstDate, lastDate, predictionDate, 20)
-confirmes_h = makeHistos(confirmes,        dates, selection, firstDate, lastDate, predictionDate, 20)
-recoveres_h = makeHistos(recoveres,        dates, selection, firstDate, lastDate, predictionDate, 20)
-deaths_h    = makeHistos(deaths,           dates, selection, firstDate, lastDate, predictionDate, 20)
-#histos = makeHistos(confirmes, selection, firstDate, lastDate, predictionDate)
-newConfirmes_h  = makeHistos(newConfirmes, dates, selection, firstDate, lastDate, predictionDate, 5)
-newRecoveres_h  = makeHistos(newRecoveres, dates, selection, firstDate, lastDate, predictionDate, 5)
-newDeaths_h     = makeHistos(newDeaths,    dates, selection, firstDate, lastDate, predictionDate, 5)
+positives_h = makeHistos(positives,        dates, selection, firstDate, lastDate, predictionDate, 0, cumulativeError=True)
+confirmes_h = makeHistos(confirmes,        dates, selection, firstDate, lastDate, predictionDate, 0, cumulativeError=True)
+recoveres_h = makeHistos(recoveres,        dates, selection, firstDate, lastDate, predictionDate, 0, cumulativeError=True)
+deaths_h    = makeHistos(deaths,           dates, selection, firstDate, lastDate, predictionDate, 0, cumulativeError=True)
+#histos = makeHistos(confirmes, selection, firstDate, lastDate, predictionDate, cumulativeError=True)
+newConfirmes_h  = makeHistos(newConfirmes, dates, selection, firstDate, lastDate, predictionDate, 0)
+newRecoveres_h  = makeHistos(newRecoveres, dates, selection, firstDate, lastDate, predictionDate, 0)
+newDeaths_h     = makeHistos(newDeaths,    dates, selection, firstDate, lastDate, predictionDate, 0)
 #newPositives_h  = makeHistos(newPositives, dates, selection, firstDate, lastDate, predictionDate)
 
 fits,     fits_res     = fitErf(confirmes_h, selection, firstDate, lastDate, predictionDate)
@@ -120,13 +121,13 @@ for place in selection:
 
 for place in selection:
     confirmes_h[place].SetMinimum(1)
-    confirmes_h[place].SetBinError(confirmes_h[place].FindBin(lastDate-0.5),1E-9)
+#    confirmes_h[place].SetBinError(confirmes_h[place].FindBin(lastDate-0.5),1E-9)
     leg.AddEntry(confirmes_h[place], place, "lep")
-    confirmes_h[place].Draw("HIST,C,same")
+    confirmes_h[place].Draw("ERR,same")
     recoveres_h[place].SetLineStyle(2)
-    recoveres_h[place].Draw("HIST,C,same")
+#    recoveres_h[place].Draw("ERR,same")
     deaths_h[place].SetLineStyle(3)
-    deaths_h[place].Draw("HIST,C,same")
+#    deaths_h[place].Draw("ERR,same")
     fits[place].Draw("same")
 
 leg.Draw()
@@ -134,8 +135,9 @@ c1.SetGridx()
 c1.SetGridy()
 c1.SetLogy()
 c1.Update()
+c1.SaveAs("c1.png")
 
-c2 = ROOT.TCanvas()
+c2 = ROOT.TCanvas("c1","",1280,768)
 
 #diffs["Italy"].Draw()
 
@@ -152,10 +154,11 @@ c2.SetGridx()
 c2.SetGridy()
 c2.SetLogy()
 c2.Update()
+c2.SaveAs("c2.png")
 
 ##########################################
 
-c3 = ROOT.TCanvas()
+c3 = ROOT.TCanvas("c1","",1280,768)
 
 histo_sigma1 = ROOT.TH1F("histo_sigma1","",100,0,100)
 histo_sigma2 = ROOT.TH1F("histo_sigma2","",100,0,100)
@@ -172,13 +175,14 @@ c3.SetGridx()
 c3.SetGridy()
 c3.SetLogy()
 c3.Update()
+c3.SaveAs("c3.png")
 
 ########################################
 
 ##########################################
 
 
-c4 = ROOT.TCanvas()
+c4 = ROOT.TCanvas("c1","",1280,768)
 
 #ratios = getRatio(newDeaths_h, newRecoveres_h)
 ratios = getRatio(deaths_h, recoveres_h)
@@ -248,6 +252,10 @@ for place in selection:
             pass
 
 saveCSV(prediction, dates, "prediction.csv", "prediction_error.csv")
+
+for place in selection:
+    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], fits[place], "plots/%s.png"%place, c4)
+    savePlot(newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], fitdiffs[place], "plots/newCases_%s.png"%place, c4)
 
 '''
 
