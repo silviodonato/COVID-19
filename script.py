@@ -234,7 +234,7 @@ prediction = {}
 #for place in ["Italy"]:
 for place in selection:
     prediction[place] = {}
-    for predictionDate in range(lastDate,lastDate+30):
+    for predictionDate in range(lastDate,lastDate+29):
         val = confirmes_h[place].GetBinContent(confirmes_h[place].FindBin(lastDate))
         integr = fitdiffs[place].Integral(lastDate + 0.5, predictionDate + 0.5)
         interr = fitdiffs[place].IntegralError(lastDate + 0.5, predictionDate + 0.5, fitdiffs_res[place].GetParams(), fitdiffs_res[place].GetCovarianceMatrix().GetMatrixArray())
