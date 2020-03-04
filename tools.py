@@ -186,7 +186,7 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, function, fName, canva
     histoRecovered.SetLineColor(ROOT.kRed)
     histoDeaths.SetLineColor(ROOT.kBlack)
     histoConfirmed.SetMinimum(1)
-    histoConfirmed.SetMaximum(max(100, function.GetMaximum())*1.5)
+    histoConfirmed.SetMaximum(max(100, function.GetMaximum(), histoRecovered.GetMaximum(), histoConfirmed.GetMaximum(), histoDeaths.GetMaximum())*1.5)
     histoConfirmed.Draw()
     function.Draw("same")
     histoRecovered.Draw("same")
