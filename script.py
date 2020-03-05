@@ -1,11 +1,10 @@
 #import csv
 #import copy
-
-from tools import colors, fillData, newCases, getRatio, makeHistos, fitErf,fitGauss, extendDates, saveCSV, savePlot
+from tools import colors, fillData, newCases, getRatio, makeHistos, fitErf,fitGauss, extendDates, saveCSV, savePlot, getPrediction, getPredictionErf
 
 import ROOT
 ROOT.gStyle.SetOptStat(0)
-
+ROOT.gROOT.SetBatch(1)
 
 
 
@@ -30,16 +29,18 @@ if "Hubei" in confirmes:
 firstDate = 0
 #firstDate = 16
 lastDate = len(dates)-1
-#predictionDate = lastDate+30
-predictionDate = 68
+#lastDate = 30
+predictionsDate = lastDate+40
+#predictionsDate = 95
+
 
 #firstDate = 10
 #lastDate = 35
-#predictionDate = 35
+#predictionsDate = 35
 
 ################
 
-dates = extendDates(dates, 31)
+dates = extendDates(dates, 61)
 #confirmes = deaths
 
 positives = {}
@@ -54,21 +55,23 @@ newRecoveres = newCases(recoveres, dates)
 
 ###########################
 
-selection = []
+places = []
 for place in confirmes.keys():
     if place == "Others": continue
     if confirmes[place][dates[lastDate]]>50:
-        selection.append(place)
+        places.append(place)
 
-#selection = ["Italy","South Korea","Japan","Iran","Hubei"]
-#selection = ["Italy"]
-#selection = ["Italy","Japan","South Korea"]
-#selection = ["Guangdong","Henan","Zhejiang","Hunan","Anhui","Jiangxi","Italy"]
-#selection = ["Zhejiang"]
+#places = ["Italy","South Korea","Japan","Iran","Hubei"]
+#places = ["Italy"]
+#places = ["Italy","Japan","South Korea"]
+#places = ["Guangdong","Henan","Zhejiang","Hunan","Anhui","Jiangxi","Italy"]
+#places = ["Zhejiang"]
+#places = ["Jiangxi"]
 
-selection = [p[1] for p in sorted([(confirmes[p][dates[lastDate]], p) for p in selection], reverse=True)]
 
-print "selection:",selection
+places = [p[1] for p in sorted([(confirmes[p][dates[lastDate]], p) for p in places], reverse=True)]
+
+print "places:",places
 
 ################
 
@@ -79,25 +82,25 @@ fitdiffs   = {}
 c1 = ROOT.TCanvas("c1","",1280,768)
 
 
-positives_h = makeHistos(positives,        dates, selection, firstDate, lastDate, predictionDate, 0, cumulativeError=True)
-confirmes_h = makeHistos(confirmes,        dates, selection, firstDate, lastDate, predictionDate, 0, cumulativeError=True)
-recoveres_h = makeHistos(recoveres,        dates, selection, firstDate, lastDate, predictionDate, 0, cumulativeError=True)
-deaths_h    = makeHistos(deaths,           dates, selection, firstDate, lastDate, predictionDate, 0, cumulativeError=True)
-#histos = makeHistos(confirmes, selection, firstDate, lastDate, predictionDate, cumulativeError=True)
-newConfirmes_h  = makeHistos(newConfirmes, dates, selection, firstDate, lastDate, predictionDate, 0)
-newRecoveres_h  = makeHistos(newRecoveres, dates, selection, firstDate, lastDate, predictionDate, 0)
-newDeaths_h     = makeHistos(newDeaths,    dates, selection, firstDate, lastDate, predictionDate, 0)
-#newPositives_h  = makeHistos(newPositives, dates, selection, firstDate, lastDate, predictionDate)
+positives_h = makeHistos(positives,        dates, places, firstDate, lastDate, predictionsDate, 0, errorType='cumulative')
+confirmes_h = makeHistos(confirmes,        dates, places, firstDate, lastDate, predictionsDate, 0, errorType='cumulative')
+recoveres_h = makeHistos(recoveres,        dates, places, firstDate, lastDate, predictionsDate, 0, errorType='cumulative')
+deaths_h    = makeHistos(deaths,           dates, places, firstDate, lastDate, predictionsDate, 0, errorType='cumulative')
+#histos = makeHistos(confirmes, places, firstDate, lastDate, predictionsDate, cumulativeError=True)
+newConfirmes_h  = makeHistos(newConfirmes, dates, places, firstDate, lastDate, predictionsDate, 0)
+newRecoveres_h  = makeHistos(newRecoveres, dates, places, firstDate, lastDate, predictionsDate, 0)
+newDeaths_h     = makeHistos(newDeaths,    dates, places, firstDate, lastDate, predictionsDate, 0)
+#newPositives_h  = makeHistos(newPositives, dates, places, firstDate, lastDate, predictionsDate)
 
-fits,     fits_res     = fitErf(confirmes_h, selection, firstDate, lastDate, predictionDate)
-fitdiffs, fitdiffs_res = fitGauss(newConfirmes_h, selection, firstDate, lastDate, predictionDate)
-
-
+#fits,     fits_res     = fitErf(confirmes_h, places, firstDate, lastDate, predictionsDate)
+fitdiffs, fitdiffs_res = fitGauss(newConfirmes_h, places, firstDate, lastDate, predictionsDate)
 
 
 
-#for place in selection:
-#    fits2[place] = copy.copy(ROOT.TF1("function"+place,"[0]*(1+TMath::Erf((x-[1])/[2])) + [3]",0,predictionDate))
+
+
+#for place in places:
+#    fits2[place] = copy.copy(ROOT.TF1("function"+place,"[0]*(1+TMath::Erf((x-[1])/[2])) + [3]",0,predictionsDate))
 #    mea = fitdiffs[place].GetParameter(1)
 #    sig = abs(fitdiffs[place].GetParameter(2))
 #    print "mean, sigma 0 = ", mea, sig
@@ -116,10 +119,10 @@ fitdiffs, fitdiffs_res = fitGauss(newConfirmes_h, selection, firstDate, lastDate
 
 #for place in confirmes.keys():
 leg = ROOT.TLegend(0.9,0.1,1.0,0.9)
-for place in selection:
+for place in places:
     leg.AddEntry(confirmes_h[place], place, "lep")
 
-for place in selection:
+for place in places:
     confirmes_h[place].SetMinimum(1)
 #    confirmes_h[place].SetBinError(confirmes_h[place].FindBin(lastDate-0.5),1E-9)
     leg.AddEntry(confirmes_h[place], place, "lep")
@@ -128,7 +131,7 @@ for place in selection:
 #    recoveres_h[place].Draw("ERR,same")
     deaths_h[place].SetLineStyle(3)
 #    deaths_h[place].Draw("ERR,same")
-    fits[place].Draw("same")
+#    fits[place].Draw("same")
 
 leg.Draw()
 c1.SetGridx()
@@ -142,7 +145,7 @@ c2 = ROOT.TCanvas("c1","",1280,768)
 #diffs["Italy"].Draw()
 
 #for place in ['Japan','Italy','Spain','France','South Korea']:
-for place in selection:
+for place in places:
     newConfirmes_h[place].SetMinimum(1)
     newConfirmes_h[place].Draw("same")
     fitdiffs[place].Draw("same")
@@ -160,15 +163,18 @@ c2.SaveAs("c2.png")
 
 c3 = ROOT.TCanvas("c1","",1280,768)
 
-histo_sigma1 = ROOT.TH1F("histo_sigma1","",100,0,100)
-histo_sigma2 = ROOT.TH1F("histo_sigma2","",100,0,100)
+histo_sigma1 = ROOT.TH1F("histo_sigma1","",100,0,30)
+histo_sigma2 = ROOT.TH1F("histo_sigma2","",100,0,30)
 
-for place in selection:
-    histo_sigma1.Fill(abs(fits[place].GetParameter(2)))
-    histo_sigma2.Fill(abs(fitdiffs[place].GetParameter(2)))
+for place in places:
+    histo_sigma1.Fill(abs(fitdiffs[place].GetParameter(2)))
+#    histo_sigma2.Fill(abs(fits[place].GetParameter(2)))
 
 histo_sigma1.Draw()
 histo_sigma2.Draw("same")
+histo_sigma1.Fit("gaus")
+print "Mean=",histo_sigma1.GetMean()
+print "RMS=",histo_sigma1.GetRMS()
 
 leg.Draw()
 c3.SetGridx()
@@ -177,11 +183,12 @@ c3.SetLogy()
 c3.Update()
 c3.SaveAs("c3.png")
 
+#input()
 ########################################
 
 ##########################################
 
-
+'''
 c4 = ROOT.TCanvas("c1","",1280,768)
 
 #ratios = getRatio(newDeaths_h, newRecoveres_h)
@@ -199,6 +206,7 @@ c4.SetGridx()
 c4.SetGridy()
 c4.SetLogy(0)
 c4.Update()
+'''
 
 ########################################
 
@@ -208,54 +216,63 @@ c4.Update()
 #file_.Write()
 #file_.Close()
 
-
+'''
 print "############"
-print "PREDICTION From %s to %s"%(dates[lastDate], dates[predictionDate])
+print "PREDICTION From %s to %s"%(dates[lastDate], dates[predictionsDate])
 print "############"
 
-for place in selection:
+
+for place in places:
     print "#### ",place," ####"
     print "Confirmed (%s): %d"%(dates[lastDate], confirmes_h[place].GetBinContent(confirmes_h[place].FindBin(lastDate)))
     val = confirmes_h[place].GetBinContent(confirmes_h[place].FindBin(lastDate))
-    print "Expected fit total (%s): %f"%(dates[predictionDate], val + (fits[place].Eval(predictionDate)-fits[place].Eval(lastDate)))
-    integr = fitdiffs[place].Integral(lastDate + 0.5, predictionDate + 0.5)
-    interr = fitdiffs[place].IntegralError(lastDate + 0.5, predictionDate + 0.5, fitdiffs_res[place].GetParams(), fitdiffs_res[place].GetCovarianceMatrix().GetMatrixArray())
-    print "Expected fit new cases (%s): %f +/- %f"%(dates[predictionDate],  val + integr, interr)
-#    for d in range(lastDate,predictionDate):
+    print "Expected fit total (%s): %f"%(dates[predictionsDate], val + (fits[place].Eval(predictionsDate)-fits[place].Eval(lastDate)))
+    integr = fitdiffs[place].Integral(lastDate + 0.5, predictionsDate + 0.5)
+    interr = fitdiffs[place].IntegralError(lastDate + 0.5, predictionsDate + 0.5, fitdiffs_res[place].GetParams(), fitdiffs_res[place].GetCovarianceMatrix().GetMatrixArray())
+    print "Expected fit new cases (%s): %f +/- %f"%(dates[predictionsDate],  val + integr, interr)
+#    for d in range(lastDate,predictionsDate):
 #        val = val + fitdiffs[place].Eval(d+1)
-#    print "Expected fit new cases (%s): %f"%(dates[predictionDate],  val)
+#    print "Expected fit new cases (%s): %f"%(dates[predictionsDate],  val)
     try:
-        print "Real Confirmed (%s): %d"%(dates[predictionDate], confirmes[place][dates[predictionDate]])
-        print "Error (sigma) : %f"%( (confirmes[place][dates[predictionDate]] - (val + integr)) / interr)
+        print "Real Confirmed (%s): %d"%(dates[predictionsDate], confirmes[place][dates[predictionsDate]])
+        print "Error (sigma) : %f"%( (confirmes[place][dates[predictionsDate]] - (val + integr)) / interr)
     except:
         pass
+'''
 
-prediction = {}
-#for place in ["Italy"]:
-for place in selection:
-    prediction[place] = {}
-    for predictionDate in range(lastDate,lastDate+28):
-        val = confirmes_h[place].GetBinContent(confirmes_h[place].FindBin(lastDate))
-        integr = fitdiffs[place].Integral(lastDate + 0.5, predictionDate + 0.5)
-        interr = fitdiffs[place].IntegralError(lastDate + 0.5, predictionDate + 0.5, fitdiffs_res[place].GetParams(), fitdiffs_res[place].GetCovarianceMatrix().GetMatrixArray())
-        if interr>1: 
-            interr = (interr**2 + integr)**0.5 # Err = (Syst^2 + Stat(ie sqrtN)^2)^0.5
-        else:
-            interr = (interr**2 + integr)**0.5 # Err = (Syst^2 + Stat(ie sqrtN)^2)^0.5
-            print "WARNING interr=%f"%interr
-        print "Expected fit new cases (%s): %.1f +/- %.1f"%(dates[predictionDate],  val + integr, interr)
-        prediction[place][dates[predictionDate]] = (val + integr, interr)
-        try:
-            print "Real Confirmed (%s): %d"%(dates[predictionDate], confirmes[place][dates[predictionDate]])
-            print "Error (sigma) : %.1f"%( (confirmes[place][dates[predictionDate]] - (val + integr)) / interr)
-        except:
-            pass
+endDate = predictionsDate
+startDate = lastDate
+predictions = getPrediction(places, dates, startDate, endDate, confirmes_h, fitdiffs, fitdiffs_res, confirmes)
+#predictions = getPredictionErf(places, dates, startDate, endDate, confirmes_h, fits, fits_res, confirmes)
 
-saveCSV(prediction, dates, "prediction.csv", "prediction_error.csv")
+#predictionHistos = makeHistos(predictions, dates, startDate, endDate, predictionsDate, 0, errorType='dictionary')
+predictions_h = makeHistos(predictions, dates, places, startDate, None, endDate, threshold=0, errorType='dictionary')
 
-for place in selection:
-    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], fits[place], "plots/%s.png"%place, c4)
-    savePlot(newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], fitdiffs[place], "plots/newCases_%s.png"%place, c4)
+
+saveCSV(predictions, dates, "prediction.csv", "prediction_error.csv")
+
+
+c5 = ROOT.TCanvas("c5","",1280,768)
+
+#ratios = getRatio(newDeaths_h, newRecoveres_h)
+ratios = getRatio(deaths_h, recoveres_h)
+#ratios = getRatio(deaths_h, confirmes_h)
+#ratios = getRatio(recoveres_h, confirmes_h)
+
+for place in ratios:
+    ratios[place].SetMaximum(1)
+    ratios[place].SetMinimum(0)
+    ratios[place].Draw("HIST,C,same")
+
+leg.Draw()
+c5.SetGridx()
+c5.SetGridy()
+c5.SetLogy(0)
+c5.Update()
+
+for place in places:
+    savePlot(newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], None, fitdiffs[place], fitdiffs_res[place], "plots/newCases_%s.png"%place, c5)
+    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], None, None, "plots/%s.png"%place, c5)
 
 '''
 
