@@ -4,13 +4,14 @@ import copy
 import array
 
 fixSigma = 8
-maxPar3 = 1E4
+#maxPar3 = 1E4
+maxPar3 = 1
 #minPar2,maxPar2 = 7.9, 8.1
 #minPar2,maxPar2 = 7, 9
-minPar2,maxPar2 = 8, 8
+#minPar2,maxPar2 = 8, 8
 #minPar2,maxPar2 = 7.5, 8.5
 #minPar2,maxPar2 = 7, 9
-#minPar2,maxPar2 = 7, 9
+minPar2,maxPar2 = 6, 9
 #minPar2,maxPar2 = 5, 11
 #minPar2,maxPar2 = 6.5-3, 6.5+3
 
@@ -89,10 +90,12 @@ def getRatio(numerators, denominators):
     return ratios
 
 
-def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, threshold=-1, errorType=None):
+def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, threshold=-1, cutLeftTail=False, errorType=None):
     histos = {}
     for place in places:
         histos[place] = copy.copy(ROOT.TH1F("histo"+place, place, predictionDate-firstDate, firstDate+0.5, predictionDate+0.5))
+	stop = False
+	start = False
         for i in reversed(range(firstDate, predictionDate)):
             binx = histos[place].FindBin(i)
             date = dates[i]
@@ -109,8 +112,14 @@ def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, thresho
                     else:
                         error = 10.+(data[place][date])**0.5 if data[place][date]>0 else abs(data[place][date])*2                   
                 if value>threshold:
-                    histos[place].SetBinContent(binx, value)
-                    histos[place].SetBinError(binx, error)
+		    if not stop:
+		            histos[place].SetBinContent(binx, value)
+		            histos[place].SetBinError(binx, error)
+			    start = True
+##  	        if histos[place].GetBinContent(binx)==0 and histos[place].GetBinContent(binx+1)==0 and histos[place].GetBinContent(binx+2)==0: ### remove left tail, if there are 3 days without new cases
+  	        if cutLeftTail and histos[place].GetBinContent(binx)==0 and histos[place].GetBinContent(binx+1)==0: ### remove left tail, if there are 2 days without new cases
+#  	        if histos[place].GetBinContent(binx)==0 : ### remove left tail, if there are 2 days without new cases
+		    stop = True
         color = colors[places.index(place)]
         histos[place].SetLineWidth(3)
         histos[place].SetLineColor(color)
@@ -242,14 +251,15 @@ def getPrediction(places, dates, firstDate, finalDate, histo, functNewCases, fun
         for predictionDate in range(firstDate, finalDate):
             val = histo[place].GetBinContent(histo[place].FindBin(firstDate))
             integr = functNewCases[place].Integral(firstDate + 0.5, predictionDate + 0.5)
-            interr = functNewCases[place].IntegralError(firstDate + 0.5, predictionDate + 0.5, functNewCases_res[place].GetParams(), functNewCases_res[place].GetCovarianceMatrix().GetMatrixArray())
+            interr = functNewCases[place].IntegralError(firstDate + 0.5, predictionDate + 0.5, functNewCases_res[place].GetParams(), functNewCases_res[place].GetCovarianceMatrix().GetMatrixArray()) if functNewCases_res[place].Get() else 1E6
             if interr>1: 
                 interr = (interr**2 + integr)**0.5 # Err = (Syst^2 + Stat(ie sqrtN)^2)^0.5
             else:
                 interr = (interr**2 + integr)**0.5 # Err = (Syst^2 + Stat(ie sqrtN)^2)^0.5
                 print "WARNING interr=%f"%interr
             print "Expected fit new cases (%s): %.1f +/- %.1f"%(dates[predictionDate],  val + integr, interr)
-            predictions[place][dates[predictionDate]] = (val + integr, interr)
+            predictions[place][dates[predictionDate]] = (val + integr, interr) if float(interr)/(1.+val+integr)<0.5 else (0,0)
+#            predictions[place][dates[predictionDate]] = (val + integr, interr)
             try:
                 print "Real Confirmed (%s): %d"%(dates[predictionDate], realData[place][dates[predictionDate]])
                 print "Error (sigma) : %.1f"%( (realData[place][dates[predictionDate]] - (val + integr)) / interr)

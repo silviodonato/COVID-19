@@ -24,13 +24,16 @@ if "Hubei" in confirmes:
         confirmes["Hubei"][dates[i]] = confirmes["Hubei"][dates[i]]*1.4
 
 
+lastDateData = len(dates)-1
+dates = extendDates(dates, 61)
 ################
 
 firstDate = 0
+#firstDate = dates.index("2/18/20")
 #firstDate = 16
-lastDate = len(dates)-1
+lastDate = lastDateData
 #lastDate = 30
-predictionsDate = lastDate+40
+predictionsDate = dates.index("4/15/20")
 #predictionsDate = 95
 
 
@@ -40,7 +43,6 @@ predictionsDate = lastDate+40
 
 ################
 
-dates = extendDates(dates, 61)
 #confirmes = deaths
 
 positives = {}
@@ -82,14 +84,14 @@ fitdiffs   = {}
 c1 = ROOT.TCanvas("c1","",1280,768)
 
 
-positives_h = makeHistos(positives,        dates, places, firstDate, lastDate, predictionsDate, 0, errorType='cumulative')
-confirmes_h = makeHistos(confirmes,        dates, places, firstDate, lastDate, predictionsDate, 0, errorType='cumulative')
-recoveres_h = makeHistos(recoveres,        dates, places, firstDate, lastDate, predictionsDate, 0, errorType='cumulative')
-deaths_h    = makeHistos(deaths,           dates, places, firstDate, lastDate, predictionsDate, 0, errorType='cumulative')
+positives_h = makeHistos(positives,        dates, places, firstDate, lastDate, predictionsDate, 0, cutLeftTail=False, errorType='cumulative')
+confirmes_h = makeHistos(confirmes,        dates, places, firstDate, lastDate, predictionsDate, 0, cutLeftTail=False, errorType='cumulative')
+recoveres_h = makeHistos(recoveres,        dates, places, firstDate, lastDate, predictionsDate, 0, cutLeftTail=False, errorType='cumulative')
+deaths_h    = makeHistos(deaths,           dates, places, firstDate, lastDate, predictionsDate, 0, cutLeftTail=False, errorType='cumulative')
 #histos = makeHistos(confirmes, places, firstDate, lastDate, predictionsDate, cumulativeError=True)
-newConfirmes_h  = makeHistos(newConfirmes, dates, places, firstDate, lastDate, predictionsDate, 0)
-newRecoveres_h  = makeHistos(newRecoveres, dates, places, firstDate, lastDate, predictionsDate, 0)
-newDeaths_h     = makeHistos(newDeaths,    dates, places, firstDate, lastDate, predictionsDate, 0)
+newConfirmes_h  = makeHistos(newConfirmes, dates, places, firstDate, lastDate, predictionsDate, 1, cutLeftTail=True)
+newRecoveres_h  = makeHistos(newRecoveres, dates, places, firstDate, lastDate, predictionsDate, 1, cutLeftTail=True)
+newDeaths_h     = makeHistos(newDeaths,    dates, places, firstDate, lastDate, predictionsDate, 1, cutLeftTail=True)
 #newPositives_h  = makeHistos(newPositives, dates, places, firstDate, lastDate, predictionsDate)
 
 #fits,     fits_res     = fitErf(confirmes_h, places, firstDate, lastDate, predictionsDate)
@@ -246,7 +248,7 @@ predictions = getPrediction(places, dates, startDate, endDate, confirmes_h, fitd
 #predictions = getPredictionErf(places, dates, startDate, endDate, confirmes_h, fits, fits_res, confirmes)
 
 #predictionHistos = makeHistos(predictions, dates, startDate, endDate, predictionsDate, 0, errorType='dictionary')
-predictions_h = makeHistos(predictions, dates, places, startDate, None, endDate, threshold=0, errorType='dictionary')
+predictions_h = makeHistos(predictions, dates, places, startDate, None, endDate, threshold=0, cutLeftTail=False, errorType='dictionary')
 
 
 saveCSV(predictions, dates, "prediction.csv", "prediction_error.csv")
