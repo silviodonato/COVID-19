@@ -171,7 +171,7 @@ def extendDates(dates, nextend):
         if i<=31:
             newDate = "3/%d/20"%i
         else:
-            newDate = "4/%d/20"%i
+            newDate = "4/%d/20"%(i-31)
         if not newDate in dates: dates.append(newDate)
     return dates
 
