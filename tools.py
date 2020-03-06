@@ -12,7 +12,7 @@ maxPar3 = 1
 #minPar2,maxPar2 = 7.5, 8.5
 #minPar2,maxPar2 = 7, 9
 #minPar2,maxPar2 = 8, 8
-minPar2,maxPar2 = 5, 8
+minPar2,maxPar2 = 5.5, 7.5
 #minPar2,maxPar2 = 5, 11
 #minPar2,maxPar2 = 6.5-3, 6.5+3
 
@@ -38,9 +38,29 @@ ROOT.kGray,
 
 colors = colors *10
 
+maps = {
+"America" : ["US","Canada","Ecuador"],
+"Africa" : ["Algeria"],
+"Europe" : ["Austria", "Belarus", "Belgium", "Croatia", "Czech Republic", "Denmark", "Finland", "France", "Germany", "Greece", "Iceland", "Ireland", "Italy", "Netherlands", "Norway", "Spain", "Sweden", "Switzerland", "UK", "Romania", "San Marino", "Portugal"],
+"MiddleEast" : ["Azerbaijan", "Bahrain", "Iran", "Iraq", "Israel", "Kuwait", "Lebanon", "Qatar", "Oman", "United Arab Emirates",],
+"FarEast" : ["Hong Kong", "Japan", "Malaysia", "Macau", "Singapore", "South Korea", "Taiwan", "India", "Thailand", "Vietnam",],
+}
+
+
+def regions(state, country):
+    print (state, country)
+    regions = set(["World"])
+    if state: regions.add(state)
+    regions.add(country)
+    for zone in maps: 
+        if country in maps[zone]: 
+            regions.add(zone)
+    if country=="Mainland China" and state!="Hubei": regions.add("Rest of China")
+    if country!="Mainland China": regions.add("Rest of World")
+    return regions
+    
 def fillData(fileName):
     data = {}
-    data["Outside China"] = {}
     dates = []
     with open(fileName) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
@@ -49,30 +69,12 @@ def fillData(fileName):
             if line_count == 0:
                 dates = row[4:]
             else:
-                state  = row[0]
-                region = row[1]
-#                if len(state)>0:
-#                    place = state
-#                else:
-#                    place = region
-#                place = region
-#                if state=="Hubei": 
-#                    place = "Hubei"
-##                    continue
-#                if region=="Mainland China": place = state
- 		for place in row[0], row[1]:
- 		    if place:
- 		        place = place.replace(",","")
-		        if not place in data: data[place]={}
-		        for i, date in enumerate(dates):
-		            if not date in data[place]: data[place][date] = 0
-		            data[place][date] += int(row[i+4])
-		        if region!="Mainland China": 
-		            place = "Outside China"
-		            if not place in data: data[place]={}
-		            for i, date in enumerate(dates):
-		                if not date in data[place]: data[place][date] = 0
-		                data[place][date] += int(row[i+4])
+                for place in regions(row[0], row[1]):
+                    place = place.replace(",","")
+                    if not place in data: data[place]={}
+                    for i, date in enumerate(dates):
+                        if not date in data[place]: data[place][date] = 0
+                        data[place][date] += int(row[i+4])
             line_count += 1
     return data, dates
 
