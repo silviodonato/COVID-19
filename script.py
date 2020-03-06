@@ -254,7 +254,7 @@ predictions = getPrediction(places, dates, startDate, endDate, confirmes_h, fitd
 predictions_h = makeHistos(predictions, dates, places, startDate, None, endDate, threshold=0, cutTails=False, errorType='dictionary', lineWidth=3)
 
 
-saveCSV(predictions, dates, "prediction.csv", "prediction_error.csv")
+saveCSV(predictions, places, dates, "prediction.csv", "prediction_error.csv")
 
 
 c5 = ROOT.TCanvas("c5","",1280,768)

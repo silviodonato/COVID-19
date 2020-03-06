@@ -62,6 +62,7 @@ def fillData(fileName):
 #                if region=="Mainland China": place = state
  		for place in row[0], row[1]:
  		    if place:
+ 		        place = place.replace(",","")
 		        if not place in data: data[place]={}
 		        for i, date in enumerate(dates):
 		            if not date in data[place]: data[place][date] = 0
@@ -195,7 +196,7 @@ def extendDates(dates, nextend):
         if not newDate in dates: dates.append(newDate)
     return dates
 
-def saveCSV(predictions, dates, fn_predictions, fn_predictions_error):
+def saveCSV(predictions, places, dates, fn_predictions, fn_predictions_error):
     f_predictions_error = open(fn_predictions_error,"w")
     f_predictions       = open(fn_predictions,"w")
     f_predictions.write( "place" )
@@ -206,7 +207,7 @@ def saveCSV(predictions, dates, fn_predictions, fn_predictions_error):
             f_predictions_error.write( ",%s"%date )
     f_predictions.write( "\n" )
     f_predictions_error.write( "\n" )
-    for place in predictions:
+    for place in places:
         f_predictions.write( place )
         f_predictions_error.write( place )
         for date in dates:
