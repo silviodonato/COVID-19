@@ -11,7 +11,8 @@ maxPar3 = 1
 #minPar2,maxPar2 = 8, 8
 #minPar2,maxPar2 = 7.5, 8.5
 #minPar2,maxPar2 = 7, 9
-minPar2,maxPar2 = 6, 9
+#minPar2,maxPar2 = 8, 8
+minPar2,maxPar2 = 5, 8
 #minPar2,maxPar2 = 5, 11
 #minPar2,maxPar2 = 6.5-3, 6.5+3
 
@@ -50,26 +51,27 @@ def fillData(fileName):
             else:
                 state  = row[0]
                 region = row[1]
-                if len(state)>0:
-                    place = state
-                else:
-                    place = region
-                place = region
-                if state=="Hubei": 
-                    place = "Hubei"
-#                    continue
+#                if len(state)>0:
+#                    place = state
+#                else:
+#                    place = region
+#                place = region
+#                if state=="Hubei": 
+#                    place = "Hubei"
+##                    continue
 #                if region=="Mainland China": place = state
-                
-                if not place in data: data[place]={}
-                for i, date in enumerate(dates):
-                    if not date in data[place]: data[place][date] = 0
-                    data[place][date] += int(row[i+4])
-                if region!="Mainland China": 
-                    place = "Outside China"
-                    if not place in data: data[place]={}
-                    for i, date in enumerate(dates):
-                        if not date in data[place]: data[place][date] = 0
-                        data[place][date] += int(row[i+4])
+ 		for place in row[0], row[1]:
+ 		    if place:
+		        if not place in data: data[place]={}
+		        for i, date in enumerate(dates):
+		            if not date in data[place]: data[place][date] = 0
+		            data[place][date] += int(row[i+4])
+		        if region!="Mainland China": 
+		            place = "Outside China"
+		            if not place in data: data[place]={}
+		            for i, date in enumerate(dates):
+		                if not date in data[place]: data[place][date] = 0
+		                data[place][date] += int(row[i+4])
             line_count += 1
     return data, dates
 
@@ -90,15 +92,17 @@ def getRatio(numerators, denominators):
     return ratios
 
 
-def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, threshold=-1, cutLeftTail=False, errorType=None):
+def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, threshold=-1, cutTails=False, errorType=None, lineWidth=3):
     histos = {}
     for place in places:
-        histos[place] = copy.copy(ROOT.TH1F("histo"+place, place, predictionDate-firstDate, firstDate+0.5, predictionDate+0.5))
+        histos[place] = copy.copy(ROOT.TH1F("histo"+place, place, predictionDate-firstDate+1, firstDate-0.5, predictionDate+0.5))
+	assert(histos[place].GetXaxis().GetBinWidth(1)==1.0)
 	stop = False
 	start = False
         for i in reversed(range(firstDate, predictionDate)):
             binx = histos[place].FindBin(i)
             date = dates[i]
+#            print(binx,date)
             histos[place].GetXaxis().SetBinLabel(  binx, date )
             error = 0.
             if date in data.values()[0]:
@@ -108,7 +112,7 @@ def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, thresho
                 else:
                     value = data[place][date]
                     if errorType=='cumulative':
-                        error = 1.+abs(data[place][dates[lastDate]] - data[place][date])**0.5    
+                        error = 1.+(data[place][dates[lastDate]] - data[place][date])**0.5    if (data[place][dates[lastDate]] - data[place][date]) >=0 else 0
                     else:
                         error = 10.+(data[place][date])**0.5 if data[place][date]>0 else abs(data[place][date])*2                   
                 if value>threshold:
@@ -116,12 +120,19 @@ def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, thresho
 		            histos[place].SetBinContent(binx, value)
 		            histos[place].SetBinError(binx, error)
 			    start = True
-##  	        if histos[place].GetBinContent(binx)==0 and histos[place].GetBinContent(binx+1)==0 and histos[place].GetBinContent(binx+2)==0: ### remove left tail, if there are 3 days without new cases
-  	        if cutLeftTail and histos[place].GetBinContent(binx)==0 and histos[place].GetBinContent(binx+1)==0: ### remove left tail, if there are 2 days without new cases
-#  	        if histos[place].GetBinContent(binx)==0 : ### remove left tail, if there are 2 days without new cases
-		    stop = True
+        if cutTails: ### remove tail, if there are 2 days without new cases from the peak
+                maxBin = histos[place].GetMaximumBin()
+                for i in range(maxBin, predictionDate):
+                        if histos[place].GetBinContent(i-1)==0 and histos[place].GetBinContent(i-2)==0: 
+                                histos[place].SetBinContent(i, 0)
+                                histos[place].SetBinError(i, 0)
+                for i in reversed(range(firstDate, maxBin)):
+                        if histos[place].GetBinContent(i+1)==0 and histos[place].GetBinContent(i+2)==0: 
+                                histos[place].SetBinContent(i, 0)
+                                histos[place].SetBinError(i, 0)
+
         color = colors[places.index(place)]
-        histos[place].SetLineWidth(3)
+        histos[place].SetLineWidth(lineWidth)
         histos[place].SetLineColor(color)
     return histos
 
@@ -137,14 +148,14 @@ def fitErf(h, places, firstDate, lastDate, predictionDate):
         functs[place].FixParameter(2, fixSigma)
         functs[place].FixParameter(3, 0)
 #        h[place].Fit(functs[place],"0W","",0,lastDate)
-        functs_res[place] = h[place].Fit(functs[place],"0S","",0,lastDate+1)
+        functs_res[place] = h[place].Fit(functs[place],"0S","",0,lastDate+0.5)
         functs[place].ReleaseParameter(3)
         functs[place].SetParLimits(3,0,maxPar3)
-        functs_res[place] = h[place].Fit(functs[place],"0S","",0,lastDate+1)
+        functs_res[place] = h[place].Fit(functs[place],"0S","",0,lastDate+0.5)
         if minPar2 != maxPar2:
             functs[place].ReleaseParameter(2)
             functs[place].SetParLimits(2,minPar2,maxPar2)
-        functs_res[place] = h[place].Fit(functs[place],"0S","",0,lastDate+1)
+        functs_res[place] = h[place].Fit(functs[place],"0S","",0,lastDate+0.5)
         color = colors[places.index(place)]
         functs[place].SetLineColor(color)
     return functs, functs_res
@@ -155,7 +166,7 @@ def fitGauss(h, places, firstDate, lastDate, predictionDate):
     for place in places:
         print "### Fit %s ###"%place
         functs[place] = copy.copy(ROOT.TF1("function"+place,"gaus + [3]",firstDate,predictionDate))
-        functs[place].SetParameters(5.61752e+00, 20, fixSigma)
+        functs[place].SetParameters(h[place].Integral(), h[place].GetMean(), fixSigma)
         functs[place].FixParameter(2, fixSigma)
         functs[place].FixParameter(3, 0)
 #        print h[place]
@@ -209,13 +220,21 @@ def saveCSV(predictions, dates, fn_predictions, fn_predictions_error):
     f_predictions.close()
                 
 
-def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, function, function_res, fName, canvas):
+def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, function, function_res, fName, xpred, canvas):
+    if function: fres = function_res.Get()
     canvas.SetLogy()
     canvas.cd()
     canvas.SetTitle("")
+    leg = ROOT.TLegend(0.9,0.1,1.0,0.9)
     maxim = 0
     for item in [histoConfirmed, histoRecovered, histoDeaths, histoPrediction, function]:
-        if item: maxim = max(maxim, item.GetMaximum())
+        if item: 
+            maxim = max(maxim, item.GetMaximum())
+            if item == histoConfirmed: leg.AddEntry(item, "Confirmed", "lep")
+            if item == histoRecovered: leg.AddEntry(item, "Recovered", "lep")
+            if item == histoDeaths: leg.AddEntry(item, "Deaths", "lep")
+            if item == histoPrediction: leg.AddEntry(item, "Prediction", "lep")
+            if item == function and fres: leg.AddEntry(item, "#splitline{Gaussian fit}{#splitline{#mu=%.1f #pm %.1f}{ #sigma=%.1f #pm %.1f}} "%(fres.GetParams()[1],fres.GetErrors()[1],fres.GetParams()[2],fres.GetErrors()[2]), "lep")
     histoRecovered.SetLineStyle(1)
     histoDeaths.SetLineStyle(1)
     histoConfirmed.SetLineColor(ROOT.kBlue)
@@ -224,6 +243,9 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, funct
     histoConfirmed.SetMinimum(1)
     histoConfirmed.SetMaximum(maxim*1.5)
     histoConfirmed.Draw()
+    line = ROOT.TLine(xpred+0.5,0,xpred+0.5,histoConfirmed.GetMaximum())
+    line.SetLineStyle(2)
+    line.SetLineWidth(2)
     if function:
         function.SetMinimum(1)
         function.SetLineColor(ROOT.kBlue)
@@ -235,11 +257,13 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, funct
         function.Draw("same")
     histoRecovered.Draw("same")
     histoDeaths.Draw("same")
+    leg.Draw("same")
     if histoPrediction: 
         histoPrediction.SetLineColor(ROOT.kGreen+2)
         histoPrediction.SetLineStyle(1)
         histoPrediction.Draw("same")
         histoConfirmed.Draw("same")
+    line.Draw()
     canvas.SaveAs(fName)
     print fName
 

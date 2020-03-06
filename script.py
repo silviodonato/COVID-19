@@ -5,6 +5,7 @@ from tools import colors, fillData, newCases, getRatio, makeHistos, fitErf,fitGa
 import ROOT
 ROOT.gStyle.SetOptStat(0)
 ROOT.gROOT.SetBatch(1)
+#ROOT.gROOT.SetBatch(0)
 
 
 
@@ -32,6 +33,8 @@ firstDate = 0
 #firstDate = dates.index("2/18/20")
 #firstDate = 16
 lastDate = lastDateData
+#lastDate = dates.index("2/29/20")
+#lastDate = dates.index("3/1/20")
 #lastDate = 30
 predictionsDate = dates.index("4/15/20")
 #predictionsDate = 95
@@ -84,14 +87,14 @@ fitdiffs   = {}
 c1 = ROOT.TCanvas("c1","",1280,768)
 
 
-positives_h = makeHistos(positives,        dates, places, firstDate, lastDate, predictionsDate, 0, cutLeftTail=False, errorType='cumulative')
-confirmes_h = makeHistos(confirmes,        dates, places, firstDate, lastDate, predictionsDate, 0, cutLeftTail=False, errorType='cumulative')
-recoveres_h = makeHistos(recoveres,        dates, places, firstDate, lastDate, predictionsDate, 0, cutLeftTail=False, errorType='cumulative')
-deaths_h    = makeHistos(deaths,           dates, places, firstDate, lastDate, predictionsDate, 0, cutLeftTail=False, errorType='cumulative')
+positives_h = makeHistos(positives,        dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
+confirmes_h = makeHistos(confirmes,        dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
+recoveres_h = makeHistos(recoveres,        dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
+deaths_h    = makeHistos(deaths,           dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
 #histos = makeHistos(confirmes, places, firstDate, lastDate, predictionsDate, cumulativeError=True)
-newConfirmes_h  = makeHistos(newConfirmes, dates, places, firstDate, lastDate, predictionsDate, 1, cutLeftTail=True)
-newRecoveres_h  = makeHistos(newRecoveres, dates, places, firstDate, lastDate, predictionsDate, 1, cutLeftTail=True)
-newDeaths_h     = makeHistos(newDeaths,    dates, places, firstDate, lastDate, predictionsDate, 1, cutLeftTail=True)
+newConfirmes_h  = makeHistos(newConfirmes, dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=True, lineWidth=2)
+newRecoveres_h  = makeHistos(newRecoveres, dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=True, lineWidth=2)
+newDeaths_h     = makeHistos(newDeaths,    dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=True, lineWidth=2)
 #newPositives_h  = makeHistos(newPositives, dates, places, firstDate, lastDate, predictionsDate)
 
 #fits,     fits_res     = fitErf(confirmes_h, places, firstDate, lastDate, predictionsDate)
@@ -248,7 +251,7 @@ predictions = getPrediction(places, dates, startDate, endDate, confirmes_h, fitd
 #predictions = getPredictionErf(places, dates, startDate, endDate, confirmes_h, fits, fits_res, confirmes)
 
 #predictionHistos = makeHistos(predictions, dates, startDate, endDate, predictionsDate, 0, errorType='dictionary')
-predictions_h = makeHistos(predictions, dates, places, startDate, None, endDate, threshold=0, cutLeftTail=False, errorType='dictionary')
+predictions_h = makeHistos(predictions, dates, places, startDate, None, endDate, threshold=0, cutTails=False, errorType='dictionary', lineWidth=3)
 
 
 saveCSV(predictions, dates, "prediction.csv", "prediction_error.csv")
@@ -273,8 +276,8 @@ c5.SetLogy(0)
 c5.Update()
 
 for place in places:
-    savePlot(newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], None, fitdiffs[place], fitdiffs_res[place], "plots/newCases_%s.png"%place, c5)
-    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], None, None, "plots/%s.png"%place, c5)
+    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], None, None, "plots/%s.png"%place, lastDate, c5)
+    savePlot(newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], None, fitdiffs[place], fitdiffs_res[place], "plots/newCases_%s.png"%place, lastDate, c5)
 
 '''
 
