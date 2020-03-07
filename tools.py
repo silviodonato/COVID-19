@@ -12,6 +12,7 @@ maxPar3 = 1
 #minPar2,maxPar2 = 7.5, 8.5
 #minPar2,maxPar2 = 7, 9
 #minPar2,maxPar2 = 8, 8
+#minPar2,maxPar2 = 3, 20
 minPar2,maxPar2 = 5.5, 7.5
 #minPar2,maxPar2 = 5, 11
 #minPar2,maxPar2 = 6.5-3, 6.5+3
@@ -251,7 +252,8 @@ def saveCSV(predictions, places, dates, fn_predictions, fn_predictions_error):
                 
 
 def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, function, function_res, function_error, fName, xpred, canvas):
-    if function: fres = function_res.Get()
+    if function: 
+        fres = function_res.Get()
     canvas.SetLogy()
     canvas.cd()
     canvas.SetTitle("")
@@ -265,13 +267,16 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, funct
             if item == histoDeaths: leg.AddEntry(item, "Deaths", "lep")
             if item == histoPrediction: leg.AddEntry(item, "Prediction", "lep")
             if item == function and fres: leg.AddEntry(item, "#splitline{Gaussian fit}{#splitline{#mu=%.1f #pm %.1f}{ #sigma=%.1f #pm %.1f}} "%(fres.GetParams()[1],fres.GetErrors()[1],fres.GetParams()[2],fres.GetErrors()[2]), "lep")
+    if function: maxim = min(maxim, histoConfirmed.GetMaximum()*100)
+    if maxim>0:
+        maxim = 10**int(ROOT.TMath.Log10(maxim)+1)
     histoRecovered.SetLineStyle(1)
     histoDeaths.SetLineStyle(1)
     histoConfirmed.SetLineColor(ROOT.kBlue)
     histoRecovered.SetLineColor(ROOT.kRed)
     histoDeaths.SetLineColor(ROOT.kBlack)
     histoConfirmed.SetMinimum(1)
-    histoConfirmed.SetMaximum(maxim*1.5)
+    histoConfirmed.SetMaximum(maxim)
     histoConfirmed.Draw()
     line = ROOT.TLine(xpred+0.5,0,xpred+0.5,histoConfirmed.GetMaximum())
     line.SetLineStyle(2)
@@ -310,7 +315,7 @@ def getPrediction(places, dates, firstDate, finalDate, histo, functNewCases, fun
         for predictionDate in range(firstDate, finalDate):
             val = histo[place].GetBinContent(histo[place].FindBin(firstDate))
             integr = functNewCases[place].Integral(firstDate + 0.5, predictionDate + 0.5)
-            interr = functNewCases[place].IntegralError(firstDate + 0.5, predictionDate + 0.5, functNewCases_res[place].GetParams(), functNewCases_res[place].GetCovarianceMatrix().GetMatrixArray()) if functNewCases_res[place].Get() else 1E6
+            interr = functNewCases[place].IntegralError(firstDate + 0.5, predictionDate + 0.5, functNewCases_res[place].GetParams(), functNewCases_res[place].GetCovarianceMatrix().GetMatrixArray()) if functNewCases_res[place].Get() else 1E9
             if interr>1: 
                 interr = (interr**2 + integr)**0.5 # Err = (Syst^2 + Stat(ie sqrtN)^2)^0.5
             else:

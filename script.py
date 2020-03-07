@@ -67,6 +67,7 @@ for place in confirmes.keys():
 #places = ["Guangdong","Henan","Zhejiang","Hunan","Anhui","Jiangxi","Italy"]
 #places = ["Zhejiang"]
 #places = ["Jiangxi"]
+#places = ["Belgium"]
 
 
 places = [p[1] for p in sorted([(confirmes[p][dates[lastDate]], p) for p in places], reverse=True)]
