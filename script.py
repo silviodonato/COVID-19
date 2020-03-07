@@ -20,11 +20,6 @@ deaths, dates = fillData('csse_covid_19_data/csse_covid_19_time_series/time_seri
 
 recoveres, dates = fillData('csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv')
 
-if "Hubei" in confirmes:
-    for i in range(22):
-        confirmes["Hubei"][dates[i]] = confirmes["Hubei"][dates[i]]*1.4
-
-
 lastDateData = len(dates)-1
 dates = extendDates(dates, 61)
 ################

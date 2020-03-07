@@ -46,17 +46,37 @@ maps = {
 "FarEast" : ["Hong Kong", "Japan", "Malaysia", "Macau", "Singapore", "South Korea", "Taiwan", "India", "Thailand", "Vietnam",],
 }
 
+def getData(row, i):
+    try:
+        value = int(row[i+4])
+    except:
+        print "WARNING: problems with '%s' '%s' at %i. The numeber is '%s'. I wil use 0."%(row[0],row[1],i+4,row[i+4])
+        value = 0
+    state = row[0]
+    country = row[1]
+    if "Hubei" == state:
+        if i < 22:
+            value = value*1.2
+#        if i < 30:
+#            value = value*1.1
+    elif "Shandong" == state:
+        if i < 30:
+            value = value*1.35
+    return value
 
 def regions(state, country):
-    print (state, country)
+    state = state.replace(",","")
+    country = country.replace(",","")
     regions = set(["World"])
     if state: regions.add(state)
-    regions.add(country)
+    if country: regions.add(country)
     for zone in maps: 
         if country in maps[zone]: 
             regions.add(zone)
+            if zone=="Europe" and country!="Italy": regions.add("Rest of Europe")
     if country=="Mainland China" and state!="Hubei": regions.add("Rest of China")
     if country!="Mainland China": regions.add("Rest of World")
+    print (state, country, regions)
     return regions
     
 def fillData(fileName):
@@ -70,11 +90,10 @@ def fillData(fileName):
                 dates = row[4:]
             else:
                 for place in regions(row[0], row[1]):
-                    place = place.replace(",","")
                     if not place in data: data[place]={}
                     for i, date in enumerate(dates):
                         if not date in data[place]: data[place][date] = 0
-                        data[place][date] += int(row[i+4])
+                        data[place][date] += getData(row, i)
             line_count += 1
     return data, dates
 
