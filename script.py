@@ -7,7 +7,7 @@ ROOT.gStyle.SetOptStat(0)
 ROOT.gROOT.SetBatch(1)
 #ROOT.gROOT.SetBatch(0)
 
-
+resX, resY = 1920, 1080
 
 #file_ = ROOT.TFile("data.root", "RECREATE")
 
@@ -79,7 +79,7 @@ fits   = {}
 fits2   = {}
 fitdiffs   = {}
 
-c1 = ROOT.TCanvas("c1","",1280,768)
+c1 = ROOT.TCanvas("c1","",resX,resY)
 
 
 positives_h = makeHistos(positives,        dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
@@ -140,7 +140,7 @@ c1.SetLogy()
 c1.Update()
 c1.SaveAs("c1.png")
 
-c2 = ROOT.TCanvas("c1","",1280,768)
+c2 = ROOT.TCanvas("c1","",resX,resY)
 
 #diffs["Italy"].Draw()
 
@@ -161,7 +161,7 @@ c2.SaveAs("c2.png")
 
 ##########################################
 
-c3 = ROOT.TCanvas("c1","",1280,768)
+c3 = ROOT.TCanvas("c1","",resX,resY)
 
 histo_sigma1 = ROOT.TH1F("histo_sigma1","",100,0,30)
 histo_sigma2 = ROOT.TH1F("histo_sigma2","",100,0,30)
@@ -189,7 +189,7 @@ c3.SaveAs("c3.png")
 ##########################################
 
 '''
-c4 = ROOT.TCanvas("c1","",1280,768)
+c4 = ROOT.TCanvas("c1","",resX,resY)
 
 #ratios = getRatio(newDeaths_h, newRecoveres_h)
 ratios = getRatio(deaths_h, recoveres_h)
@@ -252,7 +252,7 @@ predictions_h = makeHistos(predictions, dates, places, startDate, None, endDate,
 saveCSV(predictions, places, dates, "prediction.csv", "prediction_error.csv")
 
 
-c5 = ROOT.TCanvas("c5","",1280,768)
+c5 = ROOT.TCanvas("c5","",resX,resY)
 
 #ratios = getRatio(newDeaths_h, newRecoveres_h)
 ratios = getRatio(deaths_h, recoveres_h)
