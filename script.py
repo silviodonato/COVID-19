@@ -93,7 +93,7 @@ newDeaths_h     = makeHistos(newDeaths,    dates, places, firstDate, lastDate, p
 #newPositives_h  = makeHistos(newPositives, dates, places, firstDate, lastDate, predictionsDate)
 
 #fits,     fits_res     = fitErf(confirmes_h, places, firstDate, lastDate, predictionsDate)
-fitdiffs, fitdiffs_res = fitGauss(newConfirmes_h, places, firstDate, lastDate, predictionsDate)
+fitdiffs, fitdiffs_res, fitdiffs_error = fitGauss(newConfirmes_h, places, firstDate, lastDate, predictionsDate)
 
 
 
@@ -123,6 +123,7 @@ for place in places:
     leg.AddEntry(confirmes_h[place], place, "lep")
 
 for place in places:
+    confirmes_h[place].GetYaxis().SetTitle("Number of cases")
     confirmes_h[place].SetMinimum(1)
 #    confirmes_h[place].SetBinError(confirmes_h[place].FindBin(lastDate-0.5),1E-9)
     leg.AddEntry(confirmes_h[place], place, "lep")
@@ -146,6 +147,7 @@ c2 = ROOT.TCanvas("c1","",resX,resY)
 
 #for place in ['Japan','Italy','Spain','France','South Korea']:
 for place in places:
+    newConfirmes_h[place].GetYaxis().SetTitle("Number of cases / day")
     newConfirmes_h[place].SetMinimum(1)
     newConfirmes_h[place].Draw("same")
     fitdiffs[place].Draw("same")
@@ -271,8 +273,8 @@ c5.SetLogy(0)
 c5.Update()
 
 for place in places:
-    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], None, None, "plots/%s.png"%place, lastDate, c5)
-    savePlot(newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], None, fitdiffs[place], fitdiffs_res[place], "plots/%s_newCases.png"%place, lastDate, c5)
+    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], None, None, None, "plots/%s.png"%place, lastDate, c5)
+    savePlot(newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], None, fitdiffs[place], fitdiffs_res[place], fitdiffs_error[place], "plots/%s_newCases.png"%place, lastDate, c5)
 
 '''
 

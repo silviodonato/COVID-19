@@ -185,6 +185,7 @@ def fitErf(h, places, firstDate, lastDate, predictionDate):
 def fitGauss(h, places, firstDate, lastDate, predictionDate):
     functs = {}
     functs_res = {}
+    functs_err = {}
     for place in places:
         print "### Fit %s ###"%place
         functs[place] = copy.copy(ROOT.TF1("function"+place,"gaus + [3]",firstDate,predictionDate))
@@ -204,7 +205,14 @@ def fitGauss(h, places, firstDate, lastDate, predictionDate):
         functs_res[place] = h[place].Fit(functs[place],"0SE","",firstDate,lastDate)
         color = colors[places.index(place)]
         functs[place].SetLineColor(color)
-    return functs, functs_res
+        functs_err[place] = copy.copy(h[place].Clone(("err"+h[place].GetName())))
+        functs_err[place].Reset()
+        ROOT.TVirtualFitter.GetFitter().GetConfidenceIntervals(functs_err[place], 0.68)
+        functs_err[place].SetStats(ROOT.kFALSE)
+        functs_err[place].SetLineColor(color)
+        functs_err[place].SetFillColor(color)
+    return functs, functs_res, functs_err
+
 
 def extendDates(dates, nextend):
     ndates = len(dates)
@@ -242,7 +250,7 @@ def saveCSV(predictions, places, dates, fn_predictions, fn_predictions_error):
     f_predictions.close()
                 
 
-def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, function, function_res, fName, xpred, canvas):
+def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, function, function_res, function_error, fName, xpred, canvas):
     if function: fres = function_res.Get()
     canvas.SetLogy()
     canvas.cd()
@@ -277,6 +285,11 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, funct
 #        ci.SetFillColor(2);
 #        ci.Draw("e3 same");
         function.Draw("same")
+    if function_error:
+        function_error.SetFillColor(ROOT.kBlue)
+        function_error.SetFillStyle(3144)
+        function_error.SetLineColor(ROOT.kBlue)
+        function_error.Draw("e3same")
     histoRecovered.Draw("same")
     histoDeaths.Draw("same")
     leg.Draw("same")
