@@ -215,6 +215,33 @@ def fitGauss(h, places, firstDate, lastDate, predictionDate):
     return functs, functs_res, functs_err
 
 
+def fitExp(h, places, firstDate, lastDate, predictionDate):
+    functs = {}
+    functs_res = {}
+    functs_err = {}
+    for place in places:
+        print "### Fit %s ###"%place
+        functs[place] = copy.copy(ROOT.TF1("functionExp"+place,"exp((x-[1])*[0]) + [2]",firstDate,predictionDate))
+        functs[place].SetParameters(0.2, 10, 0 )
+        functs[place].FixParameter(2, 0)
+#        print h[place]
+#        print functs[place]
+        functs_res[place] = h[place].Fit(functs[place],"0SE","",firstDate,lastDate)
+        functs[place].ReleaseParameter(2)
+        functs[place].SetParLimits(2,0,maxPar3)
+        functs_res[place] = h[place].Fit(functs[place],"0SE","",firstDate,lastDate)
+        functs_res[place] = h[place].Fit(functs[place],"0SE","",firstDate,lastDate)
+        color = colors[places.index(place)]
+        functs[place].SetLineColor(color)
+        functs_err[place] = copy.copy(h[place].Clone(("err"+h[place].GetName())))
+        functs_err[place].Reset()
+        ROOT.TVirtualFitter.GetFitter().GetConfidenceIntervals(functs_err[place], 0.68)
+        functs_err[place].SetStats(ROOT.kFALSE)
+        functs_err[place].SetLineColor(color)
+        functs_err[place].SetFillColor(color)
+    return functs, functs_res, functs_err
+
+
 def extendDates(dates, nextend):
     ndates = len(dates)
     for i in range(1,nextend):
@@ -251,7 +278,7 @@ def saveCSV(predictions, places, dates, fn_predictions, fn_predictions_error):
     f_predictions.close()
                 
 
-def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, function, function_res, function_error, fName, xpred, canvas):
+def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, function, function_res, function_error, functionExp, fName, xpred, canvas):
     if function: 
         fres = function_res.Get()
     canvas.SetLogy()
@@ -295,6 +322,12 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, funct
         function_error.SetFillStyle(3144)
         function_error.SetLineColor(ROOT.kBlue)
         function_error.Draw("e3same")
+    if functionExp and fres.GetParams()[1] > 40:
+        functionExp.SetFillColor(ROOT.kMagenta)
+        functionExp.SetLineWidth(2)
+        functionExp.SetLineColor(ROOT.kMagenta)
+        leg.AddEntry(item, "Exponential fit", "lep")
+        functionExp.Draw("same")
     histoRecovered.Draw("same")
     histoDeaths.Draw("same")
     leg.Draw("same")
