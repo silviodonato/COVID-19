@@ -96,6 +96,7 @@ newDeaths_h     = makeHistos(newDeaths,    dates, places, firstDate, lastDate, p
 #fits,     fits_res     = fitErf(confirmes_h, places, firstDate, lastDate, predictionsDate)
 fitdiffs, fitdiffs_res, fitdiffs_error = fitGauss(newConfirmes_h, places, firstDate, lastDate, predictionsDate)
 fitexps, fitexps_res, fitexps_error = fitExp(newConfirmes_h, places, firstDate, lastDate, predictionsDate)
+fitexptotals, fitexptotals_res, fitexptotals_error = fitExp(confirmes_h, places, firstDate, lastDate, predictionsDate)
 
 
 
@@ -273,7 +274,7 @@ c5.SetLogy(0)
 c5.Update()
 
 for place in places:
-    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], None, None, None, None, "plots/%s.png"%place, lastDate, c5)
+    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], None, None, None, fitexptotals[place], "plots/%s.png"%place, lastDate, c5)
     savePlot(newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], None, fitdiffs[place], fitdiffs_res[place], fitdiffs_error[place], fitexps[place], "plots/%s_newCases.png"%place, lastDate, c5)
 
 '''

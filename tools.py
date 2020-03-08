@@ -16,6 +16,7 @@ maxPar3 = 1
 minPar2,maxPar2 = 5.5, 7.5
 #minPar2,maxPar2 = 5, 11
 #minPar2,maxPar2 = 6.5-3, 6.5+3
+maxConstExp = 100
 
 colors = [
 ROOT.kBlack,
@@ -228,7 +229,7 @@ def fitExp(h, places, firstDate, lastDate, predictionDate):
 #        print functs[place]
         functs_res[place] = h[place].Fit(functs[place],"0SE","",firstDate,lastDate)
         functs[place].ReleaseParameter(2)
-        functs[place].SetParLimits(2,0,maxPar3)
+        functs[place].SetParLimits(2,0,maxConstExp)
         functs_res[place] = h[place].Fit(functs[place],"0SE","",firstDate,lastDate)
         functs_res[place] = h[place].Fit(functs[place],"0SE","",firstDate,lastDate)
         color = colors[places.index(place)]
@@ -279,6 +280,7 @@ def saveCSV(predictions, places, dates, fn_predictions, fn_predictions_error):
                 
 
 def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, function, function_res, function_error, functionExp, fName, xpred, canvas):
+    fres = None
     if function: 
         fres = function_res.Get()
     canvas.SetLogy()
@@ -322,11 +324,11 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, funct
         function_error.SetFillStyle(3144)
         function_error.SetLineColor(ROOT.kBlue)
         function_error.Draw("e3same")
-    if functionExp and fres.GetParams()[1] > 40:
+    if functionExp and (not fres or fres.GetParams()[1] > 40):
         functionExp.SetFillColor(ROOT.kMagenta)
         functionExp.SetLineWidth(2)
         functionExp.SetLineColor(ROOT.kMagenta)
-        leg.AddEntry(item, "Exponential fit", "lep")
+        leg.AddEntry(functionExp, "#splitline{Exponential fit}{#alpha = %.1f}"%functionExp.GetParameter(1), "lep")
         functionExp.Draw("same")
     histoRecovered.Draw("same")
     histoDeaths.Draw("same")
