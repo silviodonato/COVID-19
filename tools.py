@@ -120,14 +120,14 @@ def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, thresho
     histos = {}
     for place in places:
         histos[place] = copy.copy(ROOT.TH1F("histo"+place, place, predictionDate-firstDate+1, firstDate-0.5, predictionDate+0.5))
-	assert(histos[place].GetXaxis().GetBinWidth(1)==1.0)
-	stop = False
-	start = False
+        assert(histos[place].GetXaxis().GetBinWidth(1)==1.0)
+        stop = False
+        start = False
         for i in reversed(range(firstDate, predictionDate)):
             binx = histos[place].FindBin(i)
             date = dates[i]
 #            print(binx,date)
-            histos[place].GetXaxis().SetBinLabel(  binx, date )
+            histos[place].GetXaxis().SetBinLabel(  binx, date[:-3] )
             error = 0.
             if date in data.values()[0]:
                 if errorType=='dictionary': ## if dictionary, data is (value, error)
@@ -140,10 +140,10 @@ def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, thresho
                     else:
                         error = 10.+(data[place][date])**0.5 if data[place][date]>0 else abs(data[place][date])*2                   
                 if value>threshold:
-		    if not stop:
-		            histos[place].SetBinContent(binx, value)
-		            histos[place].SetBinError(binx, error)
-			    start = True
+                    if not stop:
+                            histos[place].SetBinContent(binx, value)
+                            histos[place].SetBinError(binx, error)
+                            start = True
         if cutTails: ### remove tail, if there are 2 days without new cases from the peak
                 maxBin = histos[place].GetMaximumBin()
                 for i in range(maxBin, predictionDate):
@@ -163,8 +163,9 @@ def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, thresho
 def fitErf(h, places, firstDate, lastDate, predictionDate):
     functs = {}
     functs_res = {}
+    functs_err = {}
     for place in places:
-        functs[place] = copy.copy(ROOT.TF1("function"+place,"[0]*(1+TMath::Erf((x-[1])/[2])) + [3]",0,predictionDate))
+        functs[place] = copy.copy(ROOT.TF1("functionErf"+place,"[0]*(1+TMath::Erf((x-[1])/[2])) + [3]",0,predictionDate))
         functs[place].SetParLimits(3,0,100)
         functs[place].SetParLimits(2,2,20)
         functs[place].SetParLimits(1,0,100)
@@ -182,7 +183,13 @@ def fitErf(h, places, firstDate, lastDate, predictionDate):
         functs_res[place] = h[place].Fit(functs[place],"0S","",0,lastDate+0.5)
         color = colors[places.index(place)]
         functs[place].SetLineColor(color)
-    return functs, functs_res
+        functs_err[place] = copy.copy(h[place].Clone(("errErf"+h[place].GetName())))
+        functs_err[place].Reset()
+        ROOT.TVirtualFitter.GetFitter().GetConfidenceIntervals(functs_err[place], 0.68)
+        functs_err[place].SetStats(ROOT.kFALSE)
+        functs_err[place].SetLineColor(color)
+        functs_err[place].SetFillColor(color)
+    return functs, functs_res, functs_err
 
 def fitGauss(h, places, firstDate, lastDate, predictionDate):
     functs = {}
@@ -222,8 +229,8 @@ def fitExp(h, places, firstDate, lastDate, predictionDate):
     functs_err = {}
     for place in places:
         print "### Fit %s ###"%place
-        functs[place] = copy.copy(ROOT.TF1("functionExp"+place,"exp((x-[1])*[0]) + [2]",firstDate,predictionDate))
-        functs[place].SetParameters(0.2, 10, 0 )
+        functs[place] = copy.copy(ROOT.TF1("functionExp"+place,"exp((x-[1])/[0]) + [2]",firstDate,predictionDate))
+        functs[place].SetParameters(5, 10, 0 )
         functs[place].FixParameter(2, 0)
 #        print h[place]
 #        print functs[place]
@@ -324,11 +331,11 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, funct
         function_error.SetFillStyle(3144)
         function_error.SetLineColor(ROOT.kBlue)
         function_error.Draw("e3same")
-    if functionExp and (not fres or fres.GetParams()[1] > 40):
+    if functionExp and (not fres or fres.GetParams()[1] > 40) and abs(functionExp.GetParameter(0)*ROOT.TMath.Log(2))<15:
         functionExp.SetFillColor(ROOT.kMagenta)
         functionExp.SetLineWidth(2)
         functionExp.SetLineColor(ROOT.kMagenta)
-        leg.AddEntry(functionExp, "#splitline{Exponential fit}{#alpha = %.1f}"%functionExp.GetParameter(1), "lep")
+        leg.AddEntry(functionExp, "#splitline{Exponential fit}{#tau_{2} = %.1f days}"%(functionExp.GetParameter(0)*ROOT.TMath.Log(2)), "lep")
         functionExp.Draw("same")
     histoRecovered.Draw("same")
     histoDeaths.Draw("same")
