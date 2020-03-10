@@ -99,6 +99,41 @@ def fillData(fileName):
             line_count += 1
     return data, dates
 
+def fillDataRegioni(fileName):
+    data = {}
+    dates = []
+    with open(fileName) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            print "XXX",row
+            if line_count ==0:
+                labels = row[:]
+            else:
+                date = row[0].split(" ")[0].replace("2020-0","").replace("-","/")+"/20"
+                if not date in dates: dates.append(date)
+#                places = regions("", row[3]) 
+                places = [row[3]] 
+                for place in places:                
+                    if not place in data: data[place] = {}
+                    if date in data[place]: print "WARNING: OVERWRITING DATA: %s %s \n%s"%(region, date, data)
+                    data[place][date] = {}
+                    for i,label in enumerate(labels):
+                        data[place][date][label] = row[i]
+                        print place, date, label, row[i]
+            line_count+=1
+    return data, dates
+
+def getColumn(dataRegioni_, label):
+    data = {}
+    data["Italia"] = {}
+    for place in dataRegioni_:
+        data[place] = {}
+        for date in dataRegioni_[place]:
+            data[place][date] = int(dataRegioni_[place][date][label])
+            data["Italia"][date] = data["Italia"][date] + int(dataRegioni_[place][date][label]) if date in data["Italia"] else 0.
+    return data
+
 def newCases(cases, dates):
     newCases = {}
     for place in cases:
