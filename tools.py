@@ -114,6 +114,7 @@ def fillDataRegioni(fileName, column_regione = "denominazione_regione"):
             else:
                 date = row[labels.index("data")].split(" ")[0].replace("2020-0","").replace("-","/")+"/20"
                 if not date in dates: dates.append(date)
+                if row[3] == "Friuli V. G. ": row[3] = "Friuli Venezia Giulia"
 #                places = regions("", row[3]) 
                 places = [row[labels.index(column_regione)]] 
                 for place in places:                
