@@ -121,8 +121,6 @@ fitexptotals, fitexptotals_res, fitexptotals_error = fitExp(confirmes_h, places,
 
 #for place in confirmes.keys():
 leg = ROOT.TLegend(0.9,0.1,1.0,0.9)
-for place in places:
-    leg.AddEntry(confirmes_h[place], place, "lep")
 
 for place in places:
     confirmes_h[place].GetYaxis().SetTitle("Number of cases")

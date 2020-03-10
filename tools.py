@@ -3,6 +3,8 @@ import csv
 import copy
 import array
 
+rnd = ROOT.TRandom3()
+
 fixSigma = 8
 #maxPar3 = 1E4
 maxPar3 = 1
@@ -66,10 +68,10 @@ def getData(row, i):
             value = value*1.35
     return value
 
-def regions(state, country):
+def regions(state, country, default = ["World"]):
     state = state.replace(",","")
     country = country.replace(",","")
-    regions = set(["World"])
+    regions = set(default)
     if state: regions.add(state)
     if country: regions.add(country)
     for zone in maps: 
@@ -77,7 +79,7 @@ def regions(state, country):
             regions.add(zone)
             if zone=="Europe" and country!="Italy": regions.add("Rest of Europe")
     if country=="Mainland China" and state!="Hubei": regions.add("Rest of China")
-    if country!="Mainland China": regions.add("Rest of World")
+    if country!="Mainland China" and default[0]=="World": regions.add("Rest of World")
     print (state, country, regions)
     return regions
     
@@ -99,7 +101,7 @@ def fillData(fileName):
             line_count += 1
     return data, dates
 
-def fillDataRegioni(fileName):
+def fillDataRegioni(fileName, column_regione = "denominazione_regione"):
     data = {}
     dates = []
     with open(fileName) as csv_file:
@@ -110,13 +112,13 @@ def fillDataRegioni(fileName):
             if line_count ==0:
                 labels = row[:]
             else:
-                date = row[0].split(" ")[0].replace("2020-0","").replace("-","/")+"/20"
+                date = row[labels.index("data")].split(" ")[0].replace("2020-0","").replace("-","/")+"/20"
                 if not date in dates: dates.append(date)
 #                places = regions("", row[3]) 
-                places = [row[3]] 
+                places = [row[labels.index(column_regione)]] 
                 for place in places:                
                     if not place in data: data[place] = {}
-                    if date in data[place]: print "WARNING: OVERWRITING DATA: %s %s \n%s"%(region, date, data)
+                    if date in data[place]: print "WARNING: OVERWRITING DATA: %s %s"%(place, date)
                     data[place][date] = {}
                     for i,label in enumerate(labels):
                         data[place][date][label] = row[i]
@@ -126,12 +128,12 @@ def fillDataRegioni(fileName):
 
 def getColumn(dataRegioni_, label):
     data = {}
-    data["Italia"] = {}
-    for place in dataRegioni_:
-        data[place] = {}
-        for date in dataRegioni_[place]:
-            data[place][date] = int(dataRegioni_[place][date][label])
-            data["Italia"][date] = data["Italia"][date] + int(dataRegioni_[place][date][label]) if date in data["Italia"] else 0.
+    for regione in dataRegioni_:
+        for place in regions("", regione, ["Italia"]):
+            if not place in data: data[place] = {}
+            for date in dataRegioni_[regione]:
+                if not date in data[place]: data[place][date] = 0
+                data[place][date] += int(dataRegioni_[regione][date][label])
     return data
 
 def newCases(cases, dates):
@@ -154,7 +156,7 @@ def getRatio(numerators, denominators):
 def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, threshold=-1, cutTails=False, errorType=None, lineWidth=3):
     histos = {}
     for place in places:
-        histos[place] = copy.copy(ROOT.TH1F("histo"+place, place, predictionDate-firstDate+1, firstDate-0.5, predictionDate+0.5))
+        histos[place] = copy.copy(ROOT.TH1F("histo"+place+str(rnd.Rndm()), place, predictionDate-firstDate+1, firstDate-0.5, predictionDate+0.5))
         assert(histos[place].GetXaxis().GetBinWidth(1)==1.0)
         stop = False
         start = False
@@ -321,7 +323,7 @@ def saveCSV(predictions, places, dates, fn_predictions, fn_predictions_error):
     f_predictions.close()
                 
 
-def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, function, function_res, function_error, functionExp, fName, xpred, canvas):
+def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histoTerapiaIntensiva, histoRicoverati, histoTamponi, function, function_res, function_error, functionExp, fName, xpred, canvas):
     fres = None
     if function: 
         fres = function_res.Get()
@@ -330,13 +332,16 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, funct
     canvas.SetTitle("")
     leg = ROOT.TLegend(0.9,0.1,1.0,0.9)
     maxim = 0
-    for item in [histoConfirmed, histoRecovered, histoDeaths, histoPrediction, function]:
+    for item in [histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histoTerapiaIntensiva, histoRicoverati, histoTamponi, function]:
         if item: 
             maxim = max(maxim, item.GetMaximum())
             if item == histoConfirmed: leg.AddEntry(item, "Confirmed", "lep")
             if item == histoRecovered: leg.AddEntry(item, "Recovered", "lep")
             if item == histoDeaths: leg.AddEntry(item, "Deaths", "lep")
             if item == histoPrediction: leg.AddEntry(item, "Prediction", "lep")
+            if item == histoTerapiaIntensiva: leg.AddEntry(item, "Terapia Intensiva", "lep")
+            if item == histoRicoverati: leg.AddEntry(item, "Ricoverati", "lep")
+            if item == histoTamponi: leg.AddEntry(item, "Tamponi", "lep")
             if item == function and fres: leg.AddEntry(item, "#splitline{Gaussian fit}{#splitline{#mu=%.1f #pm %.1f}{ #sigma=%.1f #pm %.1f}} "%(fres.GetParams()[1],fres.GetErrors()[1],fres.GetParams()[2],fres.GetErrors()[2]), "lep")
     if function: maxim = min(maxim, histoConfirmed.GetMaximum()*100)
     if maxim>0:
@@ -349,6 +354,18 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, funct
     histoConfirmed.SetMinimum(1)
     histoConfirmed.SetMaximum(maxim)
     histoConfirmed.Draw()
+    if histoTerapiaIntensiva: 
+        histoTerapiaIntensiva.SetLineColor(ROOT.kGreen+2)
+        histoTerapiaIntensiva.SetLineStyle(1)
+        histoTerapiaIntensiva.Draw("same")
+    if histoRicoverati: 
+        histoRicoverati.SetLineColor(ROOT.kMagenta+1)
+        histoRicoverati.SetLineStyle(1)
+        histoRicoverati.Draw("same")
+    if histoTamponi: 
+        histoTamponi.SetLineColor(ROOT.kGray+2)
+        histoTamponi.SetLineStyle(1)
+        histoTamponi.Draw("same")
     line = ROOT.TLine(xpred+0.5,0,xpred+0.5,histoConfirmed.GetMaximum())
     line.SetLineStyle(2)
     line.SetLineWidth(2)
@@ -374,13 +391,8 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, funct
         functionExp.Draw("same")
     histoRecovered.Draw("same")
     histoDeaths.Draw("same")
-    leg.Draw("same")
-    if histoPrediction: 
-        histoPrediction.SetLineColor(ROOT.kGreen+2)
-        histoPrediction.SetLineStyle(1)
-        histoPrediction.Draw("same")
-        histoConfirmed.Draw("same")
     line.Draw()
+    leg.Draw("same")
     canvas.SaveAs(fName)
     print fName
 
