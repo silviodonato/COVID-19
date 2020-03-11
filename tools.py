@@ -48,7 +48,15 @@ maps = {
 "Europe" : ["Austria", "Belarus", "Belgium", "Croatia", "Czech Republic", "Denmark", "Finland", "France", "Germany", "Greece", "Iceland", "Ireland", "Italy", "Netherlands", "Norway", "Spain", "Sweden", "Switzerland", "UK", "Romania", "San Marino", "Portugal"],
 "MiddleEast" : ["Azerbaijan", "Bahrain", "Iran", "Iraq", "Israel", "Kuwait", "Lebanon", "Qatar", "Oman", "United Arab Emirates",],
 "FarEast" : ["Hong Kong", "Japan", "Malaysia", "Macau", "Singapore", "South Korea", "Taiwan", "India", "Thailand", "Vietnam",],
+"Nord" : ["Valle d'Aosta",'Friuli Venezia Giulia' , 'Bolzano', 'Veneto', 'Liguria', 'Piemonte', 'Lombardia', 'Emilia Romagna', 'Trento'],
+"Centro" : ['Umbria', 'Marche', 'Toscana', 'Lazio', 'Abruzzo'],
+"Sud" : ['Calabria', 'Molise',  'Campania', 'Sardegna', 'Sicilia',  'Basilicata', 'Puglia'],
 }
+
+maps["Centro e Sud"] = maps["Centro"] + maps["Sud"]
+
+
+
 
 def getData(row, i):
     try:
@@ -80,6 +88,8 @@ def regions(state, country, default = ["World"]):
             if zone=="Europe" and country!="Italy": regions.add("Rest of Europe")
     if country=="Mainland China" and state!="Hubei": regions.add("Rest of China")
     if country!="Mainland China" and default[0]=="World": regions.add("Rest of World")
+    if country!="Lombardia" and default[0]=="Italia": regions.add("Fuori Lombardia")
+    if country!="Lombardia" and country!="Emilia Romagna" and country!="Veneto" and default[0]=="Italia": regions.add("Fuori Lombardia Emilia Veneto")
     print (state, country, regions)
     return regions
     
@@ -114,16 +124,15 @@ def fillDataRegioni(fileName, column_regione = "denominazione_regione"):
             else:
                 date = row[labels.index("data")].split(" ")[0].replace("2020-0","").replace("-","/")+"/20"
                 if not date in dates: dates.append(date)
-                if row[3] == "Friuli V. G. ": row[3] = "Friuli Venezia Giulia"
-#                places = regions("", row[3]) 
-                places = [row[labels.index(column_regione)]] 
-                for place in places:                
-                    if not place in data: data[place] = {}
-                    if date in data[place]: print "WARNING: OVERWRITING DATA: %s %s"%(place, date)
-                    data[place][date] = {}
-                    for i,label in enumerate(labels):
-                        data[place][date][label] = row[i]
-                        print place, date, label, row[i]
+                regione = row[labels.index(column_regione)]
+                if regione == "In fase di definizione/aggiornamento": continue
+                if regione == "Friuli V. G. ": regione = "Friuli Venezia Giulia"
+                if not regione in data: data[regione] = {}
+                if date in data[regione]: print "WARNING: OVERWRITING DATA: %s %s"%(regione, date)
+                data[regione][date] = {}
+                for i,label in enumerate(labels):
+                    data[regione][date][label] = row[i]
+                    print regione, date, label, row[i]
             line_count+=1
     return data, dates
 
@@ -355,12 +364,16 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histo
     histoConfirmed.SetMinimum(1)
     histoConfirmed.SetMaximum(maxim)
     histoConfirmed.Draw()
+    if histoPrediction: 
+        histoPrediction.SetLineColor(ROOT.kMagenta+2)
+        histoPrediction.SetLineStyle(1)
+        histoPrediction.Draw("same")
     if histoTerapiaIntensiva: 
         histoTerapiaIntensiva.SetLineColor(ROOT.kGreen+2)
         histoTerapiaIntensiva.SetLineStyle(1)
         histoTerapiaIntensiva.Draw("same")
     if histoRicoverati: 
-        histoRicoverati.SetLineColor(ROOT.kMagenta+1)
+        histoRicoverati.SetLineColor(ROOT.kOrange+1)
         histoRicoverati.SetLineStyle(1)
         histoRicoverati.Draw("same")
     if histoTamponi: 
@@ -369,7 +382,7 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histo
         histoTamponi.Draw("same")
     line = ROOT.TLine(xpred+0.5,0,xpred+0.5,histoConfirmed.GetMaximum())
     line.SetLineStyle(2)
-    line.SetLineWidth(2)
+    line.SetLineWidth(3)
     if function:
         function.SetMinimum(1)
         function.SetLineColor(ROOT.kBlue)
@@ -384,9 +397,9 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histo
         function_error.SetFillStyle(3144)
         function_error.SetLineColor(ROOT.kBlue)
         function_error.Draw("e3same")
-    if functionExp and (not fres or fres.GetParams()[1] > 40) and abs(functionExp.GetParameter(0)*ROOT.TMath.Log(2))<15:
+    if functionExp and abs(functionExp.GetParameter(0)*ROOT.TMath.Log(2))<15: # and (not fres or fres.GetParams()[1] > 40)
         functionExp.SetFillColor(ROOT.kMagenta)
-        functionExp.SetLineWidth(2)
+        functionExp.SetLineWidth(3)
         functionExp.SetLineColor(ROOT.kMagenta)
         leg.AddEntry(functionExp, "#splitline{Exponential fit}{#tau_{2} = %.1f days}"%(functionExp.GetParameter(0)*ROOT.TMath.Log(2)), "lep")
         functionExp.Draw("same")
