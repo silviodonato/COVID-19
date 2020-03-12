@@ -184,7 +184,7 @@ for place in province:
 
 d1.SaveAs("d1_prov.png")
 
-d2 = ROOT.TCanvas("d1","",resX,resY)
+d2 = ROOT.TCanvas("d2","",resX,resY)
 
 #diffs["Italy"].Draw()
 
@@ -203,6 +203,27 @@ d2.SetGridy()
 d2.SetLogy()
 d2.Update()
 d2.SaveAs("d2.png")
+
+d2_mod = ROOT.TCanvas("d2_mod","",resX,resY)
+
+#diffs["Italy"].Draw()
+
+#for place in ['Japan','Italy','Spain','France','South Korea']:
+for place in places:
+    newConfirmes_h[place].GetYaxis().SetTitle("Number of cases / day")
+    newConfirmes_h[place].SetMinimum(1)
+    newConfirmes_h[place].Draw("same")
+    fitdiffs[place].Draw("same")
+
+
+
+leg.Draw()
+d2_mod.SetGridx()
+d2_mod.SetGridy()
+d2_mod.SetLogy()
+d2_mod.Update()
+d2_mod.SaveAs("d2_mod.png")
+
 
 #for place in ['Japan','Italy','Spain','France','South Korea']:
 for place in province:
@@ -333,6 +354,11 @@ for place in places:
 #    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], fits[place], fits_res[place], fits_error[place], fitexptotals[place], "plots/%s.png"%place, lastDate, d5)
     savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], intensivas_h[place], ricoveratis_h[place], tests_h[place], None, None, None, fitexptotals[place], "plotsRegioni/%s.png"%place, lastDate, d3)
     savePlot(newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], None, newIntensivas_h[place], newRicoveratis_h[place], newTests_h[place],  fitdiffs[place], fitdiffs_res[place], fitdiffs_error[place], fitexps[place], "plotsRegioni/%s_newCases.png"%place, lastDate, d5)
+
+for place in province:
+#    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], fits[place], fits_res[place], fits_error[place], fitexptotals[place], "plots/%s.png"%place, lastDate, d5)
+    savePlot(confirmesProv_h[place], confirmesProv_h[place], confirmesProv_h[place], None, None, None, None, None, None, None, None, "plotsProvince/%s.png"%place, lastDate, d3)
+    savePlot(newConfirmesProv_h[place], newConfirmesProv_h[place], newConfirmesProv_h[place], None, None, None, None, None, None, None, None, "plotsProvince/%s_newCases.png"%place, lastDate, d3)
 
 '''
 
