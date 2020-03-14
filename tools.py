@@ -155,6 +155,16 @@ def newCases(cases, dates):
             newCases[place][dates[i]] = cases[place][dates[i]] - cases[place][dates[i-1]]
     return newCases
 
+def shiftHisto(histo, shift):
+    shiftedHisto = histo.Clone(histo.GetName()+"shifted")
+    shiftedHisto.Reset()
+    for i in range(len(shiftedHisto)):
+        for j in range(len(histo)):
+            if i+shift>0 and i+shift<len(shiftedHisto):
+                shiftedHisto.SetBinContent(i, histo.GetBinContent(i-shift))
+                shiftedHisto.SetBinError(i, histo.GetBinError(i-shift))
+    return shiftedHisto
+
 def getRatio(numerators, denominators):
     ratios = {}
     for place in numerators:

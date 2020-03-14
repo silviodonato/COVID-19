@@ -93,6 +93,8 @@ for place in confirmesProv.keys():
 
 places = [p[1] for p in sorted([(confirmes[p][dates[lastDate]], p) for p in places], reverse=True)]
 
+province = [p[1] for p in sorted([(confirmesProv[p][dates[lastDate]], p) for p in province], reverse=True)]
+
 print "places:",places
 
 ################
@@ -170,6 +172,13 @@ d1.SetGridy()
 d1.SetLogy()
 d1.Update()
 
+d1.SaveAs("d1.png")
+
+
+leg = ROOT.TLegend(0.9,0.1,1.0,0.9)
+
+
+confirmesProv_h.values()[0].Draw("ERR")
 for place in province:
     confirmesProv_h[place].GetYaxis().SetTitle("Number of cases")
     confirmesProv_h[place].SetMinimum(1)
@@ -204,26 +213,12 @@ d2.SetLogy()
 d2.Update()
 d2.SaveAs("d2.png")
 
-d2_mod = ROOT.TCanvas("d2_mod","",resX,resY)
-
-#diffs["Italy"].Draw()
-
-#for place in ['Japan','Italy','Spain','France','South Korea']:
-for place in places:
-    newConfirmes_h[place].GetYaxis().SetTitle("Number of cases / day")
-    newConfirmes_h[place].SetMinimum(1)
-    newConfirmes_h[place].Draw("same")
-    fitdiffs[place].Draw("same")
+d2 = ROOT.TCanvas("d2_prov","",resX,resY)
 
 
+leg = ROOT.TLegend(0.9,0.1,1.0,0.9)
 
-leg.Draw()
-d2_mod.SetGridx()
-d2_mod.SetGridy()
-d2_mod.SetLogy()
-d2_mod.Update()
-d2_mod.SaveAs("d2_mod.png")
-
+newConfirmesProv_h.values()[0].Draw("ERR")
 
 #for place in ['Japan','Italy','Spain','France','South Korea']:
 for place in province:
@@ -242,6 +237,7 @@ d2.SaveAs("d2_prov.png")
 ##########################################
 
 d3 = ROOT.TCanvas("d1","",resX,resY)
+leg = ROOT.TLegend(0.9,0.1,1.0,0.9)
 
 histo_sigma1 = ROOT.TH1F("histo_sigma1","",100,0,30)
 histo_sigma2 = ROOT.TH1F("histo_sigma2","",100,0,30)

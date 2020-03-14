@@ -1,6 +1,6 @@
 #import csv
 #import copy
-from tools import colors, fillData, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlot, getPrediction, getPredictionErf
+from tools import colors, fillData, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlot, getPrediction, getPredictionErf, shiftHisto
 
 import ROOT
 ROOT.gStyle.SetOptStat(0)
@@ -58,7 +58,7 @@ newRecoveres = newCases(recoveres, dates)
 places = []
 for place in confirmes.keys():
     if place == "Others": continue
-    if confirmes[place][dates[lastDate]]>50:
+    if confirmes[place][dates[lastDate]]>200:
         places.append(place)
 
 #places = ["Italy","South Korea","Japan","Iran","Hubei"]
@@ -275,7 +275,8 @@ c5.Update()
 for place in places:
 #    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], fits[place], fits_res[place], fits_error[place], fitexptotals[place], "plots/%s.png"%place, lastDate, c5)
     savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], None, None, None, None, None, None, fitexptotals[place], "plots/%s.png"%place, lastDate, c3)
-    savePlot(newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], None, None, None, None, fitdiffs[place], fitdiffs_res[place], fitdiffs_error[place], fitexps[place], "plots/%s_newCases.png"%place, lastDate, c5)
+    savePlot(newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place],  None, None, None, None, fitdiffs[place], fitdiffs_res[place], fitdiffs_error[place], fitexps[place], "plots/%s_newCases.png"%place, lastDate, c5)
+
 
 '''
 
