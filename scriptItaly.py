@@ -123,10 +123,10 @@ newRicoveratis_h = makeHistos(newRicoveratis,    dates, places, firstDate, lastD
 newIntensivas_h     = makeHistos(newIntensivas,    dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
 #newPositives_h  = makeHistos(newPositives, dates, places, firstDate, lastDate, predictionsDate)
 
-fits, fits_res, fits_error              = fitErf(confirmes_h, places, firstDate, lastDate, predictionsDate)
+fits, fits_res, fits_error              = fitErf(confirmes_h,      places, firstDate, lastDate, predictionsDate)
 fitdiffs, fitdiffs_res, fitdiffs_error  = fitGauss(newConfirmes_h, places, firstDate, lastDate, predictionsDate)
-fitexps, fitexps_res, fitexps_error     = fitExp(newConfirmes_h, places, firstDate, lastDate, predictionsDate)
-fitexptotals, fitexptotals_res, fitexptotals_error = fitExp(confirmes_h, places, firstDate, lastDate, predictionsDate)
+fitexps, fitexps_res, fitexps_error                = fitExp(newConfirmes_h, places, lastDate-8, lastDate, predictionsDate,)
+fitexptotals, fitexptotals_res, fitexptotals_error = fitExp(confirmes_h,    places, lastDate-8, lastDate, predictionsDate)
 
 
 confirmesProv_h = makeHistos(confirmesProv,        dates, province, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)

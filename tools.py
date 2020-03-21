@@ -18,7 +18,7 @@ minPar2,maxPar2 = 5.5, 100
 #minPar2,maxPar2 = 5.5, 7.5
 #minPar2,maxPar2 = 5, 11
 #minPar2,maxPar2 = 6.5-3, 6.5+3
-maxConstExp = 100
+maxConstExp = 1
 
 colors = [
 ROOT.kBlack,
@@ -412,6 +412,7 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histo
         functionExp.SetLineWidth(3)
         functionExp.SetLineColor(ROOT.kMagenta)
         leg.AddEntry(functionExp, "#splitline{Exponential fit}{#tau_{2} = %.1f days}"%(functionExp.GetParameter(0)*ROOT.TMath.Log(2)), "lep")
+        functionExp.SetRange(histoConfirmed.GetXaxis().GetXmin(),histoConfirmed.GetXaxis().GetXmax())
         functionExp.Draw("same")
     histoRecovered.Draw("same")
     histoDeaths.Draw("same")
