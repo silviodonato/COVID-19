@@ -80,7 +80,7 @@ def regions(state, country, default = ["World"]):
     state = state.replace(",","")
     country = country.replace(",","")
     regions = set(default)
-    if state: regions.add(state)
+#    if state: regions.add(state)
     if country: regions.add(country)
     for zone in maps: 
         if country in maps[zone]: 
@@ -122,7 +122,7 @@ def fillDataRegioni(fileName, column_regione = "denominazione_regione"):
             if line_count ==0:
                 labels = row[:]
             else:
-                date = row[labels.index("data")].split(" ")[0].replace("2020-0","").replace("-","/").replace("/0","/")+"/20"
+                date = row[labels.index("data")].split(" ")[0].split("T")[0].replace("2020-0","").replace("-","/").replace("/0","/")+"/20"
                 if not date in dates: dates.append(date)
                 regione = row[labels.index(column_regione)]
                 if regione == "In fase di definizione/aggiornamento": continue
