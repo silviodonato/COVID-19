@@ -4,6 +4,7 @@
 This is the data repository for the 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI Living Atlas Team and the Johns Hopkins University Applied Physics Lab (JHU APL).
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <br>
 
 <b>Visual Dashboard (desktop):</b><br>
@@ -44,8 +45,16 @@ https://systems.jhu.edu/research/public-health/ncov/
 =======
 ## README e Wiki in aggiornamento (nuova versione - 28/03/2020 @ 08:00)
 ## README and Wiki under update (new version - 28/03/2020 @ 08:00)
+=======
+## README e Wiki in aggiornamento (nuova versione - 01/04/2020 @ 08:00)
+## README and Wiki under update (new version - 01/04/2020 @ 08:00)
+
+## Stiamo lavorando per fornire nuovi dataset e dashboard e perfezionamento di quelli esistenti.
+## We are working to provide new datasets and dashboard and refinement of existing ones.
+>>>>>>> 259cf42f36086e81c9825f0f2b676ac205b90263
 
 ## Aggiornamenti dataset 
+## Dataset update
 
 In note_it e note_en sarà riportato il codice del messaggio definito nel dataset "note"<br>
 In note_it and note_en will be reported the message code defined in "note" dataset
@@ -90,7 +99,8 @@ From Wednesday 25/03/2020 (update 18:30)
 ## Avvisi
 
 ```diff
-- 26/03/2020: dati Regione Piemonte parziali (-50 deceduti - comunicazione tardiva)
+- 29/03/2020: dati Regione Emilia Romagna parziali (dato tampone non aggiornato).
+- 26/03/2020: dati Regione Piemonte parziali (-50 deceduti - comunicazione tardiva).
 - 18/03/2020: dati Regione Campania non pervenuti.
 - 18/03/2020: dati Provincia di Parma non pervenuti.
 - 17/03/2020: dati Provincia di Rimini non aggiornati.
