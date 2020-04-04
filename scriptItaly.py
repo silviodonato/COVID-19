@@ -29,17 +29,17 @@ recoveres = getColumn(dataRegioni, "dimessi_guariti")
 confirmesProv = getColumn(dataProvince, "totale_casi")
 
 lastDateData = len(dates)-1
-dates = extendDates(dates, 61)
+dates = extendDates(dates, 130)
 ################
 
 firstDate = 0
 #firstDate = dates.index("2/18/20")
 #firstDate = 16
-lastDate = lastDateData
+lastDate = lastDateData - 1
 #lastDate = dates.index("2/29/20")
 #lastDate = dates.index("3/1/20")
 #lastDate = 30
-predictionsDate = dates.index("4/15/20")
+predictionsDate = dates.index("5/16/20")
 #predictionsDate = 95
 
 
@@ -94,6 +94,7 @@ for place in confirmesProv.keys():
 places = [p[1] for p in sorted([(confirmes[p][dates[lastDate]], p) for p in places], reverse=True)]
 
 province = [p[1] for p in sorted([(confirmesProv[p][dates[lastDate]], p) for p in province], reverse=True)]
+province = ["La Spezia", "Pisa", "Genova", "Milano", "Brescia", "Bergamo"]
 
 print "places:",places
 

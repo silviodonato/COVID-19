@@ -195,7 +195,9 @@ def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, thresho
                     if errorType=='cumulative':
                         error = 1.+(data[place][dates[lastDate]] - data[place][date])**0.5    if (data[place][dates[lastDate]] - data[place][date]) >=0 else 0
                     else:
-                        error = 10.+(data[place][date])**0.5 if data[place][date]>0 else abs(data[place][date])*2                   
+                        error = 10.+(data[place][date])**0.5+0*0.25*(data[place][date]) if data[place][date]>=0 else abs(data[place][date])*2                    ## error 10 + sqrt(N) + 0*25% N
+                        if i>=1: error = max(error, abs(data[place][date]-data[place][dates[i-1]]))
+                        if i<=lastDate: error = max(error, abs(data[place][date]-data[place][dates[i+1]]))
                 if value>threshold:
                     if not stop:
                             histos[place].SetBinContent(binx, value)
@@ -313,8 +315,10 @@ def extendDates(dates, nextend):
     #    dates.append(dates[ndates-1]+"+"+str(i))
         if i<=31:
             newDate = "3/%d/20"%i
-        else:
+        elif i>31 and i<=61:
             newDate = "4/%d/20"%(i-31)
+        elif i>61 and i<=91:
+            newDate = "5/%d/20"%(i-61)
         if not newDate in dates: dates.append(newDate)
     return dates
 
@@ -369,27 +373,34 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histo
     histoRecovered.SetLineStyle(1)
     histoDeaths.SetLineStyle(1)
     histoConfirmed.SetLineColor(ROOT.kBlue)
+#    histoConfirmed.SetFillColor(ROOT.kBlue)
     histoRecovered.SetLineColor(ROOT.kRed)
+#    histoRecovered.SetFillColor(ROOT.kRed)
     histoDeaths.SetLineColor(ROOT.kBlack)
+#    histoDeaths.SetFillColor(ROOT.kBlack)
     histoConfirmed.SetMinimum(1)
     histoConfirmed.SetMaximum(maxim)
-    histoConfirmed.Draw()
+    histoConfirmed.Draw("HIST,PL,")
     if histoPrediction: 
         histoPrediction.SetLineColor(ROOT.kMagenta+2)
+#        histoPrediction.SetFillColor(ROOT.kMagenta+2)
         histoPrediction.SetLineStyle(1)
-        histoPrediction.Draw("same")
+        histoPrediction.Draw("HIST,PL,same")
     if histoTerapiaIntensiva: 
         histoTerapiaIntensiva.SetLineColor(ROOT.kGreen+2)
+#        histoTerapiaIntensiva.SetFillColor(ROOT.kGreen+2)
         histoTerapiaIntensiva.SetLineStyle(1)
-        histoTerapiaIntensiva.Draw("same")
+        histoTerapiaIntensiva.Draw("HIST,PL,same")
     if histoRicoverati: 
         histoRicoverati.SetLineColor(ROOT.kOrange+1)
+#        histoRicoverati.SetFillColor(ROOT.kOrange+1)
         histoRicoverati.SetLineStyle(1)
-        histoRicoverati.Draw("same")
+        histoRicoverati.Draw("HIST,PL,same")
     if histoTamponi: 
         histoTamponi.SetLineColor(ROOT.kGray+2)
+#        histoTamponi.SetFillColor(ROOT.kGray+2)
         histoTamponi.SetLineStyle(1)
-        histoTamponi.Draw("same")
+        histoTamponi.Draw("HIST,PL,same")
     line = ROOT.TLine(xpred+0.5,0,xpred+0.5,histoConfirmed.GetMaximum())
     line.SetLineStyle(2)
     line.SetLineWidth(3)
@@ -400,7 +411,7 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histo
 #        function_res.Get().GetConfidenceIntervals(ci, 0.68)
 #        ci.SetStats(kFALSE);
 #        ci.SetFillColor(2);
-#        ci.Draw("e3 same");
+#        ci.Draw("HIST,PL, same");
         function.Draw("same")
     if function_error:
         function_error.SetFillColor(ROOT.kBlue)
@@ -414,8 +425,8 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histo
         leg.AddEntry(functionExp, "#splitline{Exponential fit}{#tau_{2} = %.1f days}"%(functionExp.GetParameter(0)*ROOT.TMath.Log(2)), "lep")
         functionExp.SetRange(histoConfirmed.GetXaxis().GetXmin(),histoConfirmed.GetXaxis().GetXmax())
         functionExp.Draw("same")
-    histoRecovered.Draw("same")
-    histoDeaths.Draw("same")
+    histoRecovered.Draw("HIST,PL,same")
+    histoDeaths.Draw("HIST,PL,same")
     line.Draw()
     leg.Draw("same")
     canvas.SaveAs(fName)

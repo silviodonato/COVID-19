@@ -20,17 +20,17 @@ deaths, dates = fillData('csse_covid_19_data/csse_covid_19_time_series/time_seri
 recoveres, dates = fillData('csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv')
 
 lastDateData = len(dates)-1
-dates = extendDates(dates, 61)
+dates = extendDates(dates, 130)
 ################
 
 firstDate = 0
 #firstDate = dates.index("2/18/20")
 #firstDate = 16
-lastDate = lastDateData
+lastDate = lastDateData - 1
 #lastDate = dates.index("2/29/20")
 #lastDate = dates.index("3/1/20")
 #lastDate = 30
-predictionsDate = dates.index("4/15/20")
+predictionsDate = dates.index("5/16/20")
 #predictionsDate = 95
 
 
@@ -67,7 +67,7 @@ for place in confirmes.keys():
 #places = ["Guangdong","Henan","Zhejiang","Hunan","Anhui","Jiangxi","Italy"]
 #places = ["Zhejiang"]
 #places = ["Jiangxi"]
-#places = ["Belgium"]
+#places = ["France"]
 
 
 places = [p[1] for p in sorted([(confirmes[p][dates[lastDate]], p) for p in places], reverse=True)]
