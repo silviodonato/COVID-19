@@ -55,7 +55,60 @@ maps = {
 
 maps["Centro e Sud"] = maps["Centro"] + maps["Sud"]
 
+colorMap = {
+    "positives":  ROOT.kYellow+2,
+    "histo_confirmes":  ROOT.kBlue,
+    "recoveres":  ROOT.kRed,
+    "deaths":     ROOT.kBlack,
+    "newConfirmes":   ROOT.kBlue,
+    "newRecoveres":   ROOT.kRed,
+    "newDeaths":      ROOT.kBlack,
+    "prediction":      ROOT.kMagenta+2,
+    "functionExp":      ROOT.kMagenta,
+    "intensiva":      ROOT.kGreen+2,
+    "ricoverati":      ROOT.kOrange+1,
+    "test":      ROOT.kGray+2,
+    "newIntensiva":      ROOT.kGreen+2,
+    "newRicoverati":      ROOT.kOrange+1,
+    "newTest":      ROOT.kGray+2,
+}
 
+labelMap = {
+    "positives":  "positives",
+    "confirmes":  "confirmed",
+    "recoveres":  "recovered",
+    "deaths":     "deaths",
+    "newConfirmes":   "new confirmed",
+    "newRecoveres":   "new recovered",
+    "newDeaths":      "new deaths",
+    "prediction":      "prediction",
+    "intensiva":      "Terapia Intensiva",
+    "ricoverati":      "Ricoverati",
+    "test":      "Tamponi",
+    "newIntensiva":      "Terapia Intensiva",
+    "newRicoverati":      "Ricoverati",
+    "newTest":      "Tamponi",
+}
+
+def getGeneric(name, dictionary):
+    for k in dictionary:
+        if k in name:
+            return dictionary[k]
+    import pprint
+    pprint.pprint(dictionary)
+    print name
+    raise Exception("Error getGeneric, not found %s"%name)
+    return None
+
+def getColor(name):
+    out = getGeneric (name, colorMap)
+    assert(type(out)==type(ROOT.kBlue))
+    return out
+
+def getLabel(name):
+    out = getGeneric (name, labelMap)
+    assert(type(out)==str)
+    return out
 
 
 def getData(row, i):
@@ -173,10 +226,10 @@ def getRatio(numerators, denominators):
     return ratios
 
 
-def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, threshold=-1, cutTails=False, errorType=None, lineWidth=3):
+def makeHistos(prefix, data, dates, places, firstDate, lastDate, predictionDate, threshold=-1, cutTails=False, errorType=None, lineWidth=3):
     histos = {}
     for place in places:
-        histos[place] = copy.copy(ROOT.TH1F("histo"+place+str(rnd.Rndm()), place, predictionDate-firstDate+1, firstDate-0.5, predictionDate+0.5))
+        histos[place] = copy.copy(ROOT.TH1F(prefix+"_"+place+str(rnd.Rndm()), place, predictionDate-firstDate+1, firstDate-0.5, predictionDate+0.5))
         assert(histos[place].GetXaxis().GetBinWidth(1)==1.0)
         stop = False
         start = False
@@ -184,7 +237,7 @@ def makeHistos(data, dates, places, firstDate, lastDate, predictionDate, thresho
             binx = histos[place].FindBin(i)
             date = dates[i]
 #            print(binx,date)
-            histos[place].GetXaxis().SetBinLabel(  binx, date[:-3] )
+            if i%2==0: histos[place].GetXaxis().SetBinLabel(  binx, date[:-3] )
             error = 0.
             if date in data.values()[0]:
                 if errorType=='dictionary': ## if dictionary, data is (value, error)
@@ -248,6 +301,10 @@ def fitErf(h, places, firstDate, lastDate, predictionDate):
         functs_err[place].SetStats(ROOT.kFALSE)
         functs_err[place].SetLineColor(color)
         functs_err[place].SetFillColor(color)
+        name = h[place].GetName().replace("histo_","functionErf_")
+        functs[place].SetName(name+"_centralValue") 
+        functs_res[place].SetName(name+"_fitResult")
+        functs_err[place].SetName(name+"_errorBand")
     return functs, functs_res, functs_err
 
 def fitGauss(h, places, firstDate, lastDate, predictionDate):
@@ -279,6 +336,10 @@ def fitGauss(h, places, firstDate, lastDate, predictionDate):
         functs_err[place].SetStats(ROOT.kFALSE)
         functs_err[place].SetLineColor(color)
         functs_err[place].SetFillColor(color)
+        name = h[place].GetName().replace("histo_","functionGaus_")
+        functs[place].SetName(name+"_centralValue") 
+        functs_res[place].SetName(name+"_fitResult")
+        functs_err[place].SetName(name+"_errorBand")
     return functs, functs_res, functs_err
 
 
@@ -306,6 +367,10 @@ def fitExp(h, places, firstDate, lastDate, predictionDate):
         functs_err[place].SetStats(ROOT.kFALSE)
         functs_err[place].SetLineColor(color)
         functs_err[place].SetFillColor(color)
+        name = h[place].GetName().replace("histo_","functionExp_")
+        functs[place].SetName(name+"_centralValue") 
+        functs_res[place].SetName(name+"_fitResult")
+        functs_err[place].SetName(name+"_errorBand")
     return functs, functs_res, functs_err
 
 
@@ -317,8 +382,10 @@ def extendDates(dates, nextend):
             newDate = "3/%d/20"%i
         elif i>31 and i<=61:
             newDate = "4/%d/20"%(i-31)
-        elif i>61 and i<=91:
+        elif i>61 and i<=92:
             newDate = "5/%d/20"%(i-61)
+        elif i>92 and i<=122:
+            newDate = "6/%d/20"%(i-92)
         if not newDate in dates: dates.append(newDate)
     return dates
 
@@ -431,6 +498,77 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histo
     leg.Draw("same")
     canvas.SaveAs(fName)
     print fName
+
+
+def savePlotNew(histos, functions, fName, xpred, canvas):
+    histos = [h for h in histos if h]
+    functions = [f for f in functions if f]
+#    histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histoTerapiaIntensiva, histoRicoverati, histoTamponi
+#   function, function_res, function_error, functionExp
+    canvas.SetLogy()
+    canvas.cd()
+    canvas.SetGridx(1)
+    canvas.SetGridy(1)
+    canvas.SetTitle("")
+    leg = ROOT.TLegend(0.9,0.1,1.0,0.9)
+    maxim = 0
+    for histo in histos:
+        maxim = max(maxim, histo.GetMaximum())
+        leg.AddEntry(histo, getLabel(histo.GetName()), "lep")
+        histo.SetLineColor(getColor(histo.GetName()))
+#        histo.SetFillColor(getColor(histo.GetName()))
+        histo.SetLineStyle(1)
+    
+    for function in functions:
+        function.SetMinimum(1)
+        function.SetFillColor(getColor(function.GetName()))
+#        function.SetFillStyle(0)
+        function.SetLineColor(getColor(function.GetName()))
+        if "Gaus" in function.GetName():
+            leg.AddEntry(function, "#splitline{Gaussian fit}{#splitline{#mu=%.1f #pm %.1f}{ #sigma=%.1f #pm %.1f}} "%(function.fitResult.GetParams()[1],function.fitResult.GetErrors()[1],function.fitResult.GetParams()[2],function.fitResult.GetErrors()[2]), "lep")
+        if "Exp" in function.GetName():
+            leg.AddEntry(function, "#splitline{Exponential fit}{#tau_{2} = %.1f days}"%(function.GetParameter(0)*ROOT.TMath.Log(2)), "lep")
+    
+    if maxim>0: maxim = 10**int(ROOT.TMath.Log10(maxim)+1)
+    
+    line = ROOT.TLine(xpred+0.5,0,xpred+0.5,maxim)
+    line.SetLineStyle(2)
+    line.SetLineWidth(3)
+    
+    histos[0].SetMaximum(maxim)
+    histos[0].Draw("")
+    for i, histo in enumerate(histos):
+        if i == 0: same = ""
+        else: same = "same"
+        if "predictions" in histo.GetName(): 
+            histo.SetFillColor(histo.GetLineColor())
+            histo.SetFillStyle(3144)
+            histo.Draw(""+same)
+            histo.Draw("e3,"+same)
+        else:
+            histo.SetMarkerStyle(20)
+            histo.SetMarkerColor(histo.GetLineColor())
+            histo.Draw("HIST,PL,"+same)
+        
+    
+    for function in functions:
+        function.SetLineWidth(3)
+        if "Exp" in function.GetName(): function.SetRange(histos[0].GetXaxis().GetXmin(),histos[0].GetXaxis().GetXmax())
+        function.Draw("same")
+        if function.error : 
+            function.error.SetFillColor(function.GetLineColor())
+            function.error.SetFillStyle(3144)
+            function.error.Draw("e3same")
+    line.Draw()
+    leg.Draw("same")
+    canvas.SetGridx(1)
+    canvas.SetGridy(1)
+    canvas.SaveAs(fName)
+    print fName
+    for h in histos:
+        print h.GetName()
+    for f in functions:
+        print f.GetName()
 
 def getPrediction(places, dates, firstDate, finalDate, histo, functNewCases, functNewCases_res, realData=None):
     predictions = {}

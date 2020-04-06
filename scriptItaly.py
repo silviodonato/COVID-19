@@ -1,6 +1,6 @@
 #import csv
 #import copy
-from tools import colors, fillDataRegioni, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlot, getPrediction, getPredictionErf, getColumn
+from tools import colors, fillDataRegioni, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlotNew, savePlot, getPrediction, getPredictionErf, getColumn
 
 import ROOT
 ROOT.gStyle.SetOptStat(0)
@@ -29,7 +29,7 @@ recoveres = getColumn(dataRegioni, "dimessi_guariti")
 confirmesProv = getColumn(dataProvince, "totale_casi")
 
 lastDateData = len(dates)-1
-dates = extendDates(dates, 130)
+dates = extendDates(dates, 140)
 ################
 
 firstDate = 0
@@ -39,7 +39,7 @@ lastDate = lastDateData - 1
 #lastDate = dates.index("2/29/20")
 #lastDate = dates.index("3/1/20")
 #lastDate = 30
-predictionsDate = dates.index("5/16/20")
+predictionsDate = dates.index("5/31/20")
 #predictionsDate = 95
 
 
@@ -94,7 +94,10 @@ for place in confirmesProv.keys():
 places = [p[1] for p in sorted([(confirmes[p][dates[lastDate]], p) for p in places], reverse=True)]
 
 province = [p[1] for p in sorted([(confirmesProv[p][dates[lastDate]], p) for p in province], reverse=True)]
-province = ["La Spezia", "Pisa", "Genova", "Milano", "Brescia", "Bergamo"]
+
+#province = ["La Spezia", "Pisa", "Genova", "Milano", "Brescia", "Bergamo"]
+province = ["Pisa"]
+places = ["Lombardia"]
 
 print "places:",places
 
@@ -107,22 +110,22 @@ fitdiffs   = {}
 d1 = ROOT.TCanvas("d1","",resX,resY)
 
 
-positives_h = makeHistos(positives,        dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
-confirmes_h = makeHistos(confirmes,        dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
-recoveres_h = makeHistos(recoveres,        dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
-deaths_h    = makeHistos(deaths,           dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
-tests_h    = makeHistos(tests,           dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
-ricoveratis_h    = makeHistos(ricoveratis,           dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
-intensivas_h    = makeHistos(intensivas,           dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
+positives_h = makeHistos("histo_positives", positives,        dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
+confirmes_h = makeHistos("histo_confirmes", confirmes,        dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
+recoveres_h = makeHistos("histo_recoveres", recoveres,        dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
+deaths_h    = makeHistos("histo_deaths", deaths,           dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
+tests_h    = makeHistos("histo_tests", tests,           dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
+ricoveratis_h    = makeHistos("histo_ricoveratis", ricoveratis,           dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
+intensivas_h    = makeHistos("histo_intensivas", intensivas,           dates, places, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
 
 #histos = makeHistos(confirmes, places, firstDate, lastDate, predictionsDate, cumulativeError=True)
-newConfirmes_h  = makeHistos(newConfirmes, dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=True, lineWidth=2)
-newRecoveres_h  = makeHistos(newRecoveres, dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
-newDeaths_h     = makeHistos(newDeaths,    dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
-newTests_h     = makeHistos(newTests,    dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
-newRicoveratis_h = makeHistos(newRicoveratis,    dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
-newIntensivas_h     = makeHistos(newIntensivas,    dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
-#newPositives_h  = makeHistos(newPositives, dates, places, firstDate, lastDate, predictionsDate)
+newConfirmes_h  = makeHistos("histo_newConfirmes", newConfirmes, dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=True, lineWidth=2)
+newRecoveres_h  = makeHistos("histo_newRecoveres", newRecoveres, dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
+newDeaths_h     = makeHistos("histo_newDeaths", newDeaths,    dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
+newTests_h     = makeHistos("histo_newTests", newTests,    dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
+newRicoveratis_h = makeHistos("histo_newRicoveratis", newRicoveratis,    dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
+newIntensivas_h     = makeHistos("histo_newIntensivas", newIntensivas,    dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
+#newPositives_h  = makeHistos("histo_newpositives", newPositives, dates, places, firstDate, lastDate, predictionsDate)
 
 fits, fits_res, fits_error              = fitErf(confirmes_h,      places, firstDate, lastDate, predictionsDate)
 fitdiffs, fitdiffs_res, fitdiffs_error  = fitGauss(newConfirmes_h, places, firstDate, lastDate, predictionsDate)
@@ -130,8 +133,8 @@ fitexps, fitexps_res, fitexps_error                = fitExp(newConfirmes_h, plac
 fitexptotals, fitexptotals_res, fitexptotals_error = fitExp(confirmes_h,    places, lastDate-8, lastDate, predictionsDate)
 
 
-confirmesProv_h = makeHistos(confirmesProv,        dates, province, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
-newConfirmesProv_h  = makeHistos(newConfirmesProv, dates, province, firstDate, lastDate, predictionsDate, 1, cutTails=True, lineWidth=2)
+confirmesProv_h = makeHistos("histo_confirmes", confirmesProv,        dates, province, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
+newConfirmesProv_h  = makeHistos("histo_newConfirmes", newConfirmesProv, dates, province, firstDate, lastDate, predictionsDate, 1, cutTails=True, lineWidth=2)
 
 
 #for place in places:
@@ -318,12 +321,12 @@ for place in places:
 '''
 
 endDate = predictionsDate
-startDate = lastDate
+startDate = lastDate + 1
 predictions = getPrediction(places, dates, startDate, endDate, confirmes_h, fitdiffs, fitdiffs_res, confirmes)
 #predictions = getPredictionErf(places, dates, startDate, endDate, confirmes_h, fits, fits_res, confirmes)
 
 #predictionHistos = makeHistos(predictions, dates, startDate, endDate, predictionsDate, 0, errorType='dictionary')
-predictions_h = makeHistos(predictions, dates, places, startDate, None, endDate, threshold=0, cutTails=False, errorType='dictionary', lineWidth=3)
+predictions_h = makeHistos("histo_prediction", predictions, dates, places, startDate, None, endDate, threshold=0, cutTails=False, errorType='dictionary', lineWidth=3)
 
 
 saveCSV(predictions, places, dates, "predictionRegioni.csv", "predictionRegioni_error.csv")
@@ -349,13 +352,20 @@ d5.Update()
 
 for place in places:
 #    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], fits[place], fits_res[place], fits_error[place], fitexptotals[place], "plots/%s.png"%place, lastDate, d5)
-    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], intensivas_h[place], ricoveratis_h[place], tests_h[place], None, None, None, fitexptotals[place], "plotsRegioni/%s.png"%place, lastDate, d3)
-    savePlot(newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], None, newIntensivas_h[place], newRicoveratis_h[place], newTests_h[place],  fitdiffs[place], fitdiffs_res[place], fitdiffs_error[place], fitexps[place], "plotsRegioni/%s_newCases.png"%place, lastDate, d5)
+    fitexptotals[place].error = fitexptotals_error[place]
+    fitexptotals[place].fitResult = fitexptotals_res[place]
+    fitdiffs[place].error = fitdiffs_error[place]
+    fitdiffs[place].fitResult = fitdiffs_res[place]
+    fitexps[place].error = None
+    fitexps[place].fitResult = None
+    savePlotNew([confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], intensivas_h[place], ricoveratis_h[place], tests_h[place]], [fitexptotals[place]], "plotsRegioni/%s.png"%place, startDate, d3)
+    savePlotNew([newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], None, newIntensivas_h[place], newRicoveratis_h[place], newTests_h[place]], [fitdiffs[place], fitexps[place]], "plotsRegioni/%s_newCases.png"%place, startDate, d3)
 
 for place in province:
-#    savePlot(confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], fits[place], fits_res[place], fits_error[place], fitexptotals[place], "plots/%s.png"%place, lastDate, d5)
-    savePlot(confirmesProv_h[place], confirmesProv_h[place], confirmesProv_h[place], None, None, None, None, None, None, None, None, "plotsProvince/%s.png"%place, lastDate, d3)
-    savePlot(newConfirmesProv_h[place], newConfirmesProv_h[place], newConfirmesProv_h[place], None, None, None, None, None, None, None, None, "plotsProvince/%s_newCases.png"%place, lastDate, d3)
+#    savePlot(confirmesProv_h[place], confirmesProv_h[place], confirmesProv_h[place], None, None, None, None, None, None, None, None, "plotsProvince/%s.png"%place, lastDate, d3)
+#    savePlot(newConfirmesProv_h[place], newConfirmesProv_h[place], newConfirmesProv_h[place], None, None, None, None, None, None, None, None, "plotsProvince/%s_newCases.png"%place, lastDate, d3)
+    savePlotNew([confirmesProv_h[place]], [], "plotsProvince/%s.png"%place, startDate, d3)
+    savePlotNew([newConfirmesProv_h[place]], [], "plotsProvince/%s_newCases.png"%place, startDate, d3)
 
 '''
 
