@@ -541,14 +541,13 @@ def savePlotNew(histos, functions, fName, xpred, canvas):
         if i == 0: same = ""
         else: same = "same"
         if "predictions" in histo.GetName(): 
-            histo.SetFillColor(histo.GetLineColor())
-            histo.SetFillStyle(3144)
-            histo.Draw(""+same)
-            histo.Draw("e3,"+same)
-        else:
-            histo.SetMarkerStyle(20)
-            histo.SetMarkerColor(histo.GetLineColor())
-            histo.Draw("HIST,PL,"+same)
+            histoErr = histo.Clone(histo.GetName()+"err")
+            histoErr.SetFillColor(histo.GetLineColor())
+            histoErr.SetFillStyle(3144)
+            histoErr.Draw("e3"+same)
+        histo.SetMarkerStyle(20)
+        histo.SetMarkerColor(histo.GetLineColor())
+        histo.Draw("HIST,PL,"+same)
         
     
     for function in functions:
@@ -564,11 +563,11 @@ def savePlotNew(histos, functions, fName, xpred, canvas):
     canvas.SetGridx(1)
     canvas.SetGridy(1)
     canvas.SaveAs(fName)
-    print fName
-    for h in histos:
-        print h.GetName()
-    for f in functions:
-        print f.GetName()
+#    print fName
+#    for h in histos:
+#        print h.GetName()
+#    for f in functions:
+#        print f.GetName()
 
 def getPrediction(places, dates, firstDate, finalDate, histo, functNewCases, functNewCases_res, realData=None):
     predictions = {}

@@ -96,8 +96,8 @@ places = [p[1] for p in sorted([(confirmes[p][dates[lastDate]], p) for p in plac
 province = [p[1] for p in sorted([(confirmesProv[p][dates[lastDate]], p) for p in province], reverse=True)]
 
 #province = ["La Spezia", "Pisa", "Genova", "Milano", "Brescia", "Bergamo"]
-province = ["Pisa"]
-places = ["Lombardia"]
+#province = ["Pisa"]
+#places = ["Lombardia"]
 
 print "places:",places
 

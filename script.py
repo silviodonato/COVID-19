@@ -61,7 +61,8 @@ for place in confirmes.keys():
         places.append(place)
 
 #places = ["Italy","South Korea","Japan","Iran","Hubei"]
-places = ["Italy"]
+#places = ["Italy"]
+#places = ["United Kingdom"]
 #places = ["Rest of Europe"]
 #places = ["Italy","Japan","South Korea"]
 #places = ["Guangdong","Henan","Zhejiang","Hunan","Anhui","Jiangxi","Italy"]
@@ -242,7 +243,7 @@ for place in places:
 '''
 
 endDate = predictionsDate
-startDate = lastDate
+startDate = lastDate+1
 predictions = getPrediction(places, dates, startDate, endDate, confirmes_h, fitdiffs, fitdiffs_res, confirmes)
 #predictions = getPredictionErf(places, dates, startDate, endDate, confirmes_h, fits, fits_res, confirmes)
 
@@ -285,8 +286,8 @@ for place in places:
     fitdiffs[place].fitResult = fitdiffs_res[place]
     fitexps[place].error = None
     fitexps[place].fitResult = None
-    savePlotNew([confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], shiftConf], [fitexptotals[place]], "plots/%s.png"%place, lastDate, c3)
-    savePlotNew([newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], shiftNewConf], [fitdiffs[place], fitexps[place]], "plots/%s_newCases.png"%place, lastDate, c5)
+    savePlotNew([confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], shiftConf], [fitexptotals[place]], "plots/%s.png"%place, startDate, c3)
+    savePlotNew([newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], shiftNewConf], [fitdiffs[place], fitexps[place]], "plots/%s_newCases.png"%place, startDate, c5)
 
 '''
 
