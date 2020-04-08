@@ -1,6 +1,7 @@
 # 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE
 
 
+<<<<<<< HEAD
 This is the data repository for the 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI Living Atlas Team and the Johns Hopkins University Applied Physics Lab (JHU APL).
 
 <<<<<<< HEAD
@@ -79,43 +80,13 @@ https://systems.jhu.edu/research/public-health/ncov/
 - Change: "nuovi_attualmente_positivi" renamed to "variazione_totale_positivi" (totale_attualmente positivi giorno corrente - totale_attualmente positivi giorno precedente) in "dati_regioni" and "dati_andamento_nazionale"
 - Add: "nuovi_positivi" (totale_casi giorno corrente - totale_casi giorno precedente) in "dati_regioni" and "dati_andamento_nazionale"
 - Change: Regione "Emilia Romagna" renamed to "Emilia-Romagna" in "dati-regioni" and "dati-province" ("denominazione_regione")
-
-### Esempi / Examples
-
-* dati_regioni (esempio csv)
-```
-data,stato,ricoverati_con_sintomi,terapia_intensiva,totale_ospedalizzati,isolamento_domiciliare,totale_positivi,variazione_totale_positivi,nuovi_positivi,dimessi_guariti,deceduti,totale_casi,tamponi,note_it,note_en
-2020-03-30T17:00:00,ITA,27795,3981,31776,43752,75528,1648,4050,14620,11591,101739,477359,,
-```
-
-* dati_andamento_nazionale (esempio csv)
-```
-data,stato,codice_regione,denominazione_regione,lat,long,ricoverati_con_sintomi,terapia_intensiva,totale_ospedalizzati,isolamento_domiciliare,totale_positivi,variazione_totale_positivi,nuovi_positivi,dimessi_guariti,deceduti,totale_casi,tamponi,note_it,note_en
-2020-03-30T17:00:00,ITA,03,Lombardia,45.46679409,9.190347404,11815,1330,13145,11861,25006,-386,1154,10337,6818,42161,111057,,
-```
-
-## Stiamo lavorando per fornire nuovi dataset e dashboard e perfezionamento di quelli esistenti.
-## We are working to provide new datasets and dashboard and refinement of existing ones.
-
-## README e Wiki in aggiornamento
-## README and Wiki under update
-
-## Avvisi
-
-```diff
-- 29/03/2020: dati Regione Emilia-Romagna parziali (dato tampone non aggiornato).
-- 26/03/2020: dati Regione Piemonte parziali (-50 deceduti - comunicazione tardiva).
-- 18/03/2020: dati Regione Campania non pervenuti.
-- 18/03/2020: dati Provincia di Parma non pervenuti.
-- 17/03/2020: dati Provincia di Rimini non aggiornati.
-- 16/03/2020: dati P.A. Trento e Puglia non pervenuti.
-- 11/03/2020: dati Regione Abruzzo non pervenuti.
-- 10/03/2020: dati Regione Lombardia parziali.
-- 07/03/2020: dati Brescia +300 esiti positivi
-```
+=======
+[![GitHub license](https://img.shields.io/badge/License-Creative%20Commons%20Attribution%204.0%20International-blue)](https://github.com/pcm-dpc/COVID-19/blob/master/LICENSE)
+[![GitHub commit](https://img.shields.io/github/last-commit/pcm-dpc/COVID-19)](https://github.com/pcm-dpc/COVID-19/commits/master)
  
 
 [Sito del Dipartimento della Protezione Civile - Emergenza Coronavirus: la risposta nazionale](http://www.protezionecivile.it/attivita-rischi/rischio-sanitario/emergenze/coronavirus)
+>>>>>>> cdedc6c76f12c14e94cf0a9cc9efd26ce9ba41b1
 
 
 Il 31 gennaio 2020, il Consiglio dei Ministri dichiara lo stato di emergenza, per la durata di sei mesi, in conseguenza del rischio sanitario connesso all'infezione da Coronavirus.
@@ -132,6 +103,21 @@ Per informare i cittadini e mettere a disposizione i dati raccolti, utili ai sol
 - Dati regioni
 - Schede riepilogative
 - Aree
+- Note
+
+## Avvisi
+
+```diff
+- 29/03/2020: dati Regione Emilia-Romagna parziali (dato tampone non aggiornato).
+- 26/03/2020: dati Regione Piemonte parziali (-50 deceduti - comunicazione tardiva).
+- 18/03/2020: dati Regione Campania non pervenuti.
+- 18/03/2020: dati Provincia di Parma non pervenuti.
+- 17/03/2020: dati Provincia di Rimini non aggiornati.
+- 16/03/2020: dati P.A. Trento e Puglia non pervenuti.
+- 11/03/2020: dati Regione Abruzzo non pervenuti.
+- 10/03/2020: dati Regione Lombardia parziali.
+- 07/03/2020: dati Brescia +300 esiti positivi
+```
 
 ## Struttura del repository
 ```
@@ -150,6 +136,11 @@ COVID-19/
 │   ├── dpc-covid19-ita-*.json
 ├── dati-regioni/
 │   ├── dpc-covid19-ita-regioni-yyyymmdd.csv
+├── dati-regioni/
+│   ├── dpc-covid19-ita-regioni-yyyymmdd.csv
+├── note/
+│   ├── dpc-covid19-ita-note-en.csv
+│   ├── dpc-covid19-ita-note-it.csv
 ├── schede-riepilogative/
 │   ├── province
 │   │   ├── dpc-covid19-ita-scheda-province-yyyymmdd.pdf
@@ -186,8 +177,8 @@ COVID-19/
 | **deceduti**                    | Persone decedute                  | Death                                  | Numero                        | 3                   |
 | **totale_casi**                 | Totale casi positivi              | Total amount of positive cases         | Numero                        | 3                   |
 | **tamponi**                     | Totale tamponi                    | Tests performed                        | Numero                        | 3                   |
-| **note_it**                     | Note in lingua italiana                    | Notes in italian language                        | Test                        | pd-IT-000                   |
-| **note_en**                     | Note in lingua inglese                    | Notes in english language                        | Testo                        | pd-EN-000                   |
+| **note_it**                     | Note in lingua italiana (separate da ;)                   | Notes in italian language (separated by ;)                       | Testo                        | pd-IT-000                   |
+| **note_en**                     | Note in lingua inglese (separate da ;)                    | Notes in english language (separated by ;)                       | Testo                        | pd-EN-000                   |
 
 
 *Le Province autonome di Trento e Bolzano sono indicate in "denominazione regione" e con il codice 04 del Trentino Alto Adige.*<br>
@@ -212,6 +203,8 @@ COVID-19/
 | **lat**                     | Latitudine                          | Latitude                        | WGS84              | 42.6589177           |
 | **long**                    | Longitudine                         | Longitude                       | WGS84              | 13.70439971          |
 | **totale_casi**             | Totale casi positivi                | Total amount of positive cases  | Numero             | 3                    |
+| **note_it**                     | Note in lingua italiana (separate da ;)                   | Notes in italian language (separated by ;)                       | Testo                        | pd-IT-000                   |
+| **note_en**                     | Note in lingua inglese (separate da ;)                    | Notes in english language (separated by ;)                       | Testo                        | pd-EN-000                   |
 
 *Le Province autonome di Trento e Bolzano sono indicate in "denominazione regione" e con il codice 04 del Trentino Alto Adige.*<br>
 *Ogni Regione ha una Provincia denominata "In fase di definizione/aggiornamento" con il codice provincia da 979 a 999, utile ad indicare i dati ancora non assegnati alle Province.*<br>
@@ -241,6 +234,7 @@ COVID-19/
 | **totale_casi**                 | Totale casi positivi              | Total amount of positive cases         | Numero                        | 3                   |
 | **tamponi**                     | Totale tamponi                    | Tests performed                        | Numero                        | 3                   |
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 201ba01d6d948d19eb4b9fabfa1baf81f12fc23e
 =======
 | **note_it**                     | Note in lingua italiana                    | Notes in italian language                        | Test                        | pd-IT-000                   |
@@ -250,6 +244,10 @@ COVID-19/
 <b>Contact Us: </b><br>
 * Email: jhusystems@gmail.com
 <br><br>
+=======
+| **note_it**                     | Note in lingua italiana (separate da ;)                   | Notes in italian language (separated by ;)                       | Testo                        | pd-IT-000                   |
+| **note_en**                     | Note in lingua inglese (separate da ;)                    | Notes in english language (separated by ;)                       | Testo                        | pd-EN-000                   |
+>>>>>>> cdedc6c76f12c14e94cf0a9cc9efd26ce9ba41b1
 
 <b>Terms of Use:</b><br>
 
@@ -257,12 +255,46 @@ COVID-19/
 This GitHub repo and its contents herein, including all data, mapping, and analysis, copyright 2020 Johns Hopkins University, all rights reserved, is provided to the public strictly for educational and academic research purposes.  The Website relies upon publicly available data from multiple sources, that do not always agree. The Johns Hopkins University hereby disclaims any and all representations and warranties with respect to the Website, including accuracy, fitness for use, and merchantability.  Reliance on the Website for medical guidance or use of the Website in commerce is strictly prohibited.
 =======
 *Viene messo a disposizione un file JSON complessivo di tutte le date nella cartella "dati-json": dpc-covid19-ita-andamento-nazionale.json* e rispettivo file ultimi dati (latest) dpc-covid19-ita-andamento-nazionale-latest.json
-<br><br>
-**Licenza:** [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) - [Visualizza licenza](https://github.com/pcm-dpc/COVID-19/blob/master/LICENSE)
+
+### Note
+
+**Directory:**  note<br>
+**Struttura file:** dpc-covid19-ita-note-*<br>
+
+| Nome campo                  | Descrizione                       | Description                            | Formato                       | Esempio             |
+|-----------------------------|-----------------------------------|----------------------------------------|-------------------------------|---------------------|
+| **codice**                       | Codice nota (nd - nodata / pd - partialdata)             | Note code (nd - nodata / pd - partialdata)                   | Testo      | nd-EN-0006                 |
+| **data**                        | Data dell’informazione            | Date of notification                   | YYYY-MM-DD HH:MM:SS (ISO 8601) Ora italiana | 2020-03-05 12:15:45 |
+| **dataset**                       | Dataset di riferimento              | Reference dataset                   | Testo      | andamento-nazionale                 |
+| **stato**                       | Stato di riferimento              | Country of reference                   | XYZ (ISO 3166-1 alpha-3)      | ITA                 |
+| **codice_regione**          | Codice della Regione (ISTAT 2019)   | Code of the Region (ISTAT 2019) | Numero             | 13                   |
+| **denominazione_regione**   | Denominazione della Regione         | Name of the Region              | Testo              | Abruzzo              |
+| **codice_provincia**        | Codice della Provincia (ISTAT 2019) | Code of the Province            | Numero             | 067                  |
+| **denominazione_provincia** | Denominazione della provincia       | Name of the Province            | Testo              | Teramo               |
+| **tipologia_avviso** | Tipologia avviso (dati parziali / nessun dato) | Notice type (partial data / no data)            | Testo              | dati parziali               |
+| **avviso** | Testo di avviso       | Notice text            | Testo              | dati parziali               |
+| **note** | Altre informazioni       | Other informations            | Testo              | dato tamponi non aggiornato               |
 <br><br><br>
+<<<<<<< HEAD
 **Editore/Autore del dataset:** Dipartimento della Protezione Civile<br>
 **Temi del dataset:** [Salute umana e sicurezza - Human health and safety](http://inspire.ec.europa.eu/theme/hh) (Inspire)<br>
 **Categoria ISO 19115:** Salute<br>
 *Dati forniti dal Ministero della Salute*<br>
 *Elaborazione e gestione dati a cura del Dipartimento della Protezione Civile*
 >>>>>>> 201ba01d6d948d19eb4b9fabfa1baf81f12fc23e
+=======
+
+**Licenza:** [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.it) - [Visualizza licenza](https://github.com/pcm-dpc/COVID-19/blob/master/LICENSE)<br>
+Scheda metadati RNDT: [dati](https://geodati.gov.it/geoportale/visualizzazione-metadati/scheda-metadati/?uuid=PCM%3ACOVID-19%3A05032020%3A093000) - [aree](https://geodati.gov.it/geoportale/visualizzazione-metadati/scheda-metadati/?uuid=PCM%3A000086%3A20200306%3A110700)<br>
+Temi del dataset: [Salute umana e sicurezza](http://inspire.ec.europa.eu/theme/hh) - [Human health and safety (Inspire)](http://inspire.ec.europa.eu/theme/hh)<br>
+Categoria ISO 19115: Salute<br>
+Dati forniti dal Ministero della Salute<br>
+Elaborazione e gestione dati a cura del Dipartimento della Protezione Civile<br><br>
+
+**License:** [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) - [View license](https://github.com/pcm-dpc/COVID-19/blob/master/LICENSE)<br>
+RNDT metadata: [data](https://geodati.gov.it/geoportale/visualizzazione-metadati/scheda-metadati/?uuid=PCM%3ACOVID-19%3A05032020%3A093000) - [areas](https://geodati.gov.it/geoportale/visualizzazione-metadati/scheda-metadati/?uuid=PCM%3A000086%3A20200306%3A110700)<br>
+Dataset themes: [Human health and safety](http://inspire.ec.europa.eu/theme/hh) - [Human health and safety (Inspire)](http://inspire.ec.europa.eu/theme/hh)<br>
+ISO Category 19115: Human healt<br>
+Data provided by the Ministry of Health <br>
+Processing and data management by the Department of Civil Protection
+>>>>>>> cdedc6c76f12c14e94cf0a9cc9efd26ce9ba41b1
