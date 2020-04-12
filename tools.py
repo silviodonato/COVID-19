@@ -5,6 +5,7 @@ import array
 
 rnd = ROOT.TRandom3()
 
+useLog = True
 fixSigma = 8
 #maxPar3 = 1E4
 maxPar3 = 1
@@ -418,7 +419,7 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histo
     fres = None
     if function: 
         fres = function_res.Get()
-    canvas.SetLogy()
+    canvas.SetLogy(useLog)
     canvas.cd()
     canvas.SetTitle("")
     leg = ROOT.TLegend(0.9,0.1,1.0,0.9)
@@ -435,7 +436,7 @@ def savePlot(histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histo
             if item == histoTamponi: leg.AddEntry(item, "Tamponi", "lep")
             if item == function and fres: leg.AddEntry(item, "#splitline{Gaussian fit}{#splitline{#mu=%.1f #pm %.1f}{ #sigma=%.1f #pm %.1f}} "%(fres.GetParams()[1],fres.GetErrors()[1],fres.GetParams()[2],fres.GetErrors()[2]), "lep")
     if function: maxim = min(maxim, histoConfirmed.GetMaximum()*100)
-    if maxim>0:
+    if maxim>0 and useLog:
         maxim = 10**int(ROOT.TMath.Log10(maxim)+1)
     histoRecovered.SetLineStyle(1)
     histoDeaths.SetLineStyle(1)
@@ -505,7 +506,7 @@ def savePlotNew(histos, functions, fName, xpred, canvas):
     functions = [f for f in functions if f]
 #    histoConfirmed, histoRecovered, histoDeaths, histoPrediction, histoTerapiaIntensiva, histoRicoverati, histoTamponi
 #   function, function_res, function_error, functionExp
-    canvas.SetLogy()
+    canvas.SetLogy(useLog)
     canvas.cd()
     canvas.SetGridx(1)
     canvas.SetGridy(1)
@@ -529,7 +530,7 @@ def savePlotNew(histos, functions, fName, xpred, canvas):
         if "Exp" in function.GetName():
             leg.AddEntry(function, "#splitline{Exponential fit}{#tau_{2} = %.1f days}"%(function.GetParameter(0)*ROOT.TMath.Log(2)), "lep")
     
-    if maxim>0: maxim = 10**int(ROOT.TMath.Log10(maxim)+1)
+    if maxim>0 and useLog: maxim = 10**int(ROOT.TMath.Log10(maxim)+1)
     
     line = ROOT.TLine(xpred+0.5,0,xpred+0.5,maxim)
     line.SetLineStyle(2)

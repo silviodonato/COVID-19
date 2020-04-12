@@ -2,6 +2,8 @@
 #import copy
 from tools import colors, fillDataRegioni, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlotNew, savePlot, getPrediction, getPredictionErf, getColumn
 
+useLog = True
+
 import ROOT
 ROOT.gStyle.SetOptStat(0)
 ROOT.gROOT.SetBatch(1)
@@ -173,7 +175,7 @@ for place in places:
 leg.Draw()
 d1.SetGridx()
 d1.SetGridy()
-d1.SetLogy()
+d1.SetLogy(useLog)
 d1.Update()
 
 d1.SaveAs("d1.png")
@@ -213,7 +215,7 @@ for place in places:
 leg.Draw()
 d2.SetGridx()
 d2.SetGridy()
-d2.SetLogy()
+d2.SetLogy(useLog)
 d2.Update()
 d2.SaveAs("d2.png")
 
@@ -234,7 +236,7 @@ for place in province:
 leg.Draw()
 d2.SetGridx()
 d2.SetGridy()
-d2.SetLogy()
+d2.SetLogy(useLog)
 d2.Update()
 d2.SaveAs("d2_prov.png")
 
@@ -259,7 +261,7 @@ print "RMS=",histo_sigma1.GetRMS()
 leg.Draw()
 d3.SetGridx()
 d3.SetGridy()
-d3.SetLogy()
+d3.SetLogy(useLog)
 d3.Update()
 d3.SaveAs("d3.png")
 
@@ -347,7 +349,7 @@ for place in ratios:
 leg.Draw()
 d5.SetGridx()
 d5.SetGridy()
-d5.SetLogy(0)
+d5.SetLogy(useLog)
 d5.Update()
 
 for place in places:
