@@ -74,7 +74,7 @@ newConfirmesProv = newCases(confirmesProv, dates)
 places = []
 for place in confirmes.keys():
     if place == "Others": continue
-    if confirmes[place][dates[lastDate]]>50:
+    if confirmes[place][dates[lastDate]]>200:
         places.append(place)
 
 province = []
