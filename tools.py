@@ -370,8 +370,8 @@ def fitExp(h, places, firstDate, lastDate, predictionDate):
         functs_err[place].SetFillColor(color)
         name = h[place].GetName().replace("histo_","functionExp_")
         functs[place].SetName(name+"_centralValue") 
-        functs_res[place].SetName(name+"_fitResult")
         functs_err[place].SetName(name+"_errorBand")
+        if functs_res[place].Get(): functs_res[place].SetName(name+"_fitResult")
     return functs, functs_res, functs_err
 
 
