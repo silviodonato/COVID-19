@@ -57,7 +57,7 @@ newRecoveres = newCases(recoveres, dates)
 places = []
 for place in confirmes.keys():
     if place == "Others": continue
-    if confirmes[place][dates[lastDate]]>1000:
+    if confirmes[place][dates[lastDate]]>10000:
         places.append(place)
 
 #places = ["Italy","South Korea","Japan","Iran","Hubei"]
