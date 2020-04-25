@@ -275,8 +275,12 @@ This GitHub repo and its contents herein, including all data, mapping, and analy
 =======
 - [Dati andamento COVID-19 Italia](dati-andamento-covid19-italia.md)<br>
 - [Dati contratti DPC COVID-19 di fornitura](dati-contratti-dpc-covid19-fornitura.md)
+- [Dati aree misure restrittive COVID19](dati_aree-nazionali-subregionali-misure-restrittive-covid19.md)
 
 ## Licenza
 
 [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.it) - [Visualizza licenza](https://github.com/pcm-dpc/COVID-19/blob/master/LICENSE)
+<<<<<<< HEAD
 >>>>>>> 479d0732f2f2c0f01e392ad9ae6f6b9cff4b38aa
+=======
+>>>>>>> bde279a3f374ac1c02de42d6a29b5aabf7364616
