@@ -1,6 +1,6 @@
 #import csv
 #import copy
-from tools import colors, fillDataRegioni, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlotNew, savePlot, getPrediction, getPredictionErf, getColumn
+from tools import colors, fillDataRegioni, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlotNew, getPrediction, getPredictionErf, getColumn
 
 useLog = True
 

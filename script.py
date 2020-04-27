@@ -1,6 +1,6 @@
 #import csv
 #import copy
-from tools import colors, fillData, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlot, savePlotNew, getPrediction, getPredictionErf, shiftHisto
+from tools import colors, fillData, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlotNew, getPrediction, getPredictionErf, shiftHisto
 
 import ROOT
 ROOT.gStyle.SetOptStat(0)
