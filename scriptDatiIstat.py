@@ -1,7 +1,6 @@
 #import csv
 #import copy
-from tools import colors, fillDataISTAT, selectComuniDatesAgeGender, newCases, getRatio, makeHistos, fitDecessi, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlotNew, getPrediction, getPredictionErf, getColumn
-import pickle
+from tools import colors, fillDataISTATpickle, selectComuniDatesAgeGender, newCases, getRatio, makeHistos, fitDecessi, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlotNew, getPrediction, getPredictionErf, getColumn
 from operator import itemgetter, attrgetter
 
 useLog = True
@@ -13,49 +12,12 @@ ROOT.gROOT.SetBatch(1)
 
 resX, resY = 1920, 1080
 
-#file_ = ROOT.TFile("data.root", "RECREATE")
+dataISTAT, dates = fillDataISTATpickle('DatiISTAT/dati-giornalieri-comune/comune_giorno.csv', zerosuppression=100, pickleFileName = "temp_italia.pkl", writePickle = False)
 
-writePickle = False
-#writePickle = True
-#fileN = "temp_bergamo.pkl"
-#fileN = "temp_lombardia.pkl"
-fileN = "temp_italia.pkl"
-
-if writePickle:
-    print "Writing pickle file"
-    dataISTAT, dates = fillDataISTAT('DatiISTAT/dati-giornalieri-comune/comune_giorno.csv', zerosuppression=100)
-    # data[comuneKey][date][eta][gender]
-#    output = open("temp_totale.pkl",'wb')
-    output = open(fileN,'wb')
-    pickle.dump(dataISTAT, output)
-    pickle.dump(dates, output)
-    output.close()
-else:
-    print "Loading pickle file"
-#    inp = open("temp_totale.pkl",'rb')
-    inp = open(fileN,'rb')
-    dataISTAT = pickle.load(inp)
-    dates = pickle.load(inp)
-    inp.close()
-
-'''
-decessi_ = selectComuniDatesAgeGender(dataISTAT, dates, comuni=[], ages=range(0,30), genders=[0,1])
-decessi = {}
-places = ["Decessi"]
-decessi["Decessi"] = decessi_
-'''
-
-#'''
-
-#places = ["Lombardia-Bergamo-Alzano_Lombardo"]
 decessi     = selectComuniDatesAgeGender(dataISTAT, dates[:], places=None, ages=range(0,30), genders=[0,1])
 decessi_old = selectComuniDatesAgeGender(dataISTAT, dates[:], places=None, ages=range(0,30), genders=[2,3])
 
 places = decessi.keys()
-#places = decessi_old.keys()
-#places = ["Lombardia-Bergamo-Trescore_Balneario"]
-
-#'''
 
 firstDate = 0
 #lastDate = len(dates)-1
@@ -101,14 +63,16 @@ for x in sorted(firstDeathsInv.keys()):
 
 firstDeath_f.close()
 
-#for place in places:
-for place in goodFits:
+for place in places:
+#for place in goodFits:
     decessi_h[place].SetLineColor(ROOT.kBlack)
     decessi_old_h[place].SetLineColor(ROOT.kMagenta+1)
     decessi_h[place].GetYaxis().SetTitle("Number of deaths / day")
 #    decessi_h[place].SetMinimum(0.1)
     decessi_h[place].SetMaximum(2*decessi_h[place].GetMaximum())
     if decessi_old_h[place].Integral(0, dates.index("02/15/20"))>0: decessi_old_h[place].Scale(decessi_h[place].Integral(0, dates.index("02/15/20"))/decessi_old_h[place].Integral(0, dates.index("02/15/20")))
+    decessi_excess_only_h = decessi_h[place].Clone(decessi_h[place].GetName()+"_excess")
+    decessi_excess_only_h.Add(decessi_old_h[place],-1)
     fits[place].error = fits_error[place]
     fits[place].fitResult = fits_res[place]
     fits_sigOnly[place] = fits[place].Clone(fits[place].GetName()+"_sig")
@@ -128,9 +92,7 @@ for place in goodFits:
     funct_const.SetLineColor(ROOT.kGreen+2)
     funct_const.SetLineStyle(2)
     funct_const.error = None
-    savePlotNew([decessi_h[place],decessi_old_h[place]], [fits[place], fits_sigOnly[place],funct_const, fitGausss[place]], "plotsISTAT/%s.png"%place, startDate, d3, True)
+    savePlotNew([decessi_h[place],decessi_old_h[place],decessi_excess_only_h], [fits[place], fits_sigOnly[place],funct_const, fitGausss[place]], "plotsISTAT/%s.png"%place, startDate, d3, True)
 
-
-#'''
 
 

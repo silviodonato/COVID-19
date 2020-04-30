@@ -1,8 +1,10 @@
 #import csv
 #import copy
-from tools import colors, fillDataRegioni, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlotNew, getPrediction, getPredictionErf, getColumn
+from tools import colors, fillDataRegioni, fillDataISTATpickle, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlotNew, getPrediction, getPredictionErf, getColumn, selectComuniDatesAgeGender, makeCompatible
 
+doProvince = False
 useLog = True
+useDatiISTAT = True
 
 import ROOT
 ROOT.gStyle.SetOptStat(0)
@@ -13,11 +15,11 @@ resX, resY = 1920, 1080
 
 #file_ = ROOT.TFile("data.root", "RECREATE")
 
-
+if useDatiISTAT: dataISTAT, dates = fillDataISTATpickle('DatiISTAT/dati-giornalieri-comune/comune_giorno.csv', zerosuppression=100, pickleFileName = "temp_italia.pkl", writePickle = False)
+if useDatiISTAT: dataISTAT = makeCompatible(dataISTAT, firstDateDay=24, firstDateMonth=2)
 
 dataRegioni, dates = fillDataRegioni('dati-regioni/dpc-covid19-ita-regioni.csv')
-
-dataProvince, dates = fillDataRegioni('dati-province/dpc-covid19-ita-province.csv', "denominazione_provincia")
+if (doProvince): dataProvince, dates = fillDataRegioni('dati-province/dpc-covid19-ita-province.csv', "denominazione_provincia")
 
 #data,stato,codice_regione,denominazione_regione,lat,long,ricoverati_con_sintomi,terapia_intensiva,totale_ospedalizzati,isolamento_domiciliare,totale_attualmente_positivi,nuovi_attualmente_positivi,dimessi_guariti,deceduti,totale_casi,tamponi
 
@@ -27,8 +29,12 @@ ricoveratis = getColumn(dataRegioni, "ricoverati_con_sintomi")
 confirmes = getColumn(dataRegioni, "totale_casi")
 deaths = getColumn(dataRegioni, "deceduti")
 recoveres = getColumn(dataRegioni, "dimessi_guariti")
+if (doProvince): confirmesProv = getColumn(dataProvince, "totale_casi")
 
-confirmesProv = getColumn(dataProvince, "totale_casi")
+if useDatiISTAT: 
+#    datesISTAT = dataISTAT.values()[0].keys()
+    newDeathIstats     = selectComuniDatesAgeGender(dataISTAT, dates, places=None, ages=range(0,30), genders=[0,1])
+    newDeathIstats_old = selectComuniDatesAgeGender(dataISTAT, dates, places=None, ages=range(0,30), genders=[2,3])
 
 lastDateData = len(dates)-1
 dates = extendDates(dates, 140)
@@ -67,7 +73,7 @@ newTests = newCases(tests, dates)
 newIntensivas = newCases(intensivas, dates)
 newRicoveratis = newCases(ricoveratis, dates)
 
-newConfirmesProv = newCases(confirmesProv, dates)
+if (doProvince): newConfirmesProv = newCases(confirmesProv, dates)
 
 ###########################
 
@@ -77,26 +83,18 @@ for place in confirmes.keys():
     if confirmes[place][dates[lastDate]]>50:
         places.append(place)
 
-province = []
-for place in confirmesProv.keys():
-    if place == "Others": continue
-    if confirmesProv[place][dates[lastDate]]>50:
-        province.append(place)
-
-#places = ["Italy","South Korea","Japan","Iran","Hubei"]
-#places = ["Italy"]
-#places = ["Rest of Europe"]
-#places = ["Italy","Japan","South Korea"]
-#places = ["Guangdong","Henan","Zhejiang","Hunan","Anhui","Jiangxi","Italy"]
-#places = ["Zhejiang"]
-#places = ["Jiangxi"]
-#places = ["Belgium"]
-
+if (doProvince): 
+    province = []
+    for place in confirmesProv.keys():
+        if place == "Others": continue
+        if confirmesProv[place][dates[lastDate]]>50:
+            province.append(place)
 
 places = [p[1] for p in sorted([(confirmes[p][dates[lastDate]], p) for p in places], reverse=True)]
 
-province = [p[1] for p in sorted([(confirmesProv[p][dates[lastDate]], p) for p in province], reverse=True)]
+if (doProvince): province = [p[1] for p in sorted([(confirmesProv[p][dates[lastDate]], p) for p in province], reverse=True)]
 
+#places = ["Italia"]
 #province = ["La Spezia", "Pisa", "Genova", "Milano", "Brescia", "Bergamo"]
 #province = ["Pisa"]
 #places = ["Lombardia"]
@@ -134,9 +132,13 @@ fitdiffs, fitdiffs_res, fitdiffs_error  = fitGauss(newConfirmes_h, places, first
 fitexps, fitexps_res, fitexps_error                = fitExp(newConfirmes_h, places, lastDate-8, lastDate, predictionsDate,)
 fitexptotals, fitexptotals_res, fitexptotals_error = fitExp(confirmes_h,    places, lastDate-8, lastDate, predictionsDate)
 
+if useDatiISTAT: 
+    newDeathIstats_h        = makeHistos("histo_ISTAT",     newDeathIstats,        dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
+    newDeathIstats_old_h    = makeHistos("histo_ISTAT_old", newDeathIstats_old,    dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
 
-confirmesProv_h = makeHistos("histo_confirmes", confirmesProv,        dates, province, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
-newConfirmesProv_h  = makeHistos("histo_newConfirmes", newConfirmesProv, dates, province, firstDate, lastDate, predictionsDate, 1, cutTails=True, lineWidth=2)
+if (doProvince): 
+    confirmesProv_h = makeHistos("histo_confirmes", confirmesProv,        dates, province, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
+    newConfirmesProv_h  = makeHistos("histo_newConfirmes", newConfirmesProv, dates, province, firstDate, lastDate, predictionsDate, 1, cutTails=True, lineWidth=2)
 
 
 #for place in places:
@@ -183,21 +185,21 @@ d1.SaveAs("d1.png")
 
 leg = ROOT.TLegend(0.9,0.1,1.0,0.9)
 
+if (doProvince): 
+    confirmesProv_h.values()[0].Draw("ERR")
+    for place in province:
+        confirmesProv_h[place].GetYaxis().SetTitle("Number of cases")
+        confirmesProv_h[place].SetMinimum(1)
+    #    confirmes_h[place].SetBinError(confirmes_h[place].FindBin(lastDate-0.5),1E-9)
+        leg.AddEntry(confirmesProv_h[place], place, "lep")
+        confirmesProv_h[place].Draw("ERR,same")
+    #    recoveresProv_h[place].SetLineStyle(2)
+    #    recoveresProv_h[place].Draw("ERR,same")
+    #    deathsProv_h[place].SetLineStyle(3)
+    #    deathsProv_h[place].Draw("ERR,same")
+    #    fits[place].Draw("same")
 
-confirmesProv_h.values()[0].Draw("ERR")
-for place in province:
-    confirmesProv_h[place].GetYaxis().SetTitle("Number of cases")
-    confirmesProv_h[place].SetMinimum(1)
-#    confirmes_h[place].SetBinError(confirmes_h[place].FindBin(lastDate-0.5),1E-9)
-    leg.AddEntry(confirmesProv_h[place], place, "lep")
-    confirmesProv_h[place].Draw("ERR,same")
-#    recoveresProv_h[place].SetLineStyle(2)
-#    recoveresProv_h[place].Draw("ERR,same")
-#    deathsProv_h[place].SetLineStyle(3)
-#    deathsProv_h[place].Draw("ERR,same")
-#    fits[place].Draw("same")
-
-d1.SaveAs("d1_prov.png")
+    d1.SaveAs("d1_prov.png")
 
 d2 = ROOT.TCanvas("d2","",resX,resY)
 
@@ -219,26 +221,27 @@ d2.SetLogy(useLog)
 d2.Update()
 d2.SaveAs("d2.png")
 
-d2 = ROOT.TCanvas("d2_prov","",resX,resY)
+if (doProvince): 
+    d2 = ROOT.TCanvas("d2_prov","",resX,resY)
 
 
-leg = ROOT.TLegend(0.9,0.1,1.0,0.9)
+    leg = ROOT.TLegend(0.9,0.1,1.0,0.9)
 
-newConfirmesProv_h.values()[0].Draw("ERR")
+    newConfirmesProv_h.values()[0].Draw("ERR")
 
-#for place in ['Japan','Italy','Spain','France','South Korea']:
-for place in province:
-    newConfirmesProv_h[place].GetYaxis().SetTitle("Number of cases / day")
-    newConfirmesProv_h[place].SetMinimum(1)
-    newConfirmesProv_h[place].Draw("same")
+    #for place in ['Japan','Italy','Spain','France','South Korea']:
+    for place in province:
+        newConfirmesProv_h[place].GetYaxis().SetTitle("Number of cases / day")
+        newConfirmesProv_h[place].SetMinimum(1)
+        newConfirmesProv_h[place].Draw("same")
 
 
-leg.Draw()
-d2.SetGridx()
-d2.SetGridy()
-d2.SetLogy(useLog)
-d2.Update()
-d2.SaveAs("d2_prov.png")
+    leg.Draw()
+    d2.SetGridx()
+    d2.SetGridy()
+    d2.SetLogy(useLog)
+    d2.Update()
+    d2.SaveAs("d2_prov.png")
 
 ##########################################
 
@@ -361,13 +364,22 @@ for place in places:
     fitexps[place].error = None
     fitexps[place].fitResult = None
     savePlotNew([confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], intensivas_h[place], ricoveratis_h[place], tests_h[place]], [fitexptotals[place]], "plotsRegioni/%s.png"%place, startDate, d3)
-    savePlotNew([newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], None, newIntensivas_h[place], newRicoveratis_h[place], newTests_h[place]], [fitdiffs[place], fitexps[place]], "plotsRegioni/%s_newCases.png"%place, startDate, d3)
+    newDeathIstat_h = None
+    if "newDeathIstats_h" in globals() and place in newDeathIstats_h:
+        newDeathIstat_h = newDeathIstats_h[place].Clone(newDeathIstats_h[place].GetName()+"tmp")
+        scale = newDeathIstat_h.Integral(0, dates.index("2/25/20"))/newDeathIstats_old_h[place].Integral(0, dates.index("2/25/20"))
+        newDeathIstat_h.Add(newDeathIstats_old_h[place],-scale)
+    savePlotNew([newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], newDeathIstat_h, newIntensivas_h[place], newRicoveratis_h[place], newTests_h[place]], [fitdiffs[place], fitexps[place]], "plotsRegioni/%s_newCases.png"%place, startDate, d3)
 
-for place in province:
-#    savePlot(confirmesProv_h[place], confirmesProv_h[place], confirmesProv_h[place], None, None, None, None, None, None, None, None, "plotsProvince/%s.png"%place, lastDate, d3)
-#    savePlot(newConfirmesProv_h[place], newConfirmesProv_h[place], newConfirmesProv_h[place], None, None, None, None, None, None, None, None, "plotsProvince/%s_newCases.png"%place, lastDate, d3)
-    savePlotNew([confirmesProv_h[place]], [], "plotsProvince/%s.png"%place, startDate, d3)
-    savePlotNew([newConfirmesProv_h[place]], [], "plotsProvince/%s_newCases.png"%place, startDate, d3)
+if (doProvince): 
+    for place in province:
+    #    savePlot(confirmesProv_h[place], confirmesProv_h[place], confirmesProv_h[place], None, None, None, None, None, None, None, None, "plotsProvince/%s.png"%place, lastDate, d3)
+    #    savePlot(newConfirmesProv_h[place], newConfirmesProv_h[place], newConfirmesProv_h[place], None, None, None, None, None, None, None, None, "plotsProvince/%s_newCases.png"%place, lastDate, d3)
+        savePlotNew([confirmesProv_h[place]], [], "plotsProvince/%s.png"%place, startDate, d3)
+        savePlotNew([newConfirmesProv_h[place]], [], "plotsProvince/%s_newCases.png"%place, startDate, d3)
+
+
+ROOT.gROOT.SetBatch(0)
 
 '''
 

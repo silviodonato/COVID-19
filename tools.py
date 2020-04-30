@@ -3,6 +3,7 @@ import csv
 import copy
 import array
 import datetime
+import pickle
 
 rnd = ROOT.TRandom3()
 
@@ -50,12 +51,12 @@ maps = {
 "Europe" : ["Austria", "Belarus", "Belgium", "Croatia", "Czech Republic", "Denmark", "Finland", "France", "Germany", "Greece", "Iceland", "Ireland", "Italy", "Netherlands", "Norway", "Spain", "Sweden", "Switzerland", "UK", "Romania", "San Marino", "Portugal"],
 "MiddleEast" : ["Azerbaijan", "Bahrain", "Iran", "Iraq", "Israel", "Kuwait", "Lebanon", "Qatar", "Oman", "United Arab Emirates",],
 "FarEast" : ["Hong Kong", "Japan", "Malaysia", "Macau", "Singapore", "South Korea", "Taiwan", "India", "Thailand", "Vietnam",],
-"Nord" : ["Valle d'Aosta",'Friuli Venezia Giulia' , 'Bolzano', 'Veneto', 'Liguria', 'Piemonte', 'Lombardia', 'Emilia Romagna', 'Trento'],
+"Nord" : ["Valle d'Aosta",'FriuliVeneziaGiulia' , 'Bolzano', 'Veneto', 'Liguria', 'Piemonte', 'Lombardia', 'Emilia Romagna', 'Trento'],
 "Centro" : ['Umbria', 'Marche', 'Toscana', 'Lazio', 'Abruzzo'],
 "Sud" : ['Calabria', 'Molise',  'Campania', 'Sardegna', 'Sicilia',  'Basilicata', 'Puglia'],
 }
 
-maps["Centro e Sud"] = maps["Centro"] + maps["Sud"]
+#maps["Centro e Sud"] = maps["Centro"] + maps["Sud"]
 
 colorMap = {
     "positives":  ROOT.kYellow+2,
@@ -75,6 +76,7 @@ colorMap = {
     "newTest":      ROOT.kGray+2,
     "Decessi":      ROOT.kBlack,
     "decessi":      ROOT.kBlack,
+    "ISTAT":        ROOT.kMagenta+1,
     "storico":      ROOT.kBlack,
 }
 
@@ -95,8 +97,36 @@ labelMap = {
     "newTest":      "Tamponi",
     "Decessi":      "Decessi",
     "decessi":      "Decessi",
+    "ISTAT":        "#splitline{Decessi totali}{(eccesso ISTAT)}",
     "storico":      "#splitline{Media 2015-19}{(riscalata)}",
 }
+
+def makeCompatible(dataISTAT, firstDateDay=24, firstDateMonth=2):
+    for place in dataISTAT.keys()[:]:
+        ## remove 0 as first digit (eg. 04/02/20 -> 4/2/20)
+        for date in dataISTAT[place].keys()[:]:
+            mm, dd, yy = date.split("/")
+            mm, dd, yy = int(mm), int(dd), int(yy)
+            if mm<firstDateMonth: 
+                dd=firstDateDay
+                mm=firstDateMonth
+            if mm==firstDateMonth and dd<firstDateDay: dd=firstDateDay
+            newDate = "%s/%s/%s"%(mm,dd,yy)
+            if newDate!= date:
+                if not newDate in dataISTAT[place]: dataISTAT[place][newDate] = {}
+                for age in dataISTAT[place][date]:
+                    if not age in dataISTAT[place][newDate]: dataISTAT[place][newDate][age] = [0] * len(dataISTAT[place][date][age])
+                    for i in range(len(dataISTAT[place][date][age])):
+#                        print dataISTAT[place][newDate]
+#                        print dataISTAT[place][date]
+                        dataISTAT[place][newDate][age][i] += dataISTAT[place][date][age][i]
+                del dataISTAT[place][date] ## delete old date
+        ## cancella i dati dei singoli comuni
+        if len(place.split("_"))==3: del dataISTAT[place]
+#        elif place=='Italia': del dataISTAT[place] ## avoid double counting
+        elif len(place.split("_"))==2: dataISTAT[place.split("_")[1]] = dataISTAT.pop(place)
+        elif place=='TrentinoAltoAdige/S\xfcdtirol': dataISTAT["TrentinoAltoAdige"] = dataISTAT.pop(place)
+    return dataISTAT
 
 def getGeneric(name, dictionary):
     for k in dictionary:
@@ -149,9 +179,9 @@ def regions(state, country, default = ["World"]):
             if zone=="Europe" and country!="Italy": regions.add("Rest of Europe")
     if country=="Mainland China" and state!="Hubei": regions.add("Rest of China")
     if country!="Mainland China" and default[0]=="World": regions.add("Rest of World")
-    if country!="Lombardia" and default[0]=="Italia": regions.add("Fuori Lombardia")
-    if country!="Lombardia" and country!="Emilia Romagna" and country!="Veneto" and default[0]=="Italia": regions.add("Fuori Lombardia Emilia Veneto")
-    print (state, country, regions)
+    if country!="Lombardia" and default[0]=="Italia": regions.add("FuoriLombardia")
+    if country!="Lombardia" and country!="Emilia Romagna" and country!="Veneto" and default[0]=="Italia": regions.add("FuoriLombardiaEmiliaVeneto")
+#    print (state, country, regions)
     return regions
     
 def fillData(fileName):
@@ -172,8 +202,23 @@ def fillData(fileName):
             line_count += 1
     return data, dates
 
+def fillDataISTATpickle(fileName, zerosuppression=0, pickleFileName="temp.pkl", writePickle=True):
+    if writePickle:
+        print "Writing pickle file"
+        dataISTAT, dates = fillDataISTAT('DatiISTAT/dati-giornalieri-comune/comune_giorno.csv', zerosuppression=100)
+        output = open(pickleFileName,'wb')
+        pickle.dump(dataISTAT, output)
+        pickle.dump(dates, output)
+        output.close()
+    else:
+        print "Loading pickle file"
+        inp = open(pickleFileName,'rb')
+        dataISTAT = pickle.load(inp)
+        dates = pickle.load(inp)
+        inp.close()
+    return dataISTAT, dates
 
-def fillDataISTAT(fileName, zerosuppression=0):
+def fillDataISTAT(fileName, zerosuppression=0, pickleFileName="temp.pkl", writePickle=True):
     data = {}
     dates = []
     total = {}
@@ -246,6 +291,9 @@ def fillDataRegioni(fileName, column_regione = "denominazione_regione"):
                 regione = row[labels.index(column_regione)]
                 if regione == "In fase di definizione/aggiornamento": continue
                 if regione == "Friuli V. G. ": regione = "Friuli Venezia Giulia"
+                regione = regione.replace(" ","")
+                regione = regione.replace("-","")
+                regione = regione.replace("P.A.","")
                 if not regione in data: data[regione] = {}
                 if date in data[regione]: print "WARNING: OVERWRITING DATA: %s %s"%(regione, date)
                 data[regione][date] = {}
@@ -259,7 +307,11 @@ def selectComuniDatesAgeGender(dataISTAT, dates, places=None, ages=[], genders=[
     ## places == None -> do no merge places
     data = {}
     for place in dataISTAT:
-        if places==None: data[place] = {}
+        if places==None: 
+            data[place] = {}
+            for place_ in regions("", place, ["Italia"]):
+                if place_ in dataISTAT: continue #skip if already existing (no double counting italia)
+                data[place_] = {}
         if places!=None and len(places)>0 and not place in places: continue 
         for date in dates:
             if not date in dataISTAT[place]: 
@@ -269,8 +321,13 @@ def selectComuniDatesAgeGender(dataISTAT, dates, places=None, ages=[], genders=[
                 if len(ages)>0 and not age in ages: continue 
                 for gender in [0,1,2,3]:
                     if len(genders)>0 and not gender in genders: continue 
-                    if not places == None: data[date] = data[date] + dataISTAT[place][date][age][gender] if date in data else dataISTAT[place][date][age][gender]
-                    else: data[place][date] = data[place][date] + dataISTAT[place][date][age][gender] if date in data[place] else dataISTAT[place][date][age][gender]
+                    if not places == None: 
+                        data[date] = data[date] + dataISTAT[place][date][age][gender] if date in data else dataISTAT[place][date][age][gender]
+                    else: 
+                        data[place][date] = data[place][date] + dataISTAT[place][date][age][gender] if date in data[place] else dataISTAT[place][date][age][gender]
+                        for place_ in regions("", place, ["Italia"]):
+                            if place_ in dataISTAT: continue #skip if already existing (no double counting italia)
+                            data[place_][date] = data[place_][date] + dataISTAT[place][date][age][gender] if date in data[place_] else dataISTAT[place][date][age][gender]
     return data
 
 def getColumn(dataRegioni_, label):
@@ -313,6 +370,7 @@ def getRatio(numerators, denominators):
 def makeHistos(prefix, data, dates, places, firstDate, lastDate, predictionDate, threshold=-1, cutTails=False, errorType=None, lineWidth=3):
     histos = {}
     for place in places:
+        if not place in data: continue
         histos[place] = copy.copy(ROOT.TH1F(prefix+"_"+str(place)+str(rnd.Rndm()), str(place), predictionDate-firstDate+1, firstDate-0.5, predictionDate+0.5))
         assert(histos[place].GetXaxis().GetBinWidth(1)==1.0)
         stop = False
@@ -324,6 +382,8 @@ def makeHistos(prefix, data, dates, places, firstDate, lastDate, predictionDate,
             if type(date)==str and i%2==0: histos[place].GetXaxis().SetBinLabel(  binx, date[:-3] )
             error = 0.
             if date in data.values()[0]:
+                if not date in data[place]: 
+                    continue
                 if errorType=='dictionary': ## if dictionary, data is (value, error)
                     value = data[place][date][0]
                     error = data[place][date][1]
