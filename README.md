@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <img src="http://opendatadpc.maps.arcgis.com/sharing/rest/content/items/5c8ef7516b5b4bb19f61037b4cd69015/data" alt="COVID-19" data-canonical-src="http://opendatadpc.maps.arcgis.com/sharing/rest/content/items/5c8ef7516b5b4bb19f61037b4cd69015/data" width="400" />
 
 [Italiano](README.md) - [English](README_EN.md)<br><br>
@@ -222,6 +223,9 @@ Data provided by the Ministry of Health <br>
 Processing and data management by the Department of Civil Protection
 =======
 # 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE
+=======
+# COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University
+>>>>>>> ddd86aac3ef644ab223e2c2f0751585e08bf6779
 
 
 This is the data repository for the 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI Living Atlas Team and the Johns Hopkins University Applied Physics Lab (JHU APL).
@@ -265,6 +269,8 @@ https://systems.jhu.edu/
 * Maryland Department of Health: https://coronavirus.maryland.gov/
 * New York State Department of Health: https://health.data.ny.gov/Health/New-York-State-Statewide-COVID-19-Testing/xdss-u53e/data
 * NYC Department of Health and Mental Hygiene: https://www1.nyc.gov/site/doh/covid/covid-19-data.page and https://github.com/nychealth/coronavirus-data
+* Florida Department of Health Dashboard: https://services1.arcgis.com/CY1LXxl9zlJeBuRZ/arcgis/rest/services/Florida_COVID19_Cases/FeatureServer/0
+and https://fdoh.maps.arcgis.com/apps/opsdashboard/index.html#/8d0de33f260d444c852a615dc7837c86
 
 <br>
 <b>Additional Information about the Visual Dashboard:</b><br>
@@ -277,6 +283,7 @@ https://systems.jhu.edu/research/public-health/ncov/
 
 <b>Terms of Use:</b><br>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 This GitHub repo and its contents herein, including all data, mapping, and analysis, copyright 2020 Johns Hopkins University, all rights reserved, is provided to the public strictly for educational and academic research purposes.  The Website relies upon publicly available data from multiple sources, that do not always agree. The Johns Hopkins University hereby disclaims any and all representations and warranties with respect to the Website, including accuracy, fitness for use, and merchantability.  Reliance on the Website for medical guidance or use of the Website in commerce is strictly prohibited.
 >>>>>>> a62b8218124eded66adcb6390fcca3ddc86fa1aa
@@ -295,3 +302,11 @@ This GitHub repo and its contents herein, including all data, mapping, and analy
 =======
 This GitHub repo and its contents herein, including all data, mapping, and analysis (“Website”), copyright 2020 Johns Hopkins University, all rights reserved, is provided to the public strictly for public health, educational, and academic research purposes. Redistribution of the Website or the aggregated data set underlying the Website is strictly prohibited. You are welcome to link to the Website, however. The Website relies upon publicly available data from multiple sources that do not always agree. The Johns Hopkins University hereby disclaims any and all representations and warranties with respect to the Website, including accuracy, fitness for use, reliability, and non-infringement. Reliance on the Website for medical guidance or use of the Website in commerce is strictly prohibited. Any use of the Johns Hopkins’ names, logos, trademarks, and trade dress for promotional or commercial purposes is strictly prohibited.
 >>>>>>> 05622493043e3ac23b5a00569328bf8900fc2bbf
+=======
+1. This website and its contents herein, including all data, mapping, and analysis (“Website”), copyright 2020 Johns Hopkins University, all rights reserved, is provided solely for non-profit public health, educational, and academic research purposes. You should not rely on this Website for medical advice or guidance.  
+2. Use of the Website by commercial parties and/or in commerce is strictly prohibited.   Redistribution of the Website or the aggregated data set underlying the Website is strictly prohibited.   
+3. When linking to the website, attribute the Website as the COVID-19 Dashboard by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University, or the COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University. 
+4. The Website relies upon publicly available data from multiple sources that do not always agree. The Johns Hopkins University hereby disclaims any and all representations and warranties with respect to the Website, including accuracy, fitness for use, reliability, completeness, and non-infringement of third party rights. 
+5. Any use of the Johns Hopkins’ names, logos, trademarks, and/or trade dress in a factually inaccurate manner or for marketing, promotional or commercial purposes is strictly prohibited.  
+6. These terms and conditions are subject to change.   Your use of the Website constitutes your acceptance of these terms and conditions and any future modifications thereof.
+>>>>>>> ddd86aac3ef644ab223e2c2f0751585e08bf6779

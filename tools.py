@@ -551,7 +551,7 @@ def fitMultiExp(h, places, firstDate, lastDate, predictionDate, fitOption="0SEQ"
         if functs_res[place].Get(): functs_res[place].SetName(name+"_fitResult")
     return functs, functs_res, functs_err
 
-def fitExp(h, places, firstDate, lastDate, predictionDate, fitOption="0SEQ", maxConstExp=maxConstExp):
+def fitExp(h, places, firstDate, lastDate, predictionDate, fitOption="0SEQ", maxConstExp=maxConstExp, tail=False):
     functs = {}
     functs_res = {}
     functs_err = {}
@@ -559,6 +559,7 @@ def fitExp(h, places, firstDate, lastDate, predictionDate, fitOption="0SEQ", max
         print "### Fit %s ###"%place
         functs[place] = copy.copy(ROOT.TF1("functionExp"+str(place),"exp((x-[1])/[0]) + [2]",firstDate,predictionDate))
         functs[place].SetParameters(5, 10, 0 )
+        if tail: functs[place].SetParameters(-10, 200, 0 )
 #        functs[place].FixParameter(2, 0)
 #        print h[place]
 #        print functs[place]
@@ -566,6 +567,7 @@ def fitExp(h, places, firstDate, lastDate, predictionDate, fitOption="0SEQ", max
         functs[place].ReleaseParameter(2)
         functs[place].SetParLimits(2,0,maxConstExp)
         functs[place].SetParLimits(0,0,100)
+        if tail: functs[place].SetParLimits(0,-100,0)
         functs_res[place] = h[place].Fit(functs[place], fitOption,"",firstDate,lastDate)
         functs_res[place] = h[place].Fit(functs[place], fitOption,"",firstDate,lastDate)
         color = colors[places.index(place)]
