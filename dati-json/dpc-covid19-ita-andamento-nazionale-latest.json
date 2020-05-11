@@ -1,5 +1,6 @@
 [
     {
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
         "stato": "ITA",
         "ricoverati_con_sintomi": 18149,
@@ -14,6 +15,22 @@
         "totale_casi": 205463,
         "tamponi": 1979217,
         "casi_testati": 1354901,
+=======
+        "data": "2020-05-11T17:00:00",
+        "stato": "ITA",
+        "ricoverati_con_sintomi": 13539,
+        "terapia_intensiva": 999,
+        "totale_ospedalizzati": 14538,
+        "isolamento_domiciliare": 67950,
+        "totale_positivi": 82488,
+        "variazione_totale_positivi": -836,
+        "nuovi_positivi": 744,
+        "dimessi_guariti": 106587,
+        "deceduti": 30739,
+        "totale_casi": 219814,
+        "tamponi": 2606652,
+        "casi_testati": 1702283,
+>>>>>>> 07d5abf659ab09feb6ce3d702172666f392f497d
         "note_it": "",
         "note_en": ""
     }

@@ -9,6 +9,11 @@
 [![GitHub license](https://img.shields.io/badge/License-Creative%20Commons%20Attribution%204.0%20International-blue)](https://github.com/pcm-dpc/COVID-19/blob/master/LICENSE)
 [![GitHub commit](https://img.shields.io/github/last-commit/pcm-dpc/COVID-19)](https://github.com/pcm-dpc/COVID-19/commits/master)
  
+<<<<<<< HEAD
+=======
+## Avviso modifiche 
+[https://github.com/pcm-dpc/COVID-19/issues/625](https://github.com/pcm-dpc/COVID-19/issues/625)<br><br>
+>>>>>>> 07d5abf659ab09feb6ce3d702172666f392f497d
 
 [Sito del Dipartimento della Protezione Civile - Emergenza Coronavirus: la risposta nazionale](http://www.protezionecivile.it/attivita-rischi/rischio-sanitario/emergenze/coronavirus)
 
@@ -91,6 +96,7 @@ COVID-19/
 ```
 
 ## Aggiornamento dei dati
+<<<<<<< HEAD
 
 - Dati andamento COVID-19 Italia: ogni giorno alle 18:00<br>
 - Dati contratti DPC COVID-19 di fornitura: continua (ogni volta che vengono effettuate operazioni sui contratti)
@@ -313,3 +319,18 @@ This GitHub repo and its contents herein, including all data, mapping, and analy
 5. Any use of the Johns Hopkins’ names, logos, trademarks, and/or trade dress in a factually inaccurate manner or for marketing, promotional or commercial purposes is strictly prohibited.  
 6. These terms and conditions are subject to change.   Your use of the Website constitutes your acceptance of these terms and conditions and any future modifications thereof.
 >>>>>>> ddd86aac3ef644ab223e2c2f0751585e08bf6779
+=======
+
+- Dati andamento COVID-19 Italia: ogni giorno alle 18:00<br>
+- Dati contratti DPC COVID-19 di fornitura: continua (ogni volta che vengono effettuate operazioni sui contratti)
+
+## Formato dei dati
+
+- [Dati andamento COVID-19 Italia](dati-andamento-covid19-italia.md)<br>
+- [Dati contratti DPC COVID-19 di fornitura](dati-contratti-dpc-covid19-fornitura.md)
+- [Dati aree misure restrittive COVID19](dati_aree-nazionali-subregionali-misure-restrittive-covid19.md)
+
+## Licenza
+
+[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.it) - [Visualizza licenza](https://github.com/pcm-dpc/COVID-19/blob/master/LICENSE)
+>>>>>>> 07d5abf659ab09feb6ce3d702172666f392f497d
