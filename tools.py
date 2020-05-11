@@ -382,7 +382,9 @@ def makeHistos(prefix, data, dates, places, firstDate, lastDate, predictionDate,
             if type(date)==str and i%2==0: histos[place].GetXaxis().SetBinLabel(  binx, date[:-3] )
             error = 0.
             if date in data.values()[0]:
-                if not date in data[place]: 
+                if not date in data[place] or data[place][date]==0: 
+#                    histos[place].SetBinContent(binx, 0)
+#                    histos[place].SetBinError(binx, 0)
                     continue
                 if errorType=='dictionary': ## if dictionary, data is (value, error)
                     value = data[place][date][0]
@@ -546,6 +548,35 @@ def fitMultiExp(h, places, firstDate, lastDate, predictionDate, fitOption="0SEQ"
         functs_err[place].SetLineColor(color)
         functs_err[place].SetFillColor(color)
         name = h[place].GetName().replace("histo_","functionExp_")
+        functs[place].SetName(name+"_centralValue") 
+        functs_err[place].SetName(name+"_errorBand")
+        if functs_res[place].Get(): functs_res[place].SetName(name+"_fitResult")
+    return functs, functs_res, functs_err
+
+def fitLinear(h, places, firstDate, lastDate, predictionDate, fitOption="0SEQ", maxConstExp=maxConstExp, tail=False):
+    functs = {}
+    functs_res = {}
+    functs_err = {}
+    for place in places:
+        print "### Fit %s ###"%place
+        functs[place] = copy.copy(ROOT.TF1("functionLinear"+str(place),"[0]+[1]*x+[2]*x*x",firstDate,predictionDate))
+        functs[place].SetParameters(h[place].GetBinContent(2), 0, 0)
+        functs[place].FixParameter(1, 0)
+        functs[place].FixParameter(2, 0)
+        functs_res[place] = h[place].Fit(functs[place], fitOption,"",firstDate,lastDate)
+        functs[place].ReleaseParameter(1)
+        functs_res[place] = h[place].Fit(functs[place], fitOption,"",firstDate,lastDate)
+        functs[place].ReleaseParameter(2)
+        functs_res[place] = h[place].Fit(functs[place], fitOption,"",firstDate,lastDate)
+        color = colors[places.index(place)]
+        functs[place].SetLineColor(color)
+        functs_err[place] = copy.copy(h[place].Clone(("err"+h[place].GetName())))
+        functs_err[place].Reset()
+        if ROOT.TVirtualFitter.GetFitter(): ROOT.TVirtualFitter.GetFitter().GetConfidenceIntervals(functs_err[place], 0.68)
+        functs_err[place].SetStats(ROOT.kFALSE)
+        functs_err[place].SetLineColor(color)
+        functs_err[place].SetFillColor(color)
+        name = h[place].GetName().replace("histo_","functionLinear_")
         functs[place].SetName(name+"_centralValue") 
         functs_err[place].SetName(name+"_errorBand")
         if functs_res[place].Get(): functs_res[place].SetName(name+"_fitResult")

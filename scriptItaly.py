@@ -1,6 +1,6 @@
 #import csv
 #import copy
-from tools import colors, fillDataRegioni, fillDataISTATpickle, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlotNew, getPrediction, getPredictionErf, getColumn, selectComuniDatesAgeGender, makeCompatible
+from tools import colors, fillDataRegioni, fillDataISTATpickle, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlotNew, getPrediction, getPredictionErf, getColumn, selectComuniDatesAgeGender, makeCompatible, fitLinear
 
 doProvince = False
 useLog = True
@@ -15,8 +15,9 @@ resX, resY = 1920, 1080
 
 #file_ = ROOT.TFile("data.root", "RECREATE")
 
-if useDatiISTAT: dataISTAT, dates = fillDataISTATpickle('DatiISTAT/dati-giornalieri-comune/comune_giorno.csv', zerosuppression=100, pickleFileName = "temp_italia.pkl", writePickle = False)
-if useDatiISTAT: dataISTAT = makeCompatible(dataISTAT, firstDateDay=24, firstDateMonth=2)
+if useDatiISTAT: 
+    dataISTAT, datesISTAT = fillDataISTATpickle('DatiISTAT/dati-giornalieri-comune/comune_giorno.csv', zerosuppression=100, pickleFileName = "temp_italia.pkl", writePickle = False)
+    dataISTAT = makeCompatible(dataISTAT, firstDateDay=24, firstDateMonth=2)
 
 dataRegioni, dates = fillDataRegioni('dati-regioni/dpc-covid19-ita-regioni.csv')
 if (doProvince): dataProvince, dates = fillDataRegioni('dati-province/dpc-covid19-ita-province.csv', "denominazione_provincia")
@@ -133,8 +134,20 @@ fitexps, fitexps_res, fitexps_error                = fitExp(newConfirmes_h, plac
 fitexptotals, fitexptotals_res, fitexptotals_error = fitExp(confirmes_h,    places, lastDate-8, lastDate, predictionsDate)
 
 if useDatiISTAT: 
-    newDeathIstats_h        = makeHistos("histo_ISTAT",     newDeathIstats,        dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
-    newDeathIstats_old_h    = makeHistos("histo_ISTAT_old", newDeathIstats_old,    dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2)
+    newDeathIstats_h        = makeHistos("histo_ISTAT",     newDeathIstats,        dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2, errorType='sqrtN')
+    newDeathIstats_old_h    = makeHistos("histo_ISTAT_old", newDeathIstats_old,    dates, places, firstDate, lastDate, predictionsDate, 1, cutTails=False, lineWidth=2, errorType='sqrtN')
+    newDeathIstatExcess_h = {}
+    for place in newDeathIstats_old_h:
+        if newDeathIstats_old_h[place].Integral(0, dates.index("2/28/20"))>0: newDeathIstats_old_h[place].Scale(newDeathIstats_h[place].Integral(0, dates.index("2/28/20"))/newDeathIstats_old_h[place].Integral(0, dates.index("2/28/20")))
+        feb29_bin = dates.index("3/1/20")
+        newDeathIstats_old_h[place].SetBinContent(feb29_bin, newDeathIstats_old_h[place].GetBinContent(feb29_bin-1))
+        newDeathIstats_old_h[place].SetBinError(  feb29_bin, newDeathIstats_old_h[place].GetBinContent(feb29_bin-1))
+    fitLinears, fitLinears_res, fitLinears_error              = fitLinear(newDeathIstats_old_h,      newDeathIstats_old_h.keys(), firstDate+1, dates.index("4/4/20"), predictionsDate, maxConstExp=10000, tail=True, fitOption="SEQ0L")
+    for place in newDeathIstats_old_h:
+        newDeathIstatExcess_h[place] = newDeathIstats_h[place].Clone(newDeathIstats_h[place].GetName()+"Excess")
+        newDeathIstatExcess_h[place].Add(fitLinears[place],-1)
+
+#1/0
 
 if (doProvince): 
     confirmesProv_h = makeHistos("histo_confirmes", confirmesProv,        dates, province, firstDate, lastDate, predictionsDate, 0, cutTails=False, errorType='cumulative', lineWidth=2)
@@ -363,13 +376,14 @@ for place in places:
     fitdiffs[place].fitResult = fitdiffs_res[place]
     fitexps[place].error = None
     fitexps[place].fitResult = None
+    if not place in fitLinears: fitLinears[place] = None
+    else:
+        fitLinears[place].error = fitLinears_error[place]
+        fitLinears[place].res = fitLinears_res[place]
+    if not place in newDeathIstatExcess_h: newDeathIstatExcess_h[place] = None
     savePlotNew([confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], intensivas_h[place], ricoveratis_h[place], tests_h[place]], [fitexptotals[place]], "plotsRegioni/%s.png"%place, startDate, d3)
-    newDeathIstat_h = None
-    if "newDeathIstats_h" in globals() and place in newDeathIstats_h:
-        newDeathIstat_h = newDeathIstats_h[place].Clone(newDeathIstats_h[place].GetName()+"tmp")
-        scale = newDeathIstat_h.Integral(0, dates.index("2/25/20"))/newDeathIstats_old_h[place].Integral(0, dates.index("2/25/20"))
-        newDeathIstat_h.Add(newDeathIstats_old_h[place],-scale)
-    savePlotNew([newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], newDeathIstat_h, newIntensivas_h[place], newRicoveratis_h[place], newTests_h[place]], [fitdiffs[place], fitexps[place]], "plotsRegioni/%s_newCases.png"%place, startDate, d3)
+    savePlotNew([newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], newDeathIstatExcess_h[place], newIntensivas_h[place], newRicoveratis_h[place], newTests_h[place]], [fitdiffs[place], fitexps[place]], "plotsRegioni/%s_newCases.png"%place, startDate, d3)
+#    savePlotNew([newDeathIstats_old_h[place]], [fitLinears[place]], "plotsRegioni/%s_newCases.png"%place, startDate, d3)
 
 if (doProvince): 
     for place in province:
