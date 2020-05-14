@@ -501,7 +501,7 @@ def fitGaussAsymmetric(h, places, firstDate, lastDate, predictionDate, fitOption
         functs[place] = copy.copy(ROOT.TF1("function"+place,"[0]*exp(-0.5*( (x<=[1])*(x-[1])/[2] + (x>[1])*(x-[1])/[4] )**2) + [3]",firstDate,predictionDate))
         functs[place].SetParameters(h[place].Integral(), h[place].GetMean(), fixSigma, 0, fixSigma)
         functs[place].FixParameter(2, fixSigma)
-        functs[place].FixParameter(4, fixSigma)
+        functs[place].FixParameter(4, fixSigma*2)
         functs[place].FixParameter(3, 1)
 #        print h[place]
 #        print functs[place]
