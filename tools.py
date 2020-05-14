@@ -492,6 +492,44 @@ def fitGauss(h, places, firstDate, lastDate, predictionDate, fitOption="0SEQ", m
     return functs, functs_res, functs_err
 
 
+def fitGaussAsymmetric(h, places, firstDate, lastDate, predictionDate, fitOption="0SEQ", maxPar3=maxPar3):
+    functs = {}
+    functs_res = {}
+    functs_err = {}
+    for place in places:
+        print "### Fit %s ###"%place
+        functs[place] = copy.copy(ROOT.TF1("function"+place,"[0]*exp(-0.5*( (x<=[1])*(x-[1])/[2] + (x>[1])*(x-[1])/[4] )**2) + [3]",firstDate,predictionDate))
+        functs[place].SetParameters(h[place].Integral(), h[place].GetMean(), fixSigma, 0, fixSigma)
+        functs[place].FixParameter(2, fixSigma)
+        functs[place].FixParameter(4, fixSigma)
+        functs[place].FixParameter(3, 1)
+#        print h[place]
+#        print functs[place]
+        functs_res[place] = h[place].Fit(functs[place], fitOption,"",firstDate,lastDate)
+        functs[place].ReleaseParameter(3)
+        functs[place].SetParLimits(3,0,maxPar3)
+        functs_res[place] = h[place].Fit(functs[place], fitOption,"",firstDate,lastDate)
+        if minPar2 != maxPar2:
+            functs[place].ReleaseParameter(2)
+            functs[place].SetParLimits(2,minPar2,maxPar2)
+            functs[place].ReleaseParameter(4)
+            functs[place].SetParLimits(4,minPar2,maxPar2)
+        functs_res[place] = h[place].Fit(functs[place], fitOption,"",firstDate,lastDate)
+        functs_res[place] = h[place].Fit(functs[place], fitOption,"",firstDate,lastDate)
+        color = colors[places.index(place)]
+        functs[place].SetLineColor(color)
+        functs_err[place] = copy.copy(h[place].Clone(("err"+h[place].GetName())))
+        functs_err[place].Reset()
+        ROOT.TVirtualFitter.GetFitter().GetConfidenceIntervals(functs_err[place], 0.68)
+        functs_err[place].SetStats(ROOT.kFALSE)
+        functs_err[place].SetLineColor(color)
+        functs_err[place].SetFillColor(color)
+        name = h[place].GetName().replace("histo_","functionGaus_")
+        functs[place].SetName(name+"_centralValue") 
+        functs_res[place].SetName(name+"_fitResult")
+        functs_err[place].SetName(name+"_errorBand")
+    return functs, functs_res, functs_err
+
 def fitDecessi(h, places, firstDate, lastDate, predictionDate, fitOption="0SEQ"):
     functs = {}
     functs_res = {}

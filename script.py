@@ -1,6 +1,6 @@
 #import csv
 #import copy
-from tools import colors, fillData, newCases, getRatio, makeHistos, fitErf, fitGauss, fitExp, extendDates, saveCSV, savePlotNew, getPrediction, getPredictionErf, shiftHisto
+from tools import colors, fillData, newCases, getRatio, makeHistos, fitErf, fitGaussAsymmetric, fitExp, extendDates, saveCSV, savePlotNew, getPrediction, getPredictionErf, shiftHisto
 
 import ROOT
 ROOT.gStyle.SetOptStat(0)
@@ -20,6 +20,7 @@ deaths, dates = fillData('csse_covid_19_data/csse_covid_19_time_series/time_seri
 recoveres, dates = fillData('csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv')
 
 lastDateData = len(dates)-1
+#lastDateData = len(dates)-1-30
 dates = extendDates(dates, 130)
 ################
 
@@ -30,7 +31,7 @@ lastDate = lastDateData -1
 #lastDate = dates.index("2/29/20")
 #lastDate = dates.index("3/1/20")
 #lastDate = 30
-predictionsDate = dates.index("5/31/20")
+predictionsDate = dates.index("6/30/20")
 #predictionsDate = 95
 
 
@@ -95,9 +96,11 @@ newDeaths_h     = makeHistos("histo_newDeaths",    newDeaths,    dates, places, 
 #newPositives_h  = makeHistos(newPositives, dates, places, firstDate, lastDate, predictionsDate)
 
 fits, fits_res, fits_error                         = fitErf(confirmes_h,      places, firstDate, lastDate, predictionsDate)
-fitdiffs, fitdiffs_res, fitdiffs_error             = fitGauss(newConfirmes_h, places, firstDate, lastDate, predictionsDate)
+fitdiffs, fitdiffs_res, fitdiffs_error             = fitGaussAsymmetric(newConfirmes_h, places, firstDate, lastDate, predictionsDate)
 fitexps, fitexps_res, fitexps_error                = fitExp(newConfirmes_h,   places, lastDate-8, lastDate, predictionsDate)
 fitexptotals, fitexptotals_res, fitexptotals_error = fitExp(confirmes_h,      places, lastDate-8, lastDate, predictionsDate)
+fitdiffDeaths, fitdiffDeaths_res, fitdiffDeaths_error = fitGaussAsymmetric(newDeaths_h, places, firstDate, lastDate, predictionsDate)
+fitdiffRecoveres, fitdiffRecoveres_res, fitdiffRecoveres_error = fitGaussAsymmetric(newRecoveres_h, places, firstDate, lastDate, predictionsDate)
 
 for a in positives_h.values(): a.SetName('histo_')
 
@@ -250,8 +253,15 @@ predictions = getPrediction(places, dates, startDate, endDate, confirmes_h, fitd
 #predictionHistos = makeHistos("histo_predictions",    predictions, dates, startDate, endDate, predictionsDate, 0, errorType='dictionary')
 predictions_h = makeHistos("histo_predictions",    predictions, dates, places, startDate, None, endDate, threshold=0, cutTails=False, errorType='dictionary', lineWidth=3)
 
+predictionDeaths = getPrediction(places, dates, startDate, endDate, deaths_h, fitdiffDeaths, fitdiffDeaths_res, deaths)
+predictionDeaths_h = makeHistos("histo_predictionDeaths",    predictionDeaths, dates, places, startDate, None, endDate, threshold=0, cutTails=False, errorType='dictionary', lineWidth=3)
+
+predictionRecoveres = getPrediction(places, dates, startDate, endDate, recoveres_h, fitdiffRecoveres, fitdiffRecoveres_res, recoveres)
+predictionRecoveres_h = makeHistos("histo_predictionRecoveres",    predictionRecoveres, dates, places, startDate, None, endDate, threshold=0, cutTails=False, errorType='dictionary', lineWidth=3)
 
 saveCSV(predictions, places, dates, "prediction.csv", "prediction_error.csv")
+saveCSV(predictionDeaths, places, dates, "predictionDeath.csv", "predictionDeath_error.csv")
+saveCSV(predictionRecoveres, places, dates, "predictionRecovered.csv", "predictionRecovered_error.csv")
 
 
 c5 = ROOT.TCanvas("c5","",resX,resY)
@@ -284,10 +294,14 @@ for place in places:
     fitexptotals[place].fitResult = fitexptotals_res[place]
     fitdiffs[place].error = fitdiffs_error[place]
     fitdiffs[place].fitResult = fitdiffs_res[place]
+    fitdiffDeaths[place].error = fitdiffDeaths_error[place]
+    fitdiffDeaths[place].fitResult = fitdiffDeaths_res[place]
+    fitdiffRecoveres[place].error = fitdiffRecoveres_error[place]
+    fitdiffRecoveres[place].fitResult = fitdiffRecoveres_res[place]
     fitexps[place].error = None
     fitexps[place].fitResult = None
-    savePlotNew([confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], shiftConf], [fitexptotals[place]], "plots/%s.png"%place, startDate, c3)
-    savePlotNew([newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], shiftNewConf], [fitdiffs[place], fitexps[place]], "plots/%s_newCases.png"%place, startDate, c5)
+    savePlotNew([confirmes_h[place], recoveres_h[place], deaths_h[place], predictions_h[place], predictionDeaths_h[place], predictionRecoveres_h[place], shiftConf], [fitexptotals[place]], "plots/%s.png"%place, startDate, c3)
+    savePlotNew([newConfirmes_h[place], newRecoveres_h[place], newDeaths_h[place], shiftNewConf], [fitdiffs[place], fitdiffRecoveres[place], fitdiffDeaths[place], fitexps[place]], "plots/%s_newCases.png"%place, startDate, c5)
 
 '''
 
