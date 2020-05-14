@@ -8,8 +8,13 @@
 
 ```diff
 <<<<<<< HEAD
+<<<<<<< HEAD
 - 26/04/2020: Valle d'Aosta Region data recalculated (cases tested)
 =======
+=======
+- 14/05/2020: Sardegna Region data recalculation of deceased people (+5)
+- 12/05/2020: Lombardia Region add 419 positive cases diagnosed before the last 7 days
+>>>>>>> 43378f4b4b9012f72d4b168131ae9a48b4c4b08f
 - 08/05/2020: Basilicata Region data recalculation of positives (decrease)
 - 07/05/2020: Basilicata Region data recalculation of positives (decrease)
 - 06/05/2020: Lombardia Region data update of recovered people (increase)

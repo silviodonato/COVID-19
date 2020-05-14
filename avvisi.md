@@ -8,7 +8,12 @@
 
 ```diff
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+- 14/05/2020: dati Regione Sardegna ricalcolo decessi (+s5)
+- 12/05/2020: dati Regione Lombardia aggiunti 419 casi positivi con diagnosi prima
+>>>>>>> 43378f4b4b9012f72d4b168131ae9a48b4c4b08f
 - 08/05/2020: dati Regione Basilicata ricalcolo casi positivi (diminuzione)
 - 07/05/2020: dati Regione Basilicata ricalcolo casi positivi (diminuzione)
 - 06/05/2020: dati Regione Lombardia aggiornamento dimessi guariti (aumento)

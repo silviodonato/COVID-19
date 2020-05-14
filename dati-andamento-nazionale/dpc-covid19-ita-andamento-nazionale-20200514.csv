@@ -1,10 +1,2 @@
 data,stato,ricoverati_con_sintomi,terapia_intensiva,totale_ospedalizzati,isolamento_domiciliare,totale_positivi,variazione_totale_positivi,nuovi_positivi,dimessi_guariti,deceduti,totale_casi,tamponi,casi_testati,note_it,note_en
-<<<<<<< HEAD
-<<<<<<< HEAD
-2020-04-30T17:00:00,ITA,18149,1694,19843,81708,101551,-3106,1872,75945,27967,205463,1979217,1354901,,
-=======
-2020-05-11T17:00:00,ITA,13539,999,14538,67950,82488,-836,744,106587,30739,219814,2606652,1702283,,
->>>>>>> 07d5abf659ab09feb6ce3d702172666f392f497d
-=======
 2020-05-14T17:00:00,ITA,11453,855,12308,64132,76440,-2017,992,115288,31368,223096,2807504,1820083,dc-IT-0029,dc-EN-0029
->>>>>>> 43378f4b4b9012f72d4b168131ae9a48b4c4b08f
