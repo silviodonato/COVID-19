@@ -9,9 +9,14 @@
 ```diff
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 - 14/05/2020: dati Regione Sardegna ricalcolo decessi (+s5)
+=======
+- 15/05/2020: dati Regione Lazio 73 nuovi positivi di cui 18 ultime 24/48 ore e 55 da segnalazioni recuperate di casi di marzo, aprile e maggio
+- 14/05/2020: dati Regione Sardegna ricalcolo decessi (+5)
+>>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
 - 12/05/2020: dati Regione Lombardia aggiunti 419 casi positivi con diagnosi prima
 >>>>>>> 43378f4b4b9012f72d4b168131ae9a48b4c4b08f
 - 08/05/2020: dati Regione Basilicata ricalcolo casi positivi (diminuzione)

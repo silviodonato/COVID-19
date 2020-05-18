@@ -102,7 +102,7 @@
         "data": "2020-03-16T17:00:00",
         "dataset": "dati-regioni",
         "stato": "ITA",
-        "codice_regione": 4,
+        "codice_regione": 22,
         "regione": "P.A. Trento",
         "codice_provincia": null,
         "provincia": "",
@@ -116,7 +116,7 @@
         "data": "2020-03-16T17:00:00",
         "dataset": "dati-andamento-nazionale",
         "stato": "ITA",
-        "codice_regione": 4,
+        "codice_regione": 22,
         "regione": "P.A. Trento",
         "codice_provincia": null,
         "provincia": "",
@@ -354,7 +354,7 @@
         "data": "2020-04-12T17:00:00",
         "dataset": "dati-province",
         "stato": "ITA",
-        "codice_regione": 4,
+        "codice_regione": 21,
         "regione": "P.A. Bolzano",
         "codice_provincia": 21,
         "provincia": "Bolzano",
@@ -368,7 +368,7 @@
         "data": "2020-04-12T17:00:00",
         "dataset": "dati-regioni",
         "stato": "ITA",
-        "codice_regione": 4,
+        "codice_regione": 21,
         "regione": "P.A. Bolzano",
         "codice_provincia": null,
         "provincia": "",
@@ -382,7 +382,7 @@
         "data": "2020-04-12T17:00:00",
         "dataset": "dati-andamento-nazionale",
         "stato": "ITA",
-        "codice_regione": 4,
+        "codice_regione": 21,
         "regione": "P.A. Bolzano",
         "codice_provincia": null,
         "provincia": "",
@@ -839,6 +839,37 @@
         "tipologia_avviso": "data correction",
         "avviso": "recalculation of information",
         "note": "recalculation of deceased people (+5)"
+<<<<<<< HEAD
 >>>>>>> 43378f4b4b9012f72d4b168131ae9a48b4c4b08f
+=======
+    },
+    {
+        "codice": "dc-EN-0030",
+        "data": "2020-04-15T17:00:00",
+        "dataset": "dati-regioni",
+        "stato": "ITA",
+        "codice_regione": 12,
+        "regione": "Lazio",
+        "codice_provincia": null,
+        "provincia": "",
+        "sigla_provincia": "",
+        "tipologia_avviso": "data correction",
+        "avviso": "recalculation of information",
+        "note": "73 new positives of which 18 relating to the last 24/48 hours and 55 recovered from reports of cases in March April and May"
+    },
+    {
+        "codice": "dc-EN-0031",
+        "data": "2020-04-15T17:00:00",
+        "dataset": "dati-andamento-nazionale",
+        "stato": "ITA",
+        "codice_regione": 12,
+        "regione": "Lazio",
+        "codice_provincia": null,
+        "provincia": "",
+        "sigla_provincia": "",
+        "tipologia_avviso": "data correction",
+        "avviso": "recalculation of information",
+        "note": "73 new positives of which 18 relating to the last 24/48 hours and 55 recovered from reports of cases in March April and May"
+>>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
     }
 ]

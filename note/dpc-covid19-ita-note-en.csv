@@ -6,8 +6,8 @@ pd-EN-0004,2020-03-10T17:00:00,dati-regioni,ITA,03,Lombardia,,,,partial data,par
 nd-EN-0005,2020-03-10T17:00:00,dati-andamento-nazionale,ITA,03,Lombardia,,,,partial data,partial communication of data,
 nd-EN-0006,2020-03-11T17:00:00,dati-regioni,ITA,13,Abruzzo,,,,no data,no data has been sent,
 nd-EN-0007,2020-03-11T17:00:00,dati-andamento-nazionale,ITA,13,Abruzzo,,,,no data,no data has been sent,
-nd-EN-0008,2020-03-16T17:00:00,dati-regioni,ITA,04,P.A. Trento,,,,no data,no data has been sent,
-nd-EN-0009,2020-03-16T17:00:00,dati-andamento-nazionale,ITA,04,P.A. Trento,,,,no data,no data has been sent,
+nd-EN-0008,2020-03-16T17:00:00,dati-regioni,ITA,22,P.A. Trento,,,,no data,no data has been sent,
+nd-EN-0009,2020-03-16T17:00:00,dati-andamento-nazionale,ITA,22,P.A. Trento,,,,no data,no data has been sent,
 nd-EN-0010,2020-03-16T17:00:00,dati-regioni,ITA,16,Puglia,,,,no data,no data has been sent,
 nd-EN-0011,2020-03-16T17:00:00,dati-andamento-nazionale,ITA,16,Puglia,,,,no data,no data has been sent,
 nd-EN-0012,2020-03-17T17:00:00,dati-province,ITA,08,Emilia-Romagna,099,Rimini,RN,no data,no data has been sent,
@@ -24,9 +24,9 @@ pd-EN-0008,2020-03-29T17:00:00,dati-regioni,ITA,08,Emilia-Romagna,,,,partial dat
 pd-EN-0009,2020-03-29T17:00:00,dati-andamento-nazionale,ITA,08,Emilia-Romagna,,,,partial data,partial communication of data, tests data not updated
 pd-EN-0010,2020-04-10T17:00:00,dati-regioni,ITA,14,Molise,,,,partial data,partial communication of data,tests data not updated
 pd-EN-0011,2020-04-10T17:00:00,dati-andamento-nazionale,ITA,14,Molise,,,,partial data,partial communication of data, tests data not updated
-dc-EN-0001,2020-04-12T17:00:00,dati-province,ITA,04,P.A. Bolzano,021,Bolzano,BZ,data correction,recalculation of informations,recalculation recovered (-110 compared to yesterday)
-dc-EN-0002,2020-04-12T17:00:00,dati-regioni,ITA,04,P.A. Bolzano,,,,data correction,recalculation of informations,recalculation of recovered (-110 compared to yesterday)
-dc-EN-0003,2020-04-12T17:00:00,dati-andamento-nazionale,ITA,04,P.A. Bolzano,,,,data correction,recalculation of informations,recalculation of recovered (-110 compared to yesterday)
+dc-EN-0001,2020-04-12T17:00:00,dati-province,ITA,21,P.A. Bolzano,021,Bolzano,BZ,data correction,recalculation of informations,recalculation recovered (-110 compared to yesterday)
+dc-EN-0002,2020-04-12T17:00:00,dati-regioni,ITA,21,P.A. Bolzano,,,,data correction,recalculation of informations,recalculation of recovered (-110 compared to yesterday)
+dc-EN-0003,2020-04-12T17:00:00,dati-andamento-nazionale,ITA,21,P.A. Bolzano,,,,data correction,recalculation of informations,recalculation of recovered (-110 compared to yesterday)
 dc-EN-0004,2020-04-15T17:00:00,dati-regioni,ITA,06,Friuli Venezia Giulia,,,,data correction,recalculation of informations,recalculation of home isolation and recovered
 dc-EN-0005,2020-04-15T17:00:00,dati-andamento-nazionale,ITA,06,Friuli Venezia Giulia,,,,data correction,recalculation of informations,recalculation of home isolation and recovered
 dc-EN-0006,2020-04-20T17:00:00,dati-regioni,ITA,03,Lombardia,,,,data correction,recalculation of informations,recalculation of tested cases (duplicates removed)
@@ -69,4 +69,9 @@ dc-EN-0026,2020-05-12T17:00:00,dati-regioni,ITA,03,Lombardia,,,,data correction,
 dc-EN-0027,2020-05-12T17:00:00,dati-andamento-nazionale,ITA,03,Lombardia,,,,data correction,recalculation of information,add 419 positive cases diagnosed before the last 7 days
 dc-EN-0028,2020-05-14T17:00:00,dati-regioni,ITA,20,Sardegna,,,,data correction,recalculation of information,recalculation of deceased people (+5)
 dc-EN-0029,2020-05-14T17:00:00,dati-andamento-nazionale,ITA,20,Sardegna,,,,data correction,recalculation of information,recalculation of deceased people (+5)
+<<<<<<< HEAD
 >>>>>>> 43378f4b4b9012f72d4b168131ae9a48b4c4b08f
+=======
+dc-EN-0030,2020-04-15T17:00:00,dati-regioni,ITA,12,Lazio,,,,data correction,recalculation of information,73 new positives of which 18 relating to the last 24/48 hours and 55 recovered from reports of cases in March April and May
+dc-EN-0031,2020-04-15T17:00:00,dati-andamento-nazionale,ITA,12,Lazio,,,,data correction,recalculation of information,73 new positives of which 18 relating to the last 24/48 hours and 55 recovered from reports of cases in March April and May
+>>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0

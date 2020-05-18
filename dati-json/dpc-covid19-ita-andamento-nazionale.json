@@ -1461,6 +1461,63 @@
         "casi_testati": 1820083,
         "note_it": "dc-IT-0029",
         "note_en": "dc-EN-0029"
+<<<<<<< HEAD
 >>>>>>> 43378f4b4b9012f72d4b168131ae9a48b4c4b08f
+=======
+    },
+    {
+        "data": "2020-05-15T17:00:00",
+        "stato": "ITA",
+        "ricoverati_con_sintomi": 10792,
+        "terapia_intensiva": 808,
+        "totale_ospedalizzati": 11600,
+        "isolamento_domiciliare": 60470,
+        "totale_positivi": 72070,
+        "variazione_totale_positivi": -4370,
+        "nuovi_positivi": 789,
+        "dimessi_guariti": 120205,
+        "deceduti": 31610,
+        "totale_casi": 223885,
+        "tamponi": 2875680,
+        "casi_testati": 1859110,
+        "note_it": "dc-IT-0031",
+        "note_en": "dc-EN-0031"
+    },
+    {
+        "data": "2020-05-16T17:00:00",
+        "stato": "ITA",
+        "ricoverati_con_sintomi": 10400,
+        "terapia_intensiva": 775,
+        "totale_ospedalizzati": 11175,
+        "isolamento_domiciliare": 59012,
+        "totale_positivi": 70187,
+        "variazione_totale_positivi": -1883,
+        "nuovi_positivi": 875,
+        "dimessi_guariti": 122810,
+        "deceduti": 31763,
+        "totale_casi": 224760,
+        "tamponi": 2944859,
+        "casi_testati": 1899767,
+        "note_it": "",
+        "note_en": ""
+    },
+    {
+        "data": "2020-05-17T17:00:00",
+        "stato": "ITA",
+        "ricoverati_con_sintomi": 10311,
+        "terapia_intensiva": 762,
+        "totale_ospedalizzati": 11073,
+        "isolamento_domiciliare": 57278,
+        "totale_positivi": 68351,
+        "variazione_totale_positivi": -1836,
+        "nuovi_positivi": 675,
+        "dimessi_guariti": 125176,
+        "deceduti": 31908,
+        "totale_casi": 225435,
+        "tamponi": 3004960,
+        "casi_testati": 1933272,
+        "note_it": "",
+        "note_en": ""
+>>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
     }
 ]

@@ -9,9 +9,13 @@
 ```diff
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 - 26/04/2020: Valle d'Aosta Region data recalculated (cases tested)
 =======
 =======
+=======
+- 15/05/2020: Lazio Region 73 new positives, of which 18 relating to the last 24/48 hours and 55 recovered from reports of cases in March, April and May
+>>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
 - 14/05/2020: Sardegna Region data recalculation of deceased people (+5)
 - 12/05/2020: Lombardia Region add 419 positive cases diagnosed before the last 7 days
 >>>>>>> 43378f4b4b9012f72d4b168131ae9a48b4c4b08f
