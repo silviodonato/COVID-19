@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -13,6 +14,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 13,
         "denominazione_regione": "Abruzzo",
@@ -21,6 +25,7 @@
         "sigla_provincia": "CH",
         "lat": 42.35103167,
         "long": 14.16754574,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -34,10 +39,14 @@
 =======
         "totale_casi": 804,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 817,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -51,6 +60,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 13,
         "denominazione_regione": "Abruzzo",
@@ -67,6 +79,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -77,6 +90,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 13,
         "denominazione_regione": "Abruzzo",
@@ -85,6 +101,7 @@
         "sigla_provincia": "PE",
         "lat": 42.46458398,
         "long": 14.21364822,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -98,10 +115,14 @@
 =======
         "totale_casi": 1488,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1508,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -115,6 +136,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 13,
         "denominazione_regione": "Abruzzo",
@@ -123,6 +147,7 @@
         "sigla_provincia": "TE",
         "lat": 42.6589177,
         "long": 13.70439971,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -136,10 +161,14 @@
 =======
         "totale_casi": 648,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 650,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -153,6 +182,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 13,
         "denominazione_regione": "Abruzzo",
@@ -169,6 +201,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -179,6 +212,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 17,
         "denominazione_regione": "Basilicata",
@@ -187,6 +223,7 @@
         "sigla_provincia": "MT",
         "lat": 40.66751177,
         "long": 16.59792442,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -200,10 +237,14 @@
 =======
         "totale_casi": 207,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 208,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -217,6 +258,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 17,
         "denominazione_regione": "Basilicata",
@@ -225,6 +269,7 @@
         "sigla_provincia": "PZ",
         "lat": 40.63947052,
         "long": 15.80514834,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -238,10 +283,14 @@
 =======
         "totale_casi": 185,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 190,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -255,6 +304,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 17,
         "denominazione_regione": "Basilicata",
@@ -271,6 +323,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -281,6 +334,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 21,
         "denominazione_regione": "P.A. Bolzano",
@@ -289,6 +345,7 @@
         "sigla_provincia": "BZ",
         "lat": 46.49933453,
         "long": 11.35662422,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -302,10 +359,14 @@
 =======
         "totale_casi": 2581,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 2590,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -319,6 +380,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 21,
         "denominazione_regione": "P.A. Bolzano",
@@ -335,6 +399,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -345,6 +410,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 18,
         "denominazione_regione": "Calabria",
@@ -354,14 +422,19 @@
         "lat": 38.90597598,
         "long": 16.59440194,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "totale_casi": 207,
 =======
         "totale_casi": 211,
 >>>>>>> 07d5abf659ab09feb6ce3d702172666f392f497d
+=======
+        "totale_casi": 214,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -375,6 +448,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 18,
         "denominazione_regione": "Calabria",
@@ -383,6 +459,7 @@
         "sigla_provincia": "CS",
         "lat": 39.29308681,
         "long": 16.25609692,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -396,10 +473,14 @@
 =======
         "totale_casi": 467,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 468,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -413,6 +494,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 18,
         "denominazione_regione": "Calabria",
@@ -429,6 +513,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -439,6 +524,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 18,
         "denominazione_regione": "Calabria",
@@ -447,6 +535,7 @@
         "sigla_provincia": "RC",
         "lat": 38.10922769,
         "long": 15.6434527,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -460,10 +549,14 @@
 =======
         "totale_casi": 272,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 274,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -477,6 +570,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 18,
         "denominazione_regione": "Calabria",
@@ -505,6 +601,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -515,6 +612,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 18,
         "denominazione_regione": "Calabria",
@@ -531,6 +631,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -541,6 +642,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 15,
         "denominazione_regione": "Campania",
@@ -549,6 +653,7 @@
         "sigla_provincia": "AV",
         "lat": 40.91404699,
         "long": 14.79528803,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -562,10 +667,14 @@
 =======
         "totale_casi": 518,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 537,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -579,6 +688,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 15,
         "denominazione_regione": "Campania",
@@ -587,6 +699,7 @@
         "sigla_provincia": "BN",
         "lat": 41.12969987,
         "long": 14.78151683,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -600,10 +713,14 @@
 =======
         "totale_casi": 196,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 204,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -617,6 +734,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 15,
         "denominazione_regione": "Campania",
@@ -625,6 +745,7 @@
         "sigla_provincia": "CE",
         "lat": 41.07465878,
         "long": 14.33240464,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -638,10 +759,14 @@
 =======
         "totale_casi": 446,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 453,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -655,6 +780,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 15,
         "denominazione_regione": "Campania",
@@ -663,6 +791,7 @@
         "sigla_provincia": "NA",
         "lat": 40.83956555,
         "long": 14.25084984,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -676,10 +805,14 @@
 =======
         "totale_casi": 2571,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 2585,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -693,6 +826,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 15,
         "denominazione_regione": "Campania",
@@ -701,6 +837,7 @@
         "sigla_provincia": "SA",
         "lat": 40.67821961,
         "long": 14.7594026,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -714,10 +851,14 @@
 =======
         "totale_casi": 673,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 677,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -731,6 +872,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 15,
         "denominazione_regione": "Campania",
@@ -739,6 +883,7 @@
         "sigla_provincia": "",
         "lat": 0,
         "long": 0,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -752,10 +897,14 @@
 =======
         "totale_casi": 280,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 288,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -769,6 +918,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 8,
         "denominazione_regione": "Emilia-Romagna",
@@ -777,6 +929,7 @@
         "sigla_provincia": "BO",
         "lat": 44.49436681,
         "long": 11.3417208,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -790,10 +943,14 @@
 =======
         "totale_casi": 4880,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 4931,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -807,6 +964,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 8,
         "denominazione_regione": "Emilia-Romagna",
@@ -817,6 +977,7 @@
         "long": 11.61868934,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "totale_casi": 921,
 =======
         "totale_casi": 977,
@@ -824,10 +985,14 @@
 =======
         "totale_casi": 980,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 985,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -841,6 +1006,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 8,
         "denominazione_regione": "Emilia-Romagna",
@@ -849,6 +1017,7 @@
         "sigla_provincia": "FC",
         "lat": 44.22268559,
         "long": 12.04068608,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -862,10 +1031,14 @@
 =======
         "totale_casi": 1700,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1715,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -879,6 +1052,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 8,
         "denominazione_regione": "Emilia-Romagna",
@@ -887,6 +1063,7 @@
         "sigla_provincia": "MO",
         "lat": 44.64600009,
         "long": 10.92615487,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -900,10 +1077,14 @@
 =======
         "totale_casi": 3871,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 3895,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -917,6 +1098,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 8,
         "denominazione_regione": "Emilia-Romagna",
@@ -925,6 +1109,7 @@
         "sigla_provincia": "PR",
         "lat": 44.80107394,
         "long": 10.32834985,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -938,10 +1123,14 @@
 =======
         "totale_casi": 3379,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 3456,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -955,6 +1144,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 8,
         "denominazione_regione": "Emilia-Romagna",
@@ -963,6 +1155,7 @@
         "sigla_provincia": "PC",
         "lat": 45.05193462,
         "long": 9.692632596,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -976,10 +1169,14 @@
 =======
         "totale_casi": 4422,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 4457,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -993,6 +1190,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 8,
         "denominazione_regione": "Emilia-Romagna",
@@ -1001,6 +1201,7 @@
         "sigla_provincia": "RA",
         "lat": 44.41722493,
         "long": 12.19913936,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1014,10 +1215,14 @@
 =======
         "totale_casi": 1012,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1018,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1031,6 +1236,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 8,
         "denominazione_regione": "Emilia-Romagna",
@@ -1039,6 +1247,7 @@
         "sigla_provincia": "RE",
         "lat": 44.69735289,
         "long": 10.63007973,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1052,10 +1261,14 @@
 =======
         "totale_casi": 4891,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 4922,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1069,6 +1282,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 8,
         "denominazione_regione": "Emilia-Romagna",
@@ -1077,6 +1293,7 @@
         "sigla_provincia": "RN",
         "lat": 44.06090087,
         "long": 12.5656295,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1090,10 +1307,14 @@
 =======
         "totale_casi": 2097,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 2134,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1107,6 +1328,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 8,
         "denominazione_regione": "Emilia-Romagna",
@@ -1123,6 +1347,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -1133,6 +1358,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 6,
         "denominazione_regione": "Friuli Venezia Giulia",
@@ -1141,6 +1369,7 @@
         "sigla_provincia": "GO",
         "lat": 45.94149817,
         "long": 13.62212502,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1154,10 +1383,14 @@
 =======
         "totale_casi": 203,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 210,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1171,6 +1404,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 6,
         "denominazione_regione": "Friuli Venezia Giulia",
@@ -1179,6 +1415,7 @@
         "sigla_provincia": "PN",
         "lat": 45.95443546,
         "long": 12.66002909,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1192,10 +1429,14 @@
 =======
         "totale_casi": 667,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 672,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1209,6 +1450,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 6,
         "denominazione_regione": "Friuli Venezia Giulia",
@@ -1217,6 +1461,7 @@
         "sigla_provincia": "TS",
         "lat": 45.6494354,
         "long": 13.76813649,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1230,10 +1475,14 @@
 =======
         "totale_casi": 1348,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1372,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1247,6 +1496,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 6,
         "denominazione_regione": "Friuli Venezia Giulia",
@@ -1255,6 +1507,7 @@
         "sigla_provincia": "UD",
         "lat": 46.06255516,
         "long": 13.2348383,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1268,10 +1521,14 @@
 =======
         "totale_casi": 973,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 979,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1285,6 +1542,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 6,
         "denominazione_regione": "Friuli Venezia Giulia",
@@ -1305,6 +1565,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -1315,6 +1576,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 12,
         "denominazione_regione": "Lazio",
@@ -1325,6 +1589,7 @@
         "long": 13.35117161,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "totale_casi": 566,
 =======
         "totale_casi": 579,
@@ -1332,10 +1597,14 @@
 =======
         "totale_casi": 583,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 612,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1349,6 +1618,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 12,
         "denominazione_regione": "Lazio",
@@ -1359,6 +1631,7 @@
         "long": 12.90368482,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "totale_casi": 491,
 =======
         "totale_casi": 511,
@@ -1366,10 +1639,14 @@
 =======
         "totale_casi": 517,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 529,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1383,6 +1660,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 12,
         "denominazione_regione": "Lazio",
@@ -1411,6 +1691,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -1421,6 +1702,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 12,
         "denominazione_regione": "Lazio",
@@ -1429,6 +1713,7 @@
         "sigla_provincia": "RM",
         "lat": 41.89277044,
         "long": 12.48366722,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1442,10 +1727,14 @@
 =======
         "totale_casi": 5436,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 5549,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1459,6 +1748,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 12,
         "denominazione_regione": "Lazio",
@@ -1467,6 +1759,7 @@
         "sigla_provincia": "VT",
         "lat": 42.4173828,
         "long": 12.10473416,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1480,10 +1773,14 @@
 =======
         "totale_casi": 421,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 426,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1497,6 +1794,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 12,
         "denominazione_regione": "Lazio",
@@ -1505,6 +1805,7 @@
         "sigla_provincia": "",
         "lat": 0,
         "long": 0,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1518,10 +1819,14 @@
 =======
         "totale_casi": 111,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 113,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1535,6 +1840,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 7,
         "denominazione_regione": "Liguria",
@@ -1543,6 +1851,7 @@
         "sigla_provincia": "GE",
         "lat": 44.41149314,
         "long": 8.9326992,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1556,10 +1865,14 @@
 =======
         "totale_casi": 5288,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 5493,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1573,6 +1886,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 7,
         "denominazione_regione": "Liguria",
@@ -1581,6 +1897,7 @@
         "sigla_provincia": "IM",
         "lat": 43.88570648,
         "long": 8.027850298,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1594,10 +1911,14 @@
 =======
         "totale_casi": 1480,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1500,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1611,6 +1932,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 7,
         "denominazione_regione": "Liguria",
@@ -1619,6 +1943,7 @@
         "sigla_provincia": "SP",
         "lat": 44.10704991,
         "long": 9.8281897,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1632,10 +1957,14 @@
 =======
         "totale_casi": 902,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 897,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1649,6 +1978,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 7,
         "denominazione_regione": "Liguria",
@@ -1657,6 +1989,7 @@
         "sigla_provincia": "SV",
         "lat": 44.30750461,
         "long": 8.481108654,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1670,10 +2003,14 @@
 =======
         "totale_casi": 1485,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1535,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1687,6 +2024,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 7,
         "denominazione_regione": "Liguria",
@@ -1696,14 +2036,19 @@
         "lat": 0,
         "long": 0,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "totale_casi": 6,
 =======
         "totale_casi": 4,
 >>>>>>> 07d5abf659ab09feb6ce3d702172666f392f497d
+=======
+        "totale_casi": 2,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1717,6 +2062,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 3,
         "denominazione_regione": "Lombardia",
@@ -1725,6 +2073,7 @@
         "sigla_provincia": "BG",
         "lat": 45.69441368,
         "long": 9.668424528,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1738,10 +2087,14 @@
 =======
         "totale_casi": 12443,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 12834,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1755,6 +2108,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 3,
         "denominazione_regione": "Lombardia",
@@ -1763,6 +2119,7 @@
         "sigla_provincia": "BS",
         "lat": 45.53993052,
         "long": 10.21910323,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1776,10 +2133,14 @@
 =======
         "totale_casi": 14147,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 14417,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1793,6 +2154,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 3,
         "denominazione_regione": "Lombardia",
@@ -1801,6 +2165,7 @@
         "sigla_provincia": "CO",
         "lat": 45.8099912,
         "long": 9.085159546,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1814,10 +2179,14 @@
 =======
         "totale_casi": 3629,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 3747,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1831,6 +2200,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 3,
         "denominazione_regione": "Lombardia",
@@ -1839,6 +2211,7 @@
         "sigla_provincia": "CR",
         "lat": 45.13336675,
         "long": 10.02420865,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1852,10 +2225,14 @@
 =======
         "totale_casi": 6323,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 6383,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1869,6 +2246,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 3,
         "denominazione_regione": "Lombardia",
@@ -1877,6 +2257,7 @@
         "sigla_provincia": "LC",
         "lat": 45.85575781,
         "long": 9.393392246,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1890,10 +2271,14 @@
 =======
         "totale_casi": 2645,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 2717,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1907,6 +2292,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 3,
         "denominazione_regione": "Lombardia",
@@ -1915,6 +2303,7 @@
         "sigla_provincia": "LO",
         "lat": 45.31440693,
         "long": 9.503720769,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1928,10 +2317,14 @@
 =======
         "totale_casi": 3351,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 3400,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1945,6 +2338,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 3,
         "denominazione_regione": "Lombardia",
@@ -1953,6 +2349,7 @@
         "sigla_provincia": "MN",
         "lat": 45.15726772,
         "long": 10.79277363,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1966,10 +2363,14 @@
 =======
         "totale_casi": 3291,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 3314,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1983,6 +2384,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 3,
         "denominazione_regione": "Lombardia",
@@ -1991,6 +2395,7 @@
         "sigla_provincia": "MI",
         "lat": 45.46679409,
         "long": 9.190347404,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2004,10 +2409,14 @@
 =======
         "totale_casi": 22151,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 22616,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2021,6 +2430,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 3,
         "denominazione_regione": "Lombardia",
@@ -2029,6 +2441,7 @@
         "sigla_provincia": "MB",
         "lat": 45.58439043,
         "long": 9.273582472,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2042,10 +2455,14 @@
 =======
         "totale_casi": 5287,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 5421,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2059,6 +2476,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 3,
         "denominazione_regione": "Lombardia",
@@ -2067,6 +2487,7 @@
         "sigla_provincia": "PV",
         "lat": 45.18509264,
         "long": 9.160157191,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2080,10 +2501,14 @@
 =======
         "totale_casi": 4979,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 5184,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2097,6 +2522,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 3,
         "denominazione_regione": "Lombardia",
@@ -2105,6 +2533,7 @@
         "sigla_provincia": "SO",
         "lat": 46.17099261,
         "long": 9.87147489,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2118,10 +2547,14 @@
 =======
         "totale_casi": 1367,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1414,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2135,6 +2568,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 3,
         "denominazione_regione": "Lombardia",
@@ -2143,6 +2579,7 @@
         "sigla_provincia": "VA",
         "lat": 45.81701677,
         "long": 8.822868344,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2156,10 +2593,14 @@
 =======
         "totale_casi": 3379,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 3490,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2173,6 +2614,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 3,
         "denominazione_regione": "Lombardia",
@@ -2181,6 +2625,7 @@
         "sigla_provincia": "",
         "lat": 0,
         "long": 0,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2194,10 +2639,14 @@
 =======
         "totale_casi": 1852,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1888,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2211,6 +2660,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 11,
         "denominazione_regione": "Marche",
@@ -2219,6 +2671,7 @@
         "sigla_provincia": "AN",
         "lat": 43.61675973,
         "long": 13.5188753,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2232,10 +2685,14 @@
 =======
         "totale_casi": 1859,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1863,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2249,6 +2706,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 11,
         "denominazione_regione": "Marche",
@@ -2273,6 +2733,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -2283,6 +2744,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 11,
         "denominazione_regione": "Marche",
@@ -2293,6 +2757,7 @@
         "long": 13.71839535,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "totale_casi": 435,
 =======
         "totale_casi": 455,
@@ -2300,10 +2765,14 @@
 =======
         "totale_casi": 458,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 465,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2317,6 +2786,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 11,
         "denominazione_regione": "Marche",
@@ -2325,6 +2797,7 @@
         "sigla_provincia": "MC",
         "lat": 43.30023926,
         "long": 13.45307182,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2338,10 +2811,14 @@
 =======
         "totale_casi": 1103,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1114,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2355,6 +2832,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 11,
         "denominazione_regione": "Marche",
@@ -2363,6 +2843,7 @@
         "sigla_provincia": "PU",
         "lat": 43.91014021,
         "long": 12.91345989,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2376,10 +2857,14 @@
 =======
         "totale_casi": 2730,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 2738,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2393,6 +2878,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 11,
         "denominazione_regione": "Marche",
@@ -2401,6 +2889,7 @@
         "sigla_provincia": "",
         "lat": 0,
         "long": 0,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2414,10 +2903,14 @@
 =======
         "totale_casi": 227,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 231,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2431,6 +2924,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 14,
         "denominazione_regione": "Molise",
@@ -2439,6 +2935,7 @@
         "sigla_provincia": "CB",
         "lat": 41.55774754,
         "long": 14.65916051,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2452,10 +2949,14 @@
 =======
         "totale_casi": 335,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 354,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2469,6 +2970,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 14,
         "denominazione_regione": "Molise",
@@ -2478,14 +2982,19 @@
         "lat": 41.58800826,
         "long": 14.22575407,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "totale_casi": 56,
 =======
         "totale_casi": 57,
 >>>>>>> 07d5abf659ab09feb6ce3d702172666f392f497d
+=======
+        "totale_casi": 58,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2499,6 +3008,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 14,
         "denominazione_regione": "Molise",
@@ -2519,6 +3031,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -2529,6 +3042,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 1,
         "denominazione_regione": "Piemonte",
@@ -2537,6 +3053,7 @@
         "sigla_provincia": "AL",
         "lat": 44.91297351,
         "long": 8.615401155,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2550,10 +3067,14 @@
 =======
         "totale_casi": 3796,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 3845,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2567,6 +3088,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 1,
         "denominazione_regione": "Piemonte",
@@ -2575,6 +3099,7 @@
         "sigla_provincia": "AT",
         "lat": 44.89912921,
         "long": 8.204142547,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2588,10 +3113,14 @@
 =======
         "totale_casi": 1748,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1768,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2605,6 +3134,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 1,
         "denominazione_regione": "Piemonte",
@@ -2613,6 +3145,7 @@
         "sigla_provincia": "BI",
         "lat": 45.5665112,
         "long": 8.054082167,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2626,10 +3159,14 @@
 =======
         "totale_casi": 1023,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1030,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2643,6 +3180,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 1,
         "denominazione_regione": "Piemonte",
@@ -2651,6 +3191,7 @@
         "sigla_provincia": "CN",
         "lat": 44.39329625,
         "long": 7.551171632,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2664,10 +3205,14 @@
 =======
         "totale_casi": 2688,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 2730,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2681,6 +3226,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 1,
         "denominazione_regione": "Piemonte",
@@ -2689,6 +3237,7 @@
         "sigla_provincia": "NO",
         "lat": 45.44588506,
         "long": 8.621915884,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2702,10 +3251,14 @@
 =======
         "totale_casi": 2574,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 2657,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2719,6 +3272,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 1,
         "denominazione_regione": "Piemonte",
@@ -2727,6 +3283,7 @@
         "sigla_provincia": "TO",
         "lat": 45.0732745,
         "long": 7.680687483,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2740,10 +3297,14 @@
 =======
         "totale_casi": 15025,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 15382,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2757,6 +3318,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 1,
         "denominazione_regione": "Piemonte",
@@ -2765,6 +3329,7 @@
         "sigla_provincia": "VB",
         "lat": 45.9214455,
         "long": 8.551078753,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2778,10 +3343,14 @@
 =======
         "totale_casi": 1100,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1103,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2795,6 +3364,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 1,
         "denominazione_regione": "Piemonte",
@@ -2803,6 +3375,7 @@
         "sigla_provincia": "VC",
         "lat": 45.32398135,
         "long": 8.423234312,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2816,10 +3389,14 @@
 =======
         "totale_casi": 1248,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1267,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2833,6 +3410,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 1,
         "denominazione_regione": "Piemonte",
@@ -2841,6 +3421,7 @@
         "sigla_provincia": "",
         "lat": 0,
         "long": 0,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2854,10 +3435,14 @@
 =======
         "totale_casi": 345,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 355,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2871,6 +3456,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 16,
         "denominazione_regione": "Puglia",
@@ -2879,6 +3467,7 @@
         "sigla_provincia": "BA",
         "lat": 41.12559576,
         "long": 16.86736689,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2892,10 +3481,14 @@
 =======
         "totale_casi": 1435,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1462,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2909,6 +3502,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 16,
         "denominazione_regione": "Puglia",
@@ -2919,6 +3515,7 @@
         "long": 16.29520432,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "totale_casi": 373,
 =======
         "totale_casi": 381,
@@ -2926,10 +3523,14 @@
 =======
         "totale_casi": 382,
 >>>>>>> 43378f4b4b9012f72d4b168131ae9a48b4c4b08f
+=======
+        "totale_casi": 381,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2943,6 +3544,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 16,
         "denominazione_regione": "Puglia",
@@ -2951,6 +3555,7 @@
         "sigla_provincia": "BR",
         "lat": 40.63848545,
         "long": 17.94601575,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2964,10 +3569,14 @@
 =======
         "totale_casi": 622,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 651,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2981,6 +3590,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 16,
         "denominazione_regione": "Puglia",
@@ -2989,6 +3601,7 @@
         "sigla_provincia": "FG",
         "lat": 41.46226865,
         "long": 15.54305094,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3002,10 +3615,14 @@
 =======
         "totale_casi": 1127,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1135,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3019,6 +3636,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 16,
         "denominazione_regione": "Puglia",
@@ -3029,6 +3649,7 @@
         "long": 18.1718973,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "totale_casi": 487,
 =======
         "totale_casi": 505,
@@ -3036,10 +3657,14 @@
 =======
         "totale_casi": 508,
 >>>>>>> 43378f4b4b9012f72d4b168131ae9a48b4c4b08f
+=======
+        "totale_casi": 511,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3053,6 +3678,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 16,
         "denominazione_regione": "Puglia",
@@ -3063,6 +3691,7 @@
         "long": 17.23237181,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "totale_casi": 258,
 =======
         "totale_casi": 271,
@@ -3070,10 +3699,14 @@
 =======
         "totale_casi": 275,
 >>>>>>> 43378f4b4b9012f72d4b168131ae9a48b4c4b08f
+=======
+        "totale_casi": 278,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3087,6 +3720,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 16,
         "denominazione_regione": "Puglia",
@@ -3111,6 +3747,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -3121,6 +3758,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 20,
         "denominazione_regione": "Sardegna",
@@ -3129,6 +3769,7 @@
         "sigla_provincia": "CA",
         "lat": 39.21531192,
         "long": 9.110616306,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3142,10 +3783,14 @@
 =======
         "totale_casi": 248,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 249,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3159,6 +3804,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 20,
         "denominazione_regione": "Sardegna",
@@ -3183,6 +3831,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -3193,6 +3842,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 20,
         "denominazione_regione": "Sardegna",
@@ -3203,6 +3855,7 @@
         "long": 8.591183151,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "totale_casi": 54,
 =======
         "totale_casi": 57,
@@ -3210,10 +3863,14 @@
 =======
         "totale_casi": 58,
 >>>>>>> 43378f4b4b9012f72d4b168131ae9a48b4c4b08f
+=======
+        "totale_casi": 60,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3227,6 +3884,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 20,
         "denominazione_regione": "Sardegna",
@@ -3251,6 +3911,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -3261,6 +3922,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 20,
         "denominazione_regione": "Sardegna",
@@ -3281,6 +3945,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -3291,6 +3956,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 20,
         "denominazione_regione": "Sardegna",
@@ -3307,6 +3975,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -3317,6 +3986,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 19,
         "denominazione_regione": "Sicilia",
@@ -3341,6 +4013,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -3351,6 +4024,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 19,
         "denominazione_regione": "Sicilia",
@@ -3359,6 +4035,7 @@
         "sigla_provincia": "CL",
         "lat": 37.49213171,
         "long": 14.06184973,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3372,10 +4049,14 @@
 =======
         "totale_casi": 170,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 172,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3389,6 +4070,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 19,
         "denominazione_regione": "Sicilia",
@@ -3397,6 +4081,7 @@
         "sigla_provincia": "CT",
         "lat": 37.50287803,
         "long": 15.08704691,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3410,10 +4095,14 @@
 =======
         "totale_casi": 1061,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1067,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3427,6 +4116,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 19,
         "denominazione_regione": "Sicilia",
@@ -3447,6 +4139,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -3457,6 +4150,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 19,
         "denominazione_regione": "Sicilia",
@@ -3465,6 +4161,7 @@
         "sigla_provincia": "ME",
         "lat": 38.19395845,
         "long": 15.55572302,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3478,10 +4175,14 @@
 =======
         "totale_casi": 560,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 562,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3495,6 +4196,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 19,
         "denominazione_regione": "Sicilia",
@@ -3503,6 +4207,7 @@
         "sigla_provincia": "PA",
         "lat": 38.11569725,
         "long": 13.3623567,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3516,10 +4221,14 @@
 =======
         "totale_casi": 557,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 574,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3533,6 +4242,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 19,
         "denominazione_regione": "Sicilia",
@@ -3542,14 +4254,19 @@
         "lat": 36.92509198,
         "long": 14.73069891,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "totale_casi": 91,
 =======
         "totale_casi": 94,
 >>>>>>> 07d5abf659ab09feb6ce3d702172666f392f497d
+=======
+        "totale_casi": 97,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3563,6 +4280,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 19,
         "denominazione_regione": "Sicilia",
@@ -3571,6 +4291,7 @@
         "sigla_provincia": "SR",
         "lat": 37.05991687,
         "long": 15.29333182,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3584,10 +4305,14 @@
 =======
         "totale_casi": 245,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 248,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3601,6 +4326,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 19,
         "denominazione_regione": "Sicilia",
@@ -3617,6 +4345,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -3627,6 +4356,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 19,
         "denominazione_regione": "Sicilia",
@@ -3643,6 +4375,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -3653,6 +4386,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 9,
         "denominazione_regione": "Toscana",
@@ -3661,6 +4397,7 @@
         "sigla_provincia": "AR",
         "lat": 43.46642752,
         "long": 11.88228844,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3674,10 +4411,14 @@
 =======
         "totale_casi": 671,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 676,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3691,6 +4432,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 9,
         "denominazione_regione": "Toscana",
@@ -3699,6 +4443,7 @@
         "sigla_provincia": "FI",
         "lat": 43.76923077,
         "long": 11.25588885,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3712,10 +4457,14 @@
 =======
         "totale_casi": 3403,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 3445,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3729,6 +4478,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 9,
         "denominazione_regione": "Toscana",
@@ -3739,6 +4491,7 @@
         "long": 11.11356398,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "totale_casi": 406,
 =======
         "totale_casi": 421,
@@ -3746,10 +4499,14 @@
 =======
         "totale_casi": 422,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 423,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3763,6 +4520,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 9,
         "denominazione_regione": "Toscana",
@@ -3771,6 +4531,7 @@
         "sigla_provincia": "LI",
         "lat": 43.55234873,
         "long": 10.3086781,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3784,10 +4545,14 @@
 =======
         "totale_casi": 541,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 551,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3801,6 +4566,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 9,
         "denominazione_regione": "Toscana",
@@ -3809,6 +4577,7 @@
         "sigla_provincia": "LU",
         "lat": 43.84432283,
         "long": 10.50151366,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3822,10 +4591,14 @@
 =======
         "totale_casi": 1348,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1357,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3839,6 +4612,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 9,
         "denominazione_regione": "Toscana",
@@ -3847,6 +4623,7 @@
         "sigla_provincia": "MS",
         "lat": 44.03674425,
         "long": 10.14173829,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3860,10 +4637,14 @@
 =======
         "totale_casi": 1043,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1044,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3877,6 +4658,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 9,
         "denominazione_regione": "Toscana",
@@ -3885,6 +4669,7 @@
         "sigla_provincia": "PI",
         "lat": 43.71553206,
         "long": 10.40127259,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3898,10 +4683,14 @@
 =======
         "totale_casi": 878,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 885,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3915,6 +4704,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 9,
         "denominazione_regione": "Toscana",
@@ -3923,6 +4715,7 @@
         "sigla_provincia": "PT",
         "lat": 43.933465,
         "long": 10.91734146,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3936,10 +4729,14 @@
 =======
         "totale_casi": 661,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 669,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3953,6 +4750,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 9,
         "denominazione_regione": "Toscana",
@@ -3961,6 +4761,7 @@
         "sigla_provincia": "PO",
         "lat": 43.88062274,
         "long": 11.09703315,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3974,10 +4775,14 @@
 =======
         "totale_casi": 551,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 559,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3991,6 +4796,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 9,
         "denominazione_regione": "Toscana",
@@ -3999,6 +4807,7 @@
         "sigla_provincia": "SI",
         "lat": 43.31816374,
         "long": 11.33190988,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4012,10 +4821,14 @@
 =======
         "totale_casi": 430,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 438,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4029,6 +4842,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 9,
         "denominazione_regione": "Toscana",
@@ -4045,6 +4861,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -4055,6 +4872,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 22,
         "denominazione_regione": "P.A. Trento",
@@ -4063,6 +4883,7 @@
         "sigla_provincia": "TN",
         "lat": 46.06893511,
         "long": 11.12123097,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4076,10 +4897,14 @@
 =======
         "totale_casi": 4338,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 4395,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4093,6 +4918,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 22,
         "denominazione_regione": "P.A. Trento",
@@ -4109,6 +4937,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -4119,6 +4948,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 10,
         "denominazione_regione": "Umbria",
@@ -4127,6 +4959,7 @@
         "sigla_provincia": "PG",
         "lat": 43.10675841,
         "long": 12.38824698,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4140,10 +4973,14 @@
 =======
         "totale_casi": 999,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1003,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4157,6 +4994,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 10,
         "denominazione_regione": "Umbria",
@@ -4165,6 +5005,7 @@
         "sigla_provincia": "TR",
         "lat": 42.56071258,
         "long": 12.6466875,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4178,10 +5019,14 @@
 =======
         "totale_casi": 370,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 372,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4195,6 +5040,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 10,
         "denominazione_regione": "Umbria",
@@ -4219,6 +5067,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -4229,6 +5078,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 2,
         "denominazione_regione": "Valle d'Aosta",
@@ -4237,6 +5089,7 @@
         "sigla_provincia": "AO",
         "lat": 45.73750286,
         "long": 7.320149366,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4250,10 +5103,14 @@
 =======
         "totale_casi": 1173,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 1177,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4267,6 +5124,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 2,
         "denominazione_regione": "Valle d'Aosta",
@@ -4283,6 +5143,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -4293,6 +5154,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 5,
         "denominazione_regione": "Veneto",
@@ -4321,6 +5185,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "data": "2020-04-30T17:00:00",
 =======
         "data": "2020-05-11T17:00:00",
@@ -4331,6 +5196,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 5,
         "denominazione_regione": "Veneto",
@@ -4339,6 +5207,7 @@
         "sigla_provincia": "PD",
         "lat": 45.40692987,
         "long": 11.87608718,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4352,10 +5221,14 @@
 =======
         "totale_casi": 3914,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 3927,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4369,6 +5242,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 5,
         "denominazione_regione": "Veneto",
@@ -4377,6 +5253,7 @@
         "sigla_provincia": "RO",
         "lat": 45.07107289,
         "long": 11.79007,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4390,10 +5267,14 @@
 =======
         "totale_casi": 438,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 441,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4407,6 +5288,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 5,
         "denominazione_regione": "Veneto",
@@ -4415,6 +5299,7 @@
         "sigla_provincia": "TV",
         "lat": 45.66754571,
         "long": 12.24507363,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4428,10 +5313,14 @@
 =======
         "totale_casi": 2637,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 2654,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4445,6 +5334,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 5,
         "denominazione_regione": "Veneto",
@@ -4453,6 +5345,7 @@
         "sigla_provincia": "VE",
         "lat": 45.43490485,
         "long": 12.33845213,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4466,10 +5359,14 @@
 =======
         "totale_casi": 2632,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 2649,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4483,6 +5380,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 5,
         "denominazione_regione": "Veneto",
@@ -4491,6 +5391,7 @@
         "sigla_provincia": "VR",
         "lat": 45.43839046,
         "long": 10.99352685,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4504,10 +5405,14 @@
 =======
         "totale_casi": 5006,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 5069,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4521,6 +5426,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 5,
         "denominazione_regione": "Veneto",
@@ -4529,6 +5437,7 @@
         "sigla_provincia": "VI",
         "lat": 45.547497,
         "long": 11.54597109,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4542,10 +5451,14 @@
 =======
         "totale_casi": 2816,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 2832,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4559,6 +5472,9 @@
 =======
         "data": "2020-05-17T17:00:00",
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "data": "2020-05-23T17:00:00",
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "stato": "ITA",
         "codice_regione": 5,
         "denominazione_regione": "Veneto",
@@ -4567,6 +5483,7 @@
         "sigla_provincia": "",
         "lat": 0,
         "long": 0,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4580,6 +5497,9 @@
 =======
         "totale_casi": 345,
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
+=======
+        "totale_casi": 344,
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
         "note_it": "",
         "note_en": ""
     }

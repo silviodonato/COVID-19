@@ -10,10 +10,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 - 26/04/2020: Valle d'Aosta Region data recalculated (cases tested)
 =======
 =======
 =======
+=======
+- 19/05/2020: Marche Region positive cases recalculation: -8 (-7 on 17/05/2020 and -1 on 18/05/2020)
+- 18/05/2020: P.A. Trento data tested cases not updated
+>>>>>>> 739dba1a75419e31e1aad5e63ffc0dc108c6a9ce
 - 15/05/2020: Lazio Region 73 new positives, of which 18 relating to the last 24/48 hours and 55 recovered from reports of cases in March, April and May
 >>>>>>> fe276c09d91438b9f802a67c08c1ebbe9f8618b0
 - 14/05/2020: Sardegna Region data recalculation of deceased people (+5)
